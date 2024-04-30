@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ITE012.Group4</groupId>
     <artifactId>LMS</artifactId>
-    <version>0.1.01-SNAPSHOT</version>
+    <version>0.1.02-SNAPSHOT</version>
     <packaging>jar</packaging>
     <repositories>
         <repository>

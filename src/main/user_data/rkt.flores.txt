@@ -1,0 +1,8 @@
+"password": "pass123"
+"last name": "Flores"
+"first name": "Renz"
+"middle name": "Tomagan"
+"contact number": "123456789"
+"name": "RenzTomaganFlores"
+"email": "rkt.flores@gmail.com"
+"username": "rkt.flores"
