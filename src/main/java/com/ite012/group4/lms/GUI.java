@@ -1,11 +1,13 @@
 package com.ite012.group4.lms;    
 
 import java.util.ArrayList;
+import javax.swing.JToggleButton;
 
 public class GUI extends javax.swing.JFrame {
 
     public static ArrayList<User> users = new ArrayList();
     public User currentUser;
+    public javax.swing.JPanel activePage = new javax.swing.JPanel();
     
     public GUI() {
         initComponents();
@@ -38,34 +40,13 @@ public class GUI extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         paymentPagePanel = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
+        statusPagePanel = new javax.swing.JPanel();
+        searchPagePanel = new javax.swing.JPanel();
         reportPagePanel = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         aboutPagePanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        menuTempPanel = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        menuBarPanel = new javax.swing.JPanel();
-        programNameLabel = new javax.swing.JLabel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(80, 0), new java.awt.Dimension(50, 32767));
-        searchField = new javax.swing.JTextField();
-        searchButton = new javax.swing.JButton();
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(32, 0), new java.awt.Dimension(50, 32767));
-        dashboardPageButton = new javax.swing.JButton();
-        applicationPageButton = new javax.swing.JButton();
-        paymentPageButton = new javax.swing.JButton();
-        reportPageButton = new javax.swing.JButton();
-        aboutPageButton = new javax.swing.JButton();
-        menuPagePanel = new javax.swing.JPanel();
-        dashboardContent = new javax.swing.JPanel();
-        lblDashboard = new javax.swing.JLabel();
-        lblAccountInfo = new javax.swing.JLabel();
-        btnUpdateAccountInfo = new javax.swing.JButton();
-        dashAccountNameLabel = new javax.swing.JLabel();
-        dashEmailLabel = new javax.swing.JLabel();
-        dashAccountNumLabel = new javax.swing.JLabel();
-        dashContactNumLabel = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         backgroundPanel = new javax.swing.JPanel();
         registerContentPanel = new javax.swing.JPanel();
         backToLoginButton = new javax.swing.JButton();
@@ -92,6 +73,27 @@ public class GUI extends javax.swing.JFrame {
         confirmPassFieldErrorLabel = new javax.swing.JLabel();
         filler9 = new javax.swing.Box.Filler(new java.awt.Dimension(320, 0), new java.awt.Dimension(320, 0), new java.awt.Dimension(320, 0));
         registerSubmitButton = new javax.swing.JButton();
+        menuBarPanel = new javax.swing.JPanel();
+        programNameLabel = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(80, 0), new java.awt.Dimension(50, 32767));
+        menuPageToggleButton = new javax.swing.JToggleButton();
+        applicationPageToggleButton = new javax.swing.JToggleButton();
+        paymentPageToggleButton = new javax.swing.JToggleButton();
+        statusPageToggleButton = new javax.swing.JToggleButton();
+        ReportPageToggleButton = new javax.swing.JToggleButton();
+        searchPageToggleButton = new javax.swing.JToggleButton();
+        aboutPageToggleButton = new javax.swing.JToggleButton();
+        menuPagePanel = new javax.swing.JPanel();
+        dashboardContent = new javax.swing.JPanel();
+        lblDashboard = new javax.swing.JLabel();
+        lblAccountInfo = new javax.swing.JLabel();
+        btnUpdateAccountInfo = new javax.swing.JButton();
+        dashAccountNameLabel = new javax.swing.JLabel();
+        dashEmailLabel = new javax.swing.JLabel();
+        dashAccountNumLabel = new javax.swing.JLabel();
+        dashContactNumLabel = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        menuButtonGroup = new javax.swing.ButtonGroup();
         windowPanel = new javax.swing.JPanel();
         loginPagePanel = new javax.swing.JPanel();
         loginPaddingPanel = new javax.swing.JPanel();
@@ -153,19 +155,9 @@ public class GUI extends javax.swing.JFrame {
 
         jTextField8.setBackground(new java.awt.Color(255, 255, 255));
         jTextField8.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
 
         jTextField7.setBackground(new java.awt.Color(255, 255, 255));
         jTextField7.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -304,6 +296,28 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(452, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout statusPagePanelLayout = new javax.swing.GroupLayout(statusPagePanel);
+        statusPagePanel.setLayout(statusPagePanelLayout);
+        statusPagePanelLayout.setHorizontalGroup(
+            statusPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        statusPagePanelLayout.setVerticalGroup(
+            statusPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout searchPagePanelLayout = new javax.swing.GroupLayout(searchPagePanel);
+        searchPagePanel.setLayout(searchPagePanelLayout);
+        searchPagePanelLayout.setHorizontalGroup(
+            searchPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        searchPagePanelLayout.setVerticalGroup(
+            searchPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         reportPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         reportPagePanel.setPreferredSize(new java.awt.Dimension(960, 490));
 
@@ -346,31 +360,145 @@ public class GUI extends javax.swing.JFrame {
 
         aboutPagePanel.add(jPanel1, "card3");
 
-        menuTempPanel.setBackground(new java.awt.Color(153, 0, 153));
-        menuTempPanel.setMinimumSize(new java.awt.Dimension(40, 20));
-        menuTempPanel.setPreferredSize(new java.awt.Dimension(960, 290));
-        menuTempPanel.setLayout(new java.awt.CardLayout(20, 10));
+        backgroundPanel.setBackground(new java.awt.Color(204, 204, 204));
+        backgroundPanel.setPreferredSize(new java.awt.Dimension(960, 490));
+        java.awt.FlowLayout flowLayout2 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0);
+        flowLayout2.setAlignOnBaseline(true);
+        backgroundPanel.setLayout(flowLayout2);
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setPreferredSize(new java.awt.Dimension(920, 200));
+        registerContentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        registerContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
+        java.awt.FlowLayout flowLayout6 = new java.awt.FlowLayout();
+        flowLayout6.setAlignOnBaseline(true);
+        registerContentPanel.setLayout(flowLayout6);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
+        backToLoginButton.setBackground(new java.awt.Color(255, 255, 255));
+        backToLoginButton.setForeground(new java.awt.Color(51, 51, 255));
+        backToLoginButton.setText("<- Back to login page");
+        backToLoginButton.setBorder(null);
+        backToLoginButton.setPreferredSize(new java.awt.Dimension(130, 23));
+        backToLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backToLoginButtonMousePressed(evt);
+            }
+        });
+        registerContentPanel.add(backToLoginButton);
+        registerContentPanel.add(filler6);
 
-        menuTempPanel.add(jPanel9, "card2");
+        registrationLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        registrationLabel.setForeground(new java.awt.Color(51, 51, 51));
+        registrationLabel.setText("Register an account");
+        registerContentPanel.add(registrationLabel);
+
+        jSeparator3.setPreferredSize(new java.awt.Dimension(280, 12));
+        registerContentPanel.add(jSeparator3);
+
+        regFirstNameLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regFirstNameLabel.setText("First name");
+        regFirstNameLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regFirstNameLabel);
+
+        firstNameField.setBackground(new java.awt.Color(255, 255, 255));
+        firstNameField.setForeground(new java.awt.Color(51, 51, 51));
+        firstNameField.setToolTipText("");
+        firstNameField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        firstNameField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(firstNameField);
+
+        regMiddleNameLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regMiddleNameLabel.setText("Middle name");
+        regMiddleNameLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regMiddleNameLabel);
+
+        middleNameField.setBackground(new java.awt.Color(255, 255, 255));
+        middleNameField.setForeground(new java.awt.Color(51, 51, 51));
+        middleNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        middleNameField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(middleNameField);
+
+        regLastNameLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regLastNameLabel.setText("Last name");
+        regLastNameLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regLastNameLabel);
+
+        lastNameField.setBackground(new java.awt.Color(255, 255, 255));
+        lastNameField.setActionCommand("<Not Set>");
+        lastNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lastNameField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(lastNameField);
+
+        regEmailLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regEmailLabel.setText("Email address");
+        regEmailLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regEmailLabel);
+
+        emailField.setBackground(new java.awt.Color(255, 255, 255));
+        emailField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(emailField);
+
+        regContactNumLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regContactNumLabel.setLabelFor(contactNumField);
+        regContactNumLabel.setText("Contact number");
+        regContactNumLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regContactNumLabel);
+
+        contactNumField.setBackground(new java.awt.Color(255, 255, 255));
+        contactNumField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(contactNumField);
+
+        regUsernameLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regUsernameLabel.setText("Username");
+        regUsernameLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regUsernameLabel);
+
+        regUsernameField.setBackground(new java.awt.Color(255, 255, 255));
+        regUsernameField.setToolTipText("");
+        regUsernameField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(regUsernameField);
+
+        regPasswordLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regPasswordLabel.setText("Password");
+        regPasswordLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regPasswordLabel);
+
+        regPasswordField.setBackground(new java.awt.Color(255, 255, 255));
+        regPasswordField.setForeground(new java.awt.Color(51, 51, 51));
+        regPasswordField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(regPasswordField);
+
+        regConfirmPassLabel.setForeground(new java.awt.Color(51, 51, 51));
+        regConfirmPassLabel.setText("Confirm password");
+        regConfirmPassLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        registerContentPanel.add(regConfirmPassLabel);
+
+        confirmPassField.setBackground(new java.awt.Color(255, 255, 255));
+        confirmPassField.setForeground(new java.awt.Color(51, 51, 51));
+        confirmPassField.setPreferredSize(new java.awt.Dimension(180, 20));
+        registerContentPanel.add(confirmPassField);
+        registerContentPanel.add(filler7);
+
+        confirmPassFieldErrorLabel.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        confirmPassFieldErrorLabel.setForeground(new java.awt.Color(255, 51, 51));
+        confirmPassFieldErrorLabel.setPreferredSize(new java.awt.Dimension(120, 12));
+        registerContentPanel.add(confirmPassFieldErrorLabel);
+        registerContentPanel.add(filler9);
+
+        registerSubmitButton.setBackground(new java.awt.Color(51, 51, 255));
+        registerSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerSubmitButton.setText("Submit");
+        registerSubmitButton.setBorder(null);
+        registerSubmitButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        registerSubmitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registerSubmitButtonMousePressed(evt);
+            }
+        });
+        registerContentPanel.add(registerSubmitButton);
 
         menuBarPanel.setBackground(new java.awt.Color(51, 51, 255));
         menuBarPanel.setMinimumSize(new java.awt.Dimension(0, 0));
         menuBarPanel.setPreferredSize(new java.awt.Dimension(960, 50));
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 10);
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0);
         flowLayout1.setAlignOnBaseline(true);
         menuBarPanel.setLayout(flowLayout1);
 
@@ -380,79 +508,97 @@ public class GUI extends javax.swing.JFrame {
         menuBarPanel.add(programNameLabel);
         menuBarPanel.add(filler1);
 
-        searchField.setBackground(new java.awt.Color(255, 255, 255));
-        searchField.setBorder(null);
-        searchField.setPreferredSize(new java.awt.Dimension(120, 24));
-        menuBarPanel.add(searchField);
-
-        searchButton.setBackground(new java.awt.Color(51, 51, 255));
-        searchButton.setForeground(new java.awt.Color(255, 255, 255));
-        searchButton.setText("Search");
-        searchButton.setBorder(null);
-        searchButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        searchButton.setPreferredSize(new java.awt.Dimension(72, 24));
-        menuBarPanel.add(searchButton);
-        menuBarPanel.add(filler2);
-
-        dashboardPageButton.setBackground(new java.awt.Color(51, 51, 255));
-        dashboardPageButton.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardPageButton.setText("Dashboard");
-        dashboardPageButton.setBorder(null);
-        dashboardPageButton.setPreferredSize(new java.awt.Dimension(80, 24));
-        dashboardPageButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                dashboardPageButtonMousePressed(evt);
+        menuPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(menuPageToggleButton);
+        menuPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        menuPageToggleButton.setSelected(true);
+        menuPageToggleButton.setText("Menu");
+        menuPageToggleButton.setBorder(null);
+        menuPageToggleButton.setPreferredSize(new java.awt.Dimension(90, 50));
+        menuPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                menuPageToggleButtonItemStateChanged(evt);
             }
         });
-        menuBarPanel.add(dashboardPageButton);
+        menuBarPanel.add(menuPageToggleButton);
 
-        applicationPageButton.setBackground(new java.awt.Color(51, 51, 255));
-        applicationPageButton.setForeground(new java.awt.Color(255, 255, 255));
-        applicationPageButton.setText("Application");
-        applicationPageButton.setBorder(null);
-        applicationPageButton.setPreferredSize(new java.awt.Dimension(80, 24));
-        applicationPageButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                applicationPageButtonMousePressed(evt);
+        applicationPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(applicationPageToggleButton);
+        applicationPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        applicationPageToggleButton.setText("Application");
+        applicationPageToggleButton.setBorder(null);
+        applicationPageToggleButton.setPreferredSize(new java.awt.Dimension(90, 50));
+        applicationPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                applicationPageToggleButtonItemStateChanged(evt);
             }
         });
-        menuBarPanel.add(applicationPageButton);
+        menuBarPanel.add(applicationPageToggleButton);
 
-        paymentPageButton.setBackground(new java.awt.Color(51, 51, 255));
-        paymentPageButton.setForeground(new java.awt.Color(255, 255, 255));
-        paymentPageButton.setText("Payment");
-        paymentPageButton.setBorder(null);
-        paymentPageButton.setPreferredSize(new java.awt.Dimension(80, 24));
-        paymentPageButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                paymentPageButtonMousePressed(evt);
+        paymentPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(paymentPageToggleButton);
+        paymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        paymentPageToggleButton.setText("Payment");
+        paymentPageToggleButton.setBorder(null);
+        paymentPageToggleButton.setPreferredSize(new java.awt.Dimension(90, 50));
+        paymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                paymentPageToggleButtonItemStateChanged(evt);
             }
         });
-        menuBarPanel.add(paymentPageButton);
+        menuBarPanel.add(paymentPageToggleButton);
 
-        reportPageButton.setBackground(new java.awt.Color(51, 51, 255));
-        reportPageButton.setForeground(new java.awt.Color(255, 255, 255));
-        reportPageButton.setText("Report");
-        reportPageButton.setBorder(null);
-        reportPageButton.setPreferredSize(new java.awt.Dimension(80, 24));
-        reportPageButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                reportPageButtonMousePressed(evt);
+        statusPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(statusPageToggleButton);
+        statusPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        statusPageToggleButton.setText("Status");
+        statusPageToggleButton.setBorder(null);
+        statusPageToggleButton.setPreferredSize(new java.awt.Dimension(90, 50));
+        statusPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                statusPageToggleButtonItemStateChanged(evt);
             }
         });
-        menuBarPanel.add(reportPageButton);
+        menuBarPanel.add(statusPageToggleButton);
 
-        aboutPageButton.setBackground(new java.awt.Color(51, 51, 255));
-        aboutPageButton.setForeground(new java.awt.Color(255, 255, 255));
-        aboutPageButton.setText("About");
-        aboutPageButton.setBorder(null);
-        aboutPageButton.setPreferredSize(new java.awt.Dimension(80, 24));
-        aboutPageButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                aboutPageButtonMousePressed(evt);
+        ReportPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(ReportPageToggleButton);
+        ReportPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        ReportPageToggleButton.setText("Report");
+        ReportPageToggleButton.setBorder(null);
+        ReportPageToggleButton.setPreferredSize(new java.awt.Dimension(90, 50));
+        ReportPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ReportPageToggleButtonItemStateChanged(evt);
             }
         });
-        menuBarPanel.add(aboutPageButton);
+        menuBarPanel.add(ReportPageToggleButton);
+
+        searchPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(searchPageToggleButton);
+        searchPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchPageToggleButton.setText("Search");
+        searchPageToggleButton.setBorder(null);
+        searchPageToggleButton.setPreferredSize(new java.awt.Dimension(90, 50));
+        searchPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                searchPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuBarPanel.add(searchPageToggleButton);
+
+        aboutPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(aboutPageToggleButton);
+        aboutPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        aboutPageToggleButton.setText("About");
+        aboutPageToggleButton.setBorder(null);
+        aboutPageToggleButton.setPreferredSize(new java.awt.Dimension(90, 50));
+        aboutPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                aboutPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuBarPanel.add(aboutPageToggleButton);
 
         menuPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         menuPagePanel.setMinimumSize(new java.awt.Dimension(40, 20));
@@ -505,19 +651,24 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dashboardContentLayout.createSequentialGroup()
                         .addGroup(dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dashAccountNameLabel)
-                            .addComponent(dashAccountNumLabel))
-                        .addGap(65, 65, 65)
-                        .addGroup(dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dashEmailLabel)
-                            .addComponent(dashContactNumLabel)))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 867, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 867, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDashboard))
+                        .addContainerGap(35, Short.MAX_VALUE))
                     .addGroup(dashboardContentLayout.createSequentialGroup()
-                        .addComponent(lblAccountInfo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUpdateAccountInfo))
-                    .addComponent(lblDashboard))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dashboardContentLayout.createSequentialGroup()
+                                .addGroup(dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dashAccountNameLabel)
+                                    .addComponent(dashAccountNumLabel))
+                                .addGap(65, 65, 65)
+                                .addGroup(dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dashEmailLabel)
+                                    .addComponent(dashContactNumLabel)))
+                            .addGroup(dashboardContentLayout.createSequentialGroup()
+                                .addComponent(lblAccountInfo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnUpdateAccountInfo)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         dashboardContentLayout.setVerticalGroup(
             dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,150 +689,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(dashboardContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(dashContactNumLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dashAccountNumLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(337, Short.MAX_VALUE))
         );
 
         menuPagePanel.add(dashboardContent, "card2");
-
-        backgroundPanel.setBackground(new java.awt.Color(204, 204, 204));
-        backgroundPanel.setPreferredSize(new java.awt.Dimension(960, 490));
-        java.awt.FlowLayout flowLayout2 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0);
-        flowLayout2.setAlignOnBaseline(true);
-        backgroundPanel.setLayout(flowLayout2);
-
-        registerContentPanel.setBackground(new java.awt.Color(255, 255, 255));
-        registerContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
-        java.awt.FlowLayout flowLayout6 = new java.awt.FlowLayout();
-        flowLayout6.setAlignOnBaseline(true);
-        registerContentPanel.setLayout(flowLayout6);
-
-        backToLoginButton.setBackground(new java.awt.Color(255, 255, 255));
-        backToLoginButton.setForeground(new java.awt.Color(51, 51, 255));
-        backToLoginButton.setText("<- Back to login page");
-        backToLoginButton.setBorder(null);
-        backToLoginButton.setPreferredSize(new java.awt.Dimension(130, 23));
-        backToLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                backToLoginButtonMousePressed(evt);
-            }
-        });
-        registerContentPanel.add(backToLoginButton);
-        registerContentPanel.add(filler6);
-
-        registrationLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        registrationLabel.setForeground(new java.awt.Color(51, 51, 51));
-        registrationLabel.setText("Register an account");
-        registerContentPanel.add(registrationLabel);
-
-        jSeparator3.setPreferredSize(new java.awt.Dimension(280, 12));
-        registerContentPanel.add(jSeparator3);
-
-        regFirstNameLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regFirstNameLabel.setText("First name");
-        regFirstNameLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regFirstNameLabel);
-
-        firstNameField.setBackground(new java.awt.Color(255, 255, 255));
-        firstNameField.setForeground(new java.awt.Color(51, 51, 51));
-        firstNameField.setToolTipText("");
-        firstNameField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        firstNameField.setPreferredSize(new java.awt.Dimension(180, 20));
-        registerContentPanel.add(firstNameField);
-
-        regMiddleNameLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regMiddleNameLabel.setText("Middle name");
-        regMiddleNameLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regMiddleNameLabel);
-
-        middleNameField.setBackground(new java.awt.Color(255, 255, 255));
-        middleNameField.setForeground(new java.awt.Color(51, 51, 51));
-        middleNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        middleNameField.setPreferredSize(new java.awt.Dimension(180, 20));
-        middleNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleNameFieldActionPerformed(evt);
-            }
-        });
-        registerContentPanel.add(middleNameField);
-
-        regLastNameLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regLastNameLabel.setText("Last name");
-        regLastNameLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regLastNameLabel);
-
-        lastNameField.setBackground(new java.awt.Color(255, 255, 255));
-        lastNameField.setActionCommand("<Not Set>");
-        lastNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lastNameField.setPreferredSize(new java.awt.Dimension(180, 20));
-        registerContentPanel.add(lastNameField);
-
-        regEmailLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regEmailLabel.setText("Email address");
-        regEmailLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regEmailLabel);
-
-        emailField.setBackground(new java.awt.Color(255, 255, 255));
-        emailField.setPreferredSize(new java.awt.Dimension(180, 20));
-        registerContentPanel.add(emailField);
-
-        regContactNumLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regContactNumLabel.setLabelFor(contactNumField);
-        regContactNumLabel.setText("Contact number");
-        regContactNumLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regContactNumLabel);
-
-        contactNumField.setBackground(new java.awt.Color(255, 255, 255));
-        contactNumField.setPreferredSize(new java.awt.Dimension(180, 20));
-        registerContentPanel.add(contactNumField);
-
-        regUsernameLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regUsernameLabel.setText("Username");
-        regUsernameLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regUsernameLabel);
-
-        regUsernameField.setBackground(new java.awt.Color(255, 255, 255));
-        regUsernameField.setToolTipText("");
-        regUsernameField.setPreferredSize(new java.awt.Dimension(180, 20));
-        registerContentPanel.add(regUsernameField);
-
-        regPasswordLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regPasswordLabel.setText("Password");
-        regPasswordLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regPasswordLabel);
-
-        regPasswordField.setBackground(new java.awt.Color(255, 255, 255));
-        regPasswordField.setForeground(new java.awt.Color(51, 51, 51));
-        regPasswordField.setPreferredSize(new java.awt.Dimension(180, 20));
-        registerContentPanel.add(regPasswordField);
-
-        regConfirmPassLabel.setForeground(new java.awt.Color(51, 51, 51));
-        regConfirmPassLabel.setText("Confirm password");
-        regConfirmPassLabel.setPreferredSize(new java.awt.Dimension(100, 16));
-        registerContentPanel.add(regConfirmPassLabel);
-
-        confirmPassField.setBackground(new java.awt.Color(255, 255, 255));
-        confirmPassField.setForeground(new java.awt.Color(51, 51, 51));
-        confirmPassField.setPreferredSize(new java.awt.Dimension(180, 20));
-        registerContentPanel.add(confirmPassField);
-        registerContentPanel.add(filler7);
-
-        confirmPassFieldErrorLabel.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        confirmPassFieldErrorLabel.setForeground(new java.awt.Color(255, 51, 51));
-        confirmPassFieldErrorLabel.setPreferredSize(new java.awt.Dimension(120, 12));
-        registerContentPanel.add(confirmPassFieldErrorLabel);
-        registerContentPanel.add(filler9);
-
-        registerSubmitButton.setBackground(new java.awt.Color(51, 51, 255));
-        registerSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
-        registerSubmitButton.setText("Submit");
-        registerSubmitButton.setBorder(null);
-        registerSubmitButton.setPreferredSize(new java.awt.Dimension(73, 23));
-        registerSubmitButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                registerSubmitButtonMousePressed(evt);
-            }
-        });
-        registerContentPanel.add(registerSubmitButton);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Loan Management System");
@@ -815,88 +826,6 @@ public class GUI extends javax.swing.JFrame {
         /// TODO: Create a window that will let the user edit their information and save it
     }//GEN-LAST:event_btnUpdateAccountInfoActionPerformed
 
-    private void paymentPageButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentPageButtonMousePressed
-        
-        windowPanel.removeAll();
-        backgroundPanel.removeAll();
-        
-        backgroundPanel.add(menuBarPanel);
-        backgroundPanel.add(paymentPagePanel);
-        
-        windowPanel.add(backgroundPanel);
-                       
-        revalidate();
-        repaint();  
-        
-    }//GEN-LAST:event_paymentPageButtonMousePressed
-
-    private void reportPageButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportPageButtonMousePressed
-      
-        windowPanel.removeAll();
-        backgroundPanel.removeAll();        
-        
-        backgroundPanel.add(menuBarPanel);
-        backgroundPanel.add(reportPagePanel);
-        
-        windowPanel.add(backgroundPanel);
-                       
-        revalidate();
-        repaint();
-        
-    }//GEN-LAST:event_reportPageButtonMousePressed
-
-    private void aboutPageButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutPageButtonMousePressed
-       
-        windowPanel.removeAll();
-        backgroundPanel.removeAll(); 
-        
-        backgroundPanel.add(menuBarPanel);
-        backgroundPanel.add(aboutPagePanel);
-        
-        windowPanel.add(backgroundPanel);
-        
-        revalidate();
-        repaint();  
-        
-    }//GEN-LAST:event_aboutPageButtonMousePressed
-
-    private void applicationPageButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applicationPageButtonMousePressed
-        
-        windowPanel.removeAll();
-        backgroundPanel.removeAll();        
-
-        backgroundPanel.add(menuBarPanel);
-        backgroundPanel.add(applicationPagePanel);
-        
-        windowPanel.add(backgroundPanel);
-
-        revalidate();
-        repaint();
-        
-    }//GEN-LAST:event_applicationPageButtonMousePressed
-
-    private void dashboardPageButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardPageButtonMousePressed
-        windowPanel.removeAll();
-        backgroundPanel.removeAll();
-        
-        backgroundPanel.add(menuBarPanel);
-        backgroundPanel.add(menuPagePanel);
-        
-        windowPanel.add(backgroundPanel);
-                    
-        revalidate();
-        repaint(); 
-        
-    }//GEN-LAST:event_dashboardPageButtonMousePressed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
     private void loginButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMousePressed
         
         usernameFieldErrorLabel.setText("");
@@ -992,10 +921,41 @@ public class GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_registerSubmitButtonMousePressed
 
-    private void middleNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_middleNameFieldActionPerformed
-    
+    private void menuPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_menuPageToggleButtonItemStateChanged
+        activePage = menuPagePanel;
+        updateMenu();
+    }//GEN-LAST:event_menuPageToggleButtonItemStateChanged
+
+    private void applicationPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_applicationPageToggleButtonItemStateChanged
+        activePage = applicationPagePanel;
+        updateMenu();
+    }//GEN-LAST:event_applicationPageToggleButtonItemStateChanged
+
+    private void paymentPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_paymentPageToggleButtonItemStateChanged
+        activePage = paymentPagePanel;
+        updateMenu();
+    }//GEN-LAST:event_paymentPageToggleButtonItemStateChanged
+
+    private void statusPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_statusPageToggleButtonItemStateChanged
+        activePage = statusPagePanel;
+        updateMenu();
+    }//GEN-LAST:event_statusPageToggleButtonItemStateChanged
+
+    private void ReportPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ReportPageToggleButtonItemStateChanged
+        activePage = reportPagePanel;
+        updateMenu();
+    }//GEN-LAST:event_ReportPageToggleButtonItemStateChanged
+
+    private void searchPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_searchPageToggleButtonItemStateChanged
+        activePage = searchPagePanel;
+        updateMenu();
+    }//GEN-LAST:event_searchPageToggleButtonItemStateChanged
+
+    private void aboutPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_aboutPageToggleButtonItemStateChanged
+        activePage = aboutPagePanel;
+        updateMenu();
+    }//GEN-LAST:event_aboutPageToggleButtonItemStateChanged
+
     // This function is called to instantiate the menu with user details when
     // login is successful
     private void initMenu() {
@@ -1012,6 +972,21 @@ public class GUI extends javax.swing.JFrame {
 
         windowPanel.add(backgroundPanel);
         
+        revalidate();
+        repaint(); 
+        
+    }
+    
+    private void updateMenu() {
+        
+        windowPanel.removeAll();
+        backgroundPanel.removeAll();
+        
+        backgroundPanel.add(menuBarPanel);
+        backgroundPanel.add(activePage);
+        
+        windowPanel.add(backgroundPanel);
+                    
         revalidate();
         repaint(); 
         
@@ -1055,12 +1030,13 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aboutPageButton;
+    private javax.swing.JToggleButton ReportPageToggleButton;
     private javax.swing.JPanel aboutPagePanel;
+    private javax.swing.JToggleButton aboutPageToggleButton;
     private javax.swing.JPanel applicationContentPanel;
     private javax.swing.JPanel applicationPaddingPanel;
-    private javax.swing.JButton applicationPageButton;
     private javax.swing.JPanel applicationPagePanel;
+    private javax.swing.JToggleButton applicationPageToggleButton;
     private javax.swing.JButton backToLoginButton;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton btnUpdateAccountInfo;
@@ -1073,10 +1049,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel dashContactNumLabel;
     private javax.swing.JLabel dashEmailLabel;
     private javax.swing.JPanel dashboardContent;
-    private javax.swing.JButton dashboardPageButton;
     private javax.swing.JTextField emailField;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
     private javax.swing.Box.Filler filler5;
@@ -1094,7 +1068,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1113,14 +1086,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel loginPagePanel;
     private javax.swing.JLabel loginUsernameLabel;
     private javax.swing.JPanel menuBarPanel;
+    private javax.swing.ButtonGroup menuButtonGroup;
     private javax.swing.JPanel menuPagePanel;
-    private javax.swing.JPanel menuTempPanel;
+    private javax.swing.JToggleButton menuPageToggleButton;
     private javax.swing.JTextField middleNameField;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordFieldErrorLabel;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JButton paymentPageButton;
     private javax.swing.JPanel paymentPagePanel;
+    private javax.swing.JToggleButton paymentPageToggleButton;
     private javax.swing.JPanel pnlForm;
     private javax.swing.JLabel programNameLabel;
     private javax.swing.JLabel regConfirmPassLabel;
@@ -1137,10 +1111,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel registerContentPanel;
     private javax.swing.JButton registerSubmitButton;
     private javax.swing.JLabel registrationLabel;
-    private javax.swing.JButton reportPageButton;
     private javax.swing.JPanel reportPagePanel;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JTextField searchField;
+    private javax.swing.JPanel searchPagePanel;
+    private javax.swing.JToggleButton searchPageToggleButton;
+    private javax.swing.JPanel statusPagePanel;
+    private javax.swing.JToggleButton statusPageToggleButton;
     private javax.swing.JButton submitApplicationButton;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameFieldErrorLabel;
