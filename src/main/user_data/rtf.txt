@@ -1,0 +1,8 @@
+"password": ""
+"last name": "F"
+"first name": "R"
+"middle name": "T"
+"contact number": "12345"
+"name": "R T F"
+"email": "rtf@gmail.com"
+"username": "rtf"

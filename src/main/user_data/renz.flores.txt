@@ -1,0 +1,8 @@
+"password": "password"
+"last name": "Flores"
+"first name": "Renz"
+"middle name": "T"
+"contact number": "123456677"
+"name": "Renz T Flores"
+"email": "renzflores@gmail.com"
+"username": "renz.flores"

@@ -1,9 +1,12 @@
 package com.ite012.group4.lms;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JTextField;
 import javax.swing.InputVerifier;
 
@@ -29,7 +32,9 @@ public class Helpers {
         String[] dataInString = s.split("\n");
         
         for (String pair : dataInString) {
+            // Separate key and value strings
             keyValuePair = pair.split(": ");
+            // Store the extracted strings in hashmap, removing the double quotations
             data.put(keyValuePair[0].substring(1, keyValuePair[0].length()-1), 
                     keyValuePair[1].substring(1, keyValuePair[1].length()-1));
         }
@@ -92,6 +97,86 @@ public class Helpers {
         
     }
     
+    // Generate a string of random numbers from 0-9 of specified length
+    public static String generateID(int length) {
+        
+        String id = "";
+        Random rand = new Random();
+        
+        for (int i=0; i<length; i++) {
+            // Add 1 random number to string
+            id += (char) rand.nextInt(10);
+        }
+        
+        return id;
+    }
+    
+    public static void loadAllAdmins(ArrayList<Admin> adminList) {
+        
+        String buffer = new String();
+        
+        String userDataDirectory = System.getProperty("user.dir") + "\\src\\main\\user_data\\";
+        File dir = new File(userDataDirectory);
+        
+        File[] directoryListing = dir.listFiles();
+        if (directoryListing != null) {
+            for (File dataFile : directoryListing) {
+                buffer = "";
+                try {
+                    java.io.BufferedReader f = new java.io.BufferedReader(new 
+                        java.io.FileReader(dataFile));
+                    String line = f.readLine();
+                    
+                    while (line != null) {
+                        buffer += line;
+                        buffer += "\n";
+                        line = f.readLine();
+                    }                    
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+                finally {
+                        adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
+                }
+            }
+        }
+    }
+    
+        public static void loadAllClients(ArrayList<Client> adminList) {
+        
+        String buffer = new String();
+        
+        String userDataDirectory = System.getProperty("user.dir") + "\\src\\main\\user_data\\";
+        File dir = new File(userDataDirectory);
+        
+        File[] directoryListing = dir.listFiles();
+        if (directoryListing != null) {
+            for (File dataFile : directoryListing) {
+                buffer = "";
+                try {
+                    java.io.BufferedReader f = new java.io.BufferedReader(new 
+                        java.io.FileReader(dataFile));
+                    String line = f.readLine();
+                    
+                    while (line != null) {
+                        buffer += line;
+                        buffer += "\n";
+                        line = f.readLine();
+                    }                    
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+                finally {
+                        HashMap<String, String> data = Helpers.parseStringToHashMap(buffer);
+                        adminList.add(new Admin(data));
+                }
+            }
+        }
+    }
+    
+    // JTextField verifier to prevent empty input
     public static class EmptyVerifier extends InputVerifier {
         @Override
         public boolean verify(javax.swing.JComponent input) {
