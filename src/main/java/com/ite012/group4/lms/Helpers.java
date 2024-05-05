@@ -9,8 +9,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JTextField;
 import javax.swing.InputVerifier;
+import javax.swing.ImageIcon;
 
 public class Helpers {
+    
+    public static HashMap<String, ImageIcon> images = new HashMap<>();
+    static String imageDirectory = System.getProperty("user.dir") + "/src/main/resources/images/";
     
     // Converts a hashmap into a formatted string ready for file writing
     public static String formatHashMapToString(HashMap<String, String> data) {
@@ -176,6 +180,24 @@ public class Helpers {
                 }
             }
         }
+    }
+    
+    public static void loadIcons() {
+        images.put("searchIcon", new ImageIcon(imageDirectory + "searchIcon.png"));
+        images.put("loginGraphicsIcon", new ImageIcon(imageDirectory + "loginGraphics.png"));
+        images.put("menuIcon", new ImageIcon(imageDirectory + "menuIcon.png"));
+        images.put("applicationIcon", new ImageIcon(imageDirectory + "applicationIcon.png"));
+        images.put("statusIcon", new ImageIcon(imageDirectory + "statusIcon.png"));
+        images.put("paymentIcon", new ImageIcon(imageDirectory + "paymentIcon.png"));
+        images.put("repaymentIcon", new ImageIcon(imageDirectory + "repaymentIcon.png"));
+        images.put("reportIcon", new ImageIcon(imageDirectory + "reportIcon.png"));
+        images.put("aboutIcon", new ImageIcon(imageDirectory + "aboutIcon.png"));
+        images.put("detailsArrow", new ImageIcon(imageDirectory + "detailsArrow.png"));
+    }
+    
+    public static javax.swing.ImageIcon resizeIcon(String iconName, int x, int y) {
+        return new ImageIcon(images.get(iconName).getImage()
+                .getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH));
     }
     
     // JTextField verifier to prevent empty input
