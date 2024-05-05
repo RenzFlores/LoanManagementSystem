@@ -3,6 +3,8 @@ package com.ite012.group4.lms;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -1236,13 +1238,30 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_releasePageToggleButtonItemStateChanged
 
     private void searchSubmitButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSubmitButtonMousePressed
-        /*
-        for all clients
-        search for matching results on their information
-        if match, return result
         
+        int numOfResults = 0;
         
-        */
+        searchResultsPanel.removeAll();
+        
+        for (Client c : clients) {
+            Pattern pattern = Pattern.compile(searchField.getText());
+            String[] client_data = {c.username, c.name, c.email, c.accountNumber,
+                c.contactNumber};
+            
+            for (String s : client_data) {
+                Matcher matcher = pattern.matcher(s);
+                if (matcher.find()) {
+                    searchResultsPanel.add(new SearchResultEntry(c));
+                    numOfResults++;
+                }
+            }
+        }
+        
+        searchResultsLabel.setText(String.format("Search Results: %d clients found",
+                numOfResults));
+        
+        revalidate();
+        repaint();
     }//GEN-LAST:event_searchSubmitButtonMousePressed
 
     // This function is called to instantiate the menu whether on admin or client
@@ -1437,7 +1456,7 @@ public class GUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
-class searchResultEntry extends javax.swing.JPanel {
+class SearchResultEntry extends javax.swing.JPanel {
     
     javax.swing.JPanel userDetailsPanel = new javax.swing.JPanel();
     javax.swing.JLabel usernameLabel = new javax.swing.JLabel();
@@ -1450,7 +1469,7 @@ class searchResultEntry extends javax.swing.JPanel {
     javax.swing.JButton btn = new javax.swing.JButton();
     Client user = null;
     
-    public searchResultEntry(Client c) {
+    public SearchResultEntry(Client c) {
         user = c;
         
         setPreferredSize(new java.awt.Dimension(880, 70));

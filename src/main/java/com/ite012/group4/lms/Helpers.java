@@ -109,7 +109,7 @@ public class Helpers {
         
         for (int i=0; i<length; i++) {
             // Add 1 random number to string
-            id += (char) rand.nextInt(10);
+            id +=  String.valueOf(rand.nextInt(10));
         }
         
         return id;
