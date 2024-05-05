@@ -21,6 +21,8 @@ public abstract class User {
     String contactNumber;
     
     public abstract void saveUserData();
+    public abstract String getAccountTypeInWords();
+    public abstract String getFormattedPassword();
 }    
 
 class Admin extends User {
@@ -63,6 +65,14 @@ class Admin extends User {
         email = data.get("email");
         contactNumber = data.get("contactNumber");
         accountNumber = Helpers.generateID(6);
+    }
+    
+    public String getAccountTypeInWords() {
+        return "Admin";
+    }
+    
+    public String getFormattedPassword() {
+        return password.replaceAll(".", "*");
     }
 }
 
@@ -123,6 +133,14 @@ class Client extends User {
         accountNumber = Helpers.generateID(6);
     }
     
+    public String getAccountTypeInWords() {
+        return "Client";
+    }
+    
+    public String getFormattedPassword() {
+        return password.replaceAll(".", "*");
+    }
+ 
 }
 
 /*
