@@ -5,10 +5,12 @@ import java.io.FileWriter;
 
 public abstract class User {
     
+    static int ADMIN = 0;
+    static int CLIENT = 1;
+    
     String username;
     String password;
     String accountNumber;
-    int accountType = 0;
     
     String name;
     String firstName;
@@ -16,30 +18,34 @@ public abstract class User {
     String lastName;
     
     String email;
+    String contactNumber;
     
     public abstract void saveUserData();
 }    
 
 class Admin extends User {
     
-    int accountType = 0;
+    int accountType = User.ADMIN;
     
     public void saveUserData() {
         HashMap<String, String> data = new HashMap<String, String>();
         
         data.put("username", username);
         data.put("password", password);
+        data.put("account type", String.valueOf(accountType));
+        data.put("account number", accountNumber);
         data.put("first name", firstName);
         data.put("middle name", middleName);
         data.put("last name", lastName);
         data.put("name", name);
         data.put("email", email);
+        data.put("contact number", contactNumber);
         
         String buf = Helpers.formatHashMapToString(data);
         
         // Write formatted string data to corresponding User data file
         try {
-            FileWriter f = new FileWriter(".\\src\\main\\user_data\\admin\\" + username + ".txt");
+            FileWriter f = new FileWriter("./src/main/user_data/admin/" + username + ".txt");
             f.write(buf);
             f.close();
         }
@@ -55,18 +61,19 @@ class Admin extends User {
         middleName = data.get("middle name");
         lastName = data.get("last name");
         email = data.get("email");
-        accountNumber = Helpers.generateID(9);
+        contactNumber = data.get("contactNumber");
+        accountNumber = Helpers.generateID(6);
     }
 }
 
 class Client extends User {
     
+    int accountType = User.CLIENT;
+
     String unitAddress = "";
     String streetAddress = "";
     String cityAddress = "";
     String postalCode = "";
-    
-    String contactNumber = "";
     
     // Write user data to a txt file
     public void saveUserData() {
@@ -74,22 +81,24 @@ class Client extends User {
         
         data.put("username", username);
         data.put("password", password);
+        data.put("account type", String.valueOf(accountType));
+        data.put("account number", accountNumber);
         data.put("first name", firstName);
         data.put("middle name", middleName);
         data.put("last name", lastName);
         data.put("name", name);
         data.put("email", email);
         data.put("contact number", contactNumber);
-        data.put("unitAddress", unitAddress);
-        data.put("streetAddress", streetAddress);
-        data.put("cityAddress", cityAddress);
-        data.put("postalCode", postalCode);
+        data.put("unit address", unitAddress);
+        data.put("street address", streetAddress);
+        data.put("city address", cityAddress);
+        data.put("postal code", postalCode);
         
         String buf = Helpers.formatHashMapToString(data);
         
         // Write formatted string data to corresponding User data file
         try {
-            FileWriter f = new FileWriter(".\\src\\main\\user_data\\client\\" + username + ".txt");
+            FileWriter f = new FileWriter("./src/main/user_data/client/" + username + ".txt");
             f.write(buf);
             f.close();
         }
@@ -107,10 +116,11 @@ class Client extends User {
         lastName = data.get("last name");
         email = data.get("email");
         contactNumber = data.get("contact number");
-        unitAddress = data.get("unitAddress");
-        streetAddress = data.get("streetAddress");
-        cityAddress = data.get("cityAddress");
-        postalCode = data.get("postalCode");
+        unitAddress = data.get("unit address");
+        streetAddress = data.get("street address");
+        cityAddress = data.get("city address");
+        postalCode = data.get("postal code");
+        accountNumber = Helpers.generateID(6);
     }
     
 }

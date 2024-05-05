@@ -1,8 +1,0 @@
-"password": ""
-"last name": "flores"
-"first name": "r"
-"middle name": "k"
-"contact number": "12345"
-"name": "r k flores"
-"email": "rkf@gmail.com"
-"username": "rkf"

@@ -1,8 +1,0 @@
-"password": "1234"
-"last name": "Last"
-"first name": "First"
-"middle name": "Middle"
-"name": "First Middle Last"
-"contact number": "123456789"
-"email": "example@gmail.com"
-"username": "user"

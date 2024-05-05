@@ -115,13 +115,12 @@ public class Helpers {
         return id;
     }
     
-    /*
     public static void loadAllAdmins(ArrayList<Admin> adminList) {
         
         String buffer = new String();
         
-        String userDataDirectory = System.getProperty("user.dir") + "\\src\\main\\user_data\\";
-        File dir = new File(userDataDirectory);
+        String adminDataDirectory = System.getProperty("user.dir") + "/src/main/user_data/admin/";
+        File dir = new File(adminDataDirectory);
         
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
@@ -142,19 +141,18 @@ public class Helpers {
                     e.printStackTrace();
                 }
                 finally {
-                        adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
+                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
                 }
             }
         }
     }
-    */
     
-    public static void loadAllClients(ArrayList<Client> adminList) {
+    public static void loadAllClients(ArrayList<Client> clientList) {
         
         String buffer = new String();
         
-        String userDataDirectory = System.getProperty("user.dir") + "\\src\\main\\user_data\\";
-        File dir = new File(userDataDirectory);
+        String clientDataDirectory = System.getProperty("user.dir") + "/src/main/user_data/client/";
+        File dir = new File(clientDataDirectory);
         
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
@@ -169,14 +167,13 @@ public class Helpers {
                         buffer += line;
                         buffer += "\n";
                         line = f.readLine();
-                    }                    
+                    }
                 }
                 catch (IOException e) {
                     e.printStackTrace();
                 }
                 finally {
-                        HashMap<String, String> data = Helpers.parseStringToHashMap(buffer);
-                        adminList.add(new Client(data));
+                    clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
                 }
             }
         }
