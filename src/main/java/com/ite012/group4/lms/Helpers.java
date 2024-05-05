@@ -111,6 +111,7 @@ public class Helpers {
         return id;
     }
     
+    /*
     public static void loadAllAdmins(ArrayList<Admin> adminList) {
         
         String buffer = new String();
@@ -142,6 +143,7 @@ public class Helpers {
             }
         }
     }
+    */
     
     public static void loadAllClients(ArrayList<Client> adminList) {
         

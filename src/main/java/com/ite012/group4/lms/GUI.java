@@ -66,6 +66,8 @@ public class GUI extends javax.swing.JFrame {
         Image aboutIcon = images.get("aboutIcon").getImage()
                 .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
         aboutPageToggleButton.setIcon(new ImageIcon(aboutIcon));
+
+        //Admin.loadAllUsers(users);
     }
 
     /**
@@ -1109,7 +1111,7 @@ public class GUI extends javax.swing.JFrame {
             return;
         }
         
-        /* 
+        /*
          * Checks if both password fields are the same. If not, the program
          * notifies the user about the error and does not proceed with account
          * creation
@@ -1438,6 +1440,137 @@ public class GUI extends javax.swing.JFrame {
 }
 
 class searchResultEntry extends javax.swing.JPanel {
+
+}
     
+class ImageFileChooser extends javax.swing.JPanel {
     
+    javax.swing.JButton btn = new javax.swing.JButton();
+    javax.swing.JFileChooser fc = new javax.swing.JFileChooser();
+    javax.swing.JLabel fileLabel = new javax.swing.JLabel();
+    java.io.File file;
+    java.awt.Image img;
+    
+    public ImageFileChooser() {
+        
+        btn.setBackground(new java.awt.Color(102, 102, 102));
+        btn.setForeground(new java.awt.Color(255, 255, 255));
+        btn.setText("Choose file");
+        btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMousePressed(evt);
+            }
+        });
+        
+        fileLabel.setForeground(new java.awt.Color(0, 0, 0));
+        
+        fc.setAcceptAllFileFilterUsed(false);
+        fc.setDialogTitle("Choose file");        
+        fc.addChoosableFileFilter(new 
+            javax.swing.filechooser.FileNameExtensionFilter(
+            "Image Files (.jpg, .png)", "jpg", "png"));        
+        fc.setPreferredSize(new java.awt.Dimension(500, 400));
+        
+        setPreferredSize(new java.awt.Dimension(200, 24));
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER));
+        add(btn);
+        add(fileLabel);
+    }
+    
+    private void btnMousePressed(java.awt.event.MouseEvent evt) {                                      
+        int returnVal = fc.showOpenDialog(null);
+        
+        if (returnVal == javax.swing.JFileChooser.APPROVE_OPTION) {
+                file = fc.getSelectedFile();
+                
+                try {
+                    img = javax.imageio.ImageIO.read(file);
+                } 
+                catch (java.io.IOException e) {
+                    e.printStackTrace();
+                }
+                
+                fileLabel.setText(file.getName());
+        }
+    }
+    
+    public java.awt.Image getImage() {
+        return img;
+    }
+    
+    public String getFileDirectory() {
+        return file.getAbsolutePath();
+    }
+    
+}
+
+class TransactionEntryPanel extends javax.swing.JPanel {
+    
+    javax.swing.JPanel panelContent = new javax.swing.JPanel();
+    javax.swing.JLabel dateTimeLabel = new javax.swing.JLabel();
+    javax.swing.JLabel amountLabel = new javax.swing.JLabel();
+    javax.swing.JLabel refIDLabel = new javax.swing.JLabel();
+    javax.swing.JLabel statusLabel = new javax.swing.JLabel();
+
+    public TransactionEntryPanel(String dateTime, String amount,
+        String refID, String status) {
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(900, 60));
+        setLayout(new java.awt.CardLayout(5, 5));
+        
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.setPreferredSize(new java.awt.Dimension(900, 60));
+        panelContent.setLayout(new java.awt.CardLayout(5, 5));
+
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.setPreferredSize(new java.awt.Dimension(450, 60));
+        panelContent.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
+
+        dateTimeLabel.setForeground(new java.awt.Color(0, 0, 0));
+        dateTimeLabel.setText(dateTime);
+        dateTimeLabel.setPreferredSize(new java.awt.Dimension(200, 16));
+        panelContent.add(dateTimeLabel);
+       
+        insertSeparator();
+
+        amountLabel.setForeground(new java.awt.Color(0, 0, 0));
+        amountLabel.setText(amount);
+        amountLabel.setPreferredSize(new java.awt.Dimension(210, 16));
+        panelContent.add(amountLabel);
+        
+        insertSeparator();
+
+        refIDLabel.setForeground(new java.awt.Color(0, 0, 0));
+        refIDLabel.setText(refID);
+        refIDLabel.setPreferredSize(new java.awt.Dimension(210, 16));
+        panelContent.add(refIDLabel);
+        
+        insertSeparator();
+
+        statusLabel.setBackground(new java.awt.Color(0, 255, 0));
+        statusLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        statusLabel.setForeground(new java.awt.Color(255, 255, 255));
+        statusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        statusLabel.setText(status);
+        statusLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 2, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true)));
+        statusLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        statusLabel.setOpaque(true);
+        statusLabel.setPreferredSize(new java.awt.Dimension(70, 24));
+        panelContent.add(statusLabel);
+
+        add(panelContent, "card2");
+    }
+    
+    private void insertSeparator() {
+        javax.swing.JSeparator vertSeparator = new javax.swing.JSeparator();
+        
+        vertSeparator.setForeground(new java.awt.Color(204, 204, 204));
+        vertSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        vertSeparator.setMinimumSize(new java.awt.Dimension(10, 100));
+        vertSeparator.setPreferredSize(new java.awt.Dimension(5, 50));
+        
+        panelContent.add(vertSeparator);
+    }
+
 }
