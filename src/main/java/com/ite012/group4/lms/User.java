@@ -62,6 +62,7 @@ class Admin extends User {
         firstName = data.get("first name");
         middleName = data.get("middle name");
         lastName = data.get("last name");
+        name = data.get("name");
         email = data.get("email");
         contactNumber = data.get("contactNumber");
         accountNumber = Helpers.generateID(6);
@@ -124,6 +125,7 @@ class Client extends User {
         firstName = data.get("first name");
         middleName = data.get("middle name");
         lastName = data.get("last name");
+        name = data.get("name");
         email = data.get("email");
         contactNumber = data.get("contact number");
         unitAddress = data.get("unit address");

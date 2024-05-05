@@ -1094,8 +1094,10 @@ public class GUI extends javax.swing.JFrame {
         data.put("contact number", contactNumField.getText());
         data.put("username", regUsernameField.getText());
         data.put("password", pass1);
-        data.put("name", data.get("first name") + " " + data.get("middle name") 
-                + " " + data.get("last name"));
+        data.put("name", String.format("%s %s %s", data.get("first name"),
+                data.get("middle name"), data.get("last name")));
+        
+        System.out.println(data.get("name"));
             
         javax.swing.JLabel msg = new javax.swing.JLabel(String.format(
             """
@@ -1243,22 +1245,26 @@ public class GUI extends javax.swing.JFrame {
         
         searchResultsPanel.removeAll();
         
-        for (Client c : clients) {
-            Pattern pattern = Pattern.compile(searchField.getText());
-            String[] client_data = {c.username, c.name, c.email, c.accountNumber,
-                c.contactNumber};
-            
-            for (String s : client_data) {
-                Matcher matcher = pattern.matcher(s);
-                if (matcher.find()) {
-                    searchResultsPanel.add(new SearchResultEntry(c));
-                    numOfResults++;
+        if (searchField.getText().length() >= 0) {
+            for (Client c : clients) {
+                Pattern pattern = Pattern.compile(searchField.getText());
+                String[] client_data = {c.username, c.name, c.email, c.accountNumber,
+                    c.contactNumber};
+
+                for (String s : client_data) {
+                    Matcher matcher = pattern.matcher(s);
+                    if (matcher.find()) {
+                        searchResultsPanel.add(new SearchResultEntry(c));
+                        numOfResults++;
+                    }
                 }
             }
         }
         
         searchResultsLabel.setText(String.format("Search Results: %d clients found",
                 numOfResults));
+        
+        searchResultsPanel.setPreferredSize(new java.awt.Dimension(900, 80 * numOfResults));
         
         revalidate();
         repaint();
