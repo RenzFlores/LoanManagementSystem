@@ -1,7 +1,10 @@
 package com.ite012.group4.lms;    
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -9,11 +12,60 @@ public class GUI extends javax.swing.JFrame {
     private User currentUser;
     private int userType = 0;
     private javax.swing.JPanel activePage = new javax.swing.JPanel();
+    HashMap<String, ImageIcon> images = new HashMap<>();
+    String imageDirectory = System.getProperty("user.dir") + "/src/main/resources/images/";
+    
     
     public GUI() {
         initComponents();
         
-        Admin.loadAllUsers(users);
+        images.put("searchIcon", new ImageIcon(imageDirectory + "searchIcon.png"));
+        images.put("loginGraphicsIcon", new ImageIcon(imageDirectory + "loginGraphics.png"));
+        images.put("menuIcon", new ImageIcon(imageDirectory + "menuIcon.png"));
+        images.put("applicationIcon", new ImageIcon(imageDirectory + "applicationIcon.png"));
+        images.put("statusIcon", new ImageIcon(imageDirectory + "statusIcon.png"));
+        images.put("paymentIcon", new ImageIcon(imageDirectory + "paymentIcon.png"));
+        images.put("repaymentIcon", new ImageIcon(imageDirectory + "repaymentIcon.png"));
+        images.put("reportIcon", new ImageIcon(imageDirectory + "reportIcon.png"));
+        images.put("aboutIcon", new ImageIcon(imageDirectory + "aboutIcon.png"));
+        
+
+        Image loginGraphicsIcon = images.get("loginGraphicsIcon").getImage()
+                .getScaledInstance(330, 330, java.awt.Image.SCALE_SMOOTH);
+        loginGraphicLabel.setIcon(new ImageIcon(loginGraphicsIcon));
+        
+        Image menuIcon = images.get("menuIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        menuPageToggleButton.setIcon(new ImageIcon(menuIcon));
+        
+        Image applicationIcon = images.get("applicationIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        applicationPageToggleButton.setIcon(new ImageIcon(applicationIcon));
+        
+        Image statusIcon = images.get("statusIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        statusPageToggleButton.setIcon(new ImageIcon(statusIcon));
+        
+        Image paymentIcon = images.get("paymentIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        paymentPageToggleButton.setIcon(new ImageIcon(paymentIcon));
+        
+        Image repaymentIcon = images.get("repaymentIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        repaymentPageToggleButton.setIcon(new ImageIcon(repaymentIcon));
+        
+        Image searchIcon = images.get("searchIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        searchPageToggleButton.setIcon(new ImageIcon(searchIcon));
+        searchSubmitButton.setIcon(new ImageIcon(searchIcon));
+        
+        Image reportIcon = images.get("reportIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        reportPageToggleButton.setIcon(new ImageIcon(reportIcon));
+        
+        Image aboutIcon = images.get("aboutIcon").getImage()
+                .getScaledInstance(15, 15, java.awt.Image.SCALE_SMOOTH);
+        aboutPageToggleButton.setIcon(new ImageIcon(aboutIcon));
     }
 
     /**
@@ -28,11 +80,11 @@ public class GUI extends javax.swing.JFrame {
         applicationPagePanel = new javax.swing.JPanel();
         applicationPaddingPanel = new javax.swing.JPanel();
         applicationContentPanel = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
+        applyForALoanLabel = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         submitApplicationButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        pnlForm = new javax.swing.JPanel();
+        formPanel = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -44,24 +96,12 @@ public class GUI extends javax.swing.JFrame {
         paymentPagePanel = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         statusPagePanel = new javax.swing.JPanel();
-        searchPagePanel = new javax.swing.JPanel();
         repaymentPagePanel = new javax.swing.JPanel();
         reportPagePanel = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         aboutPagePanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        menuBarPanel = new javax.swing.JPanel();
-        programNameLabel = new javax.swing.JLabel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 32767));
-        menuPageToggleButton = new javax.swing.JToggleButton();
-        applicationPageToggleButton = new javax.swing.JToggleButton();
-        statusPageToggleButton = new javax.swing.JToggleButton();
-        paymentPageToggleButton = new javax.swing.JToggleButton();
-        repaymentPageToggleButton = new javax.swing.JToggleButton();
-        ReportPageToggleButton = new javax.swing.JToggleButton();
-        searchPageToggleButton = new javax.swing.JToggleButton();
-        aboutPageToggleButton = new javax.swing.JToggleButton();
         registerContentPanel = new javax.swing.JPanel();
         registrationLabel = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -103,11 +143,10 @@ public class GUI extends javax.swing.JFrame {
         filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(80, 0), new java.awt.Dimension(300, 20), new java.awt.Dimension(80, 0));
         regClientButton = new javax.swing.JButton();
         regAdminButton = new javax.swing.JButton();
-        windowPanel = new javax.swing.JPanel();
         loginPagePanel = new javax.swing.JPanel();
         loginPaddingPanel = new javax.swing.JPanel();
         loginGraphicsPanel = new javax.swing.JPanel();
-        loginGraphicIcon = new javax.swing.JLabel();
+        loginGraphicLabel = new javax.swing.JLabel();
         loginContentPanel = new javax.swing.JPanel();
         companyNameLabel = new javax.swing.JLabel();
         loginUsernameLabel = new javax.swing.JLabel();
@@ -121,6 +160,33 @@ public class GUI extends javax.swing.JFrame {
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 0), new java.awt.Dimension(300, 12), new java.awt.Dimension(200, 0));
         loginButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
+        searchPageToggleButton = new javax.swing.JToggleButton();
+        windowPanel = new javax.swing.JPanel();
+        menuBarPanel = new javax.swing.JPanel();
+        programNameLabel = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 32767));
+        menuPageToggleButton = new javax.swing.JToggleButton();
+        applicationPageToggleButton = new javax.swing.JToggleButton();
+        statusPageToggleButton = new javax.swing.JToggleButton();
+        paymentPageToggleButton = new javax.swing.JToggleButton();
+        repaymentPageToggleButton = new javax.swing.JToggleButton();
+        reportPageToggleButton = new javax.swing.JToggleButton();
+        aboutPageToggleButton = new javax.swing.JToggleButton();
+        searchPagePanel = new javax.swing.JPanel();
+        searchPagePadding = new javax.swing.JPanel();
+        searchField = new javax.swing.JTextField();
+        searchSubmitButton = new javax.swing.JButton();
+        searchResultsLabel = new javax.swing.JLabel();
+        searchResultsScrollPane = new javax.swing.JScrollPane();
+        searchResultsPanel = new javax.swing.JPanel();
+        searchResultEntryPanel = new javax.swing.JPanel();
+        clientDetailsPanel = new javax.swing.JPanel();
+        usernameLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        accountNumberLabel = new javax.swing.JLabel();
+        contactNumberLabel = new javax.swing.JLabel();
+        checkClientDetailsButton = new javax.swing.JButton();
 
         applicationPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         applicationPagePanel.setPreferredSize(new java.awt.Dimension(960, 490));
@@ -131,9 +197,9 @@ public class GUI extends javax.swing.JFrame {
 
         applicationContentPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel21.setText("Apply for a loan");
+        applyForALoanLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        applyForALoanLabel.setForeground(new java.awt.Color(51, 51, 51));
+        applyForALoanLabel.setText("Apply for a loan");
 
         jSeparator5.setPreferredSize(new java.awt.Dimension(900, 3));
 
@@ -142,11 +208,13 @@ public class GUI extends javax.swing.JFrame {
         submitApplicationButton.setForeground(new java.awt.Color(255, 255, 255));
         submitApplicationButton.setText("Submit My Application");
 
-        pnlForm.setBackground(new java.awt.Color(255, 255, 255));
-        pnlForm.setPreferredSize(new java.awt.Dimension(875, 306));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(850, 308));
+
+        formPanel.setBackground(new java.awt.Color(255, 255, 255));
+        formPanel.setPreferredSize(new java.awt.Dimension(850, 306));
         java.awt.FlowLayout flowLayout5 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout5.setAlignOnBaseline(true);
-        pnlForm.setLayout(flowLayout5);
+        formPanel.setLayout(flowLayout5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -221,37 +289,35 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        pnlForm.add(jPanel6);
+        formPanel.add(jPanel6);
 
-        jScrollPane1.setViewportView(pnlForm);
+        jScrollPane1.setViewportView(formPanel);
 
         javax.swing.GroupLayout applicationContentPanelLayout = new javax.swing.GroupLayout(applicationContentPanel);
         applicationContentPanel.setLayout(applicationContentPanelLayout);
         applicationContentPanelLayout.setHorizontalGroup(
             applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(applicationContentPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, applicationContentPanelLayout.createSequentialGroup()
                 .addGroup(applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(applicationContentPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(submitApplicationButton)
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, applicationContentPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)
                             .addGroup(applicationContentPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
-                    .addGroup(applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, applicationContentPanelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, applicationContentPanelLayout.createSequentialGroup()
-                            .addGap(720, 720, 720)
-                            .addComponent(submitApplicationButton))))
-                .addGap(10, 10, 10))
+                                .addComponent(applyForALoanLabel)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         applicationContentPanelLayout.setVerticalGroup(
             applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(applicationContentPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel21)
+                .addComponent(applyForALoanLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -316,17 +382,6 @@ public class GUI extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout searchPagePanelLayout = new javax.swing.GroupLayout(searchPagePanel);
-        searchPagePanel.setLayout(searchPagePanelLayout);
-        searchPagePanelLayout.setHorizontalGroup(
-            searchPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        searchPagePanelLayout.setVerticalGroup(
-            searchPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout repaymentPagePanelLayout = new javax.swing.GroupLayout(repaymentPagePanel);
         repaymentPagePanel.setLayout(repaymentPagePanelLayout);
         repaymentPagePanelLayout.setHorizontalGroup(
@@ -379,124 +434,6 @@ public class GUI extends javax.swing.JFrame {
         jPanel1.add(jLabel24, java.awt.BorderLayout.CENTER);
 
         aboutPagePanel.add(jPanel1, "card3");
-
-        menuBarPanel.setBackground(new java.awt.Color(51, 51, 255));
-        menuBarPanel.setMinimumSize(new java.awt.Dimension(0, 0));
-        menuBarPanel.setPreferredSize(new java.awt.Dimension(960, 50));
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0);
-        flowLayout1.setAlignOnBaseline(true);
-        menuBarPanel.setLayout(flowLayout1);
-
-        programNameLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        programNameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        programNameLabel.setText("Program Name");
-        menuBarPanel.add(programNameLabel);
-        menuBarPanel.add(filler1);
-
-        menuPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(menuPageToggleButton);
-        menuPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        menuPageToggleButton.setSelected(true);
-        menuPageToggleButton.setText("Menu");
-        menuPageToggleButton.setBorder(null);
-        menuPageToggleButton.setPreferredSize(new java.awt.Dimension(80, 50));
-        menuPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                menuPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(menuPageToggleButton);
-
-        applicationPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(applicationPageToggleButton);
-        applicationPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        applicationPageToggleButton.setText("Application");
-        applicationPageToggleButton.setBorder(null);
-        applicationPageToggleButton.setPreferredSize(new java.awt.Dimension(85, 50));
-        applicationPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                applicationPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(applicationPageToggleButton);
-
-        statusPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(statusPageToggleButton);
-        statusPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        statusPageToggleButton.setText("Status");
-        statusPageToggleButton.setBorder(null);
-        statusPageToggleButton.setPreferredSize(new java.awt.Dimension(80, 50));
-        statusPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                statusPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(statusPageToggleButton);
-
-        paymentPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(paymentPageToggleButton);
-        paymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        paymentPageToggleButton.setText("Payment");
-        paymentPageToggleButton.setBorder(null);
-        paymentPageToggleButton.setPreferredSize(new java.awt.Dimension(80, 50));
-        paymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                paymentPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(paymentPageToggleButton);
-
-        repaymentPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(repaymentPageToggleButton);
-        repaymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        repaymentPageToggleButton.setText("Repayment");
-        repaymentPageToggleButton.setBorder(null);
-        repaymentPageToggleButton.setPreferredSize(new java.awt.Dimension(80, 50));
-        repaymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                repaymentPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(repaymentPageToggleButton);
-
-        ReportPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(ReportPageToggleButton);
-        ReportPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        ReportPageToggleButton.setText("Report");
-        ReportPageToggleButton.setBorder(null);
-        ReportPageToggleButton.setPreferredSize(new java.awt.Dimension(80, 50));
-        ReportPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ReportPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(ReportPageToggleButton);
-
-        searchPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(searchPageToggleButton);
-        searchPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        searchPageToggleButton.setText("Search");
-        searchPageToggleButton.setBorder(null);
-        searchPageToggleButton.setPreferredSize(new java.awt.Dimension(80, 50));
-        searchPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                searchPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(searchPageToggleButton);
-
-        aboutPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-        menuButtonGroup.add(aboutPageToggleButton);
-        aboutPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        aboutPageToggleButton.setText("About");
-        aboutPageToggleButton.setBorder(null);
-        aboutPageToggleButton.setPreferredSize(new java.awt.Dimension(80, 50));
-        aboutPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                aboutPageToggleButtonItemStateChanged(evt);
-            }
-        });
-        menuBarPanel.add(aboutPageToggleButton);
 
         registerContentPanel.setBackground(new java.awt.Color(255, 255, 255));
         registerContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
@@ -761,42 +698,30 @@ public class GUI extends javax.swing.JFrame {
         });
         regUserTypeContentPanel.add(regAdminButton);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Loan Management System");
-        setBounds(new java.awt.Rectangle(0, 0, 960, 540));
-        setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(960, 540));
-        setResizable(false);
-
-        windowPanel.setPreferredSize(new java.awt.Dimension(960, 540));
-        windowPanel.setLayout(new java.awt.BorderLayout());
-
         loginPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         loginPagePanel.setMinimumSize(new java.awt.Dimension(960, 540));
         loginPagePanel.setPreferredSize(new java.awt.Dimension(960, 540));
         loginPagePanel.setLayout(new java.awt.CardLayout(100, 60));
 
         loginPaddingPanel.setBackground(new java.awt.Color(255, 255, 255));
-        loginPaddingPanel.setPreferredSize(new java.awt.Dimension(800, 490));
-        java.awt.FlowLayout flowLayout4 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 50);
-        flowLayout4.setAlignOnBaseline(true);
-        loginPaddingPanel.setLayout(flowLayout4);
+        loginPaddingPanel.setPreferredSize(new java.awt.Dimension(800, 400));
+        loginPaddingPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 50));
 
         loginGraphicsPanel.setMinimumSize(new java.awt.Dimension(500, 500));
-        loginGraphicsPanel.setPreferredSize(new java.awt.Dimension(300, 300));
+        loginGraphicsPanel.setPreferredSize(new java.awt.Dimension(330, 330));
         loginGraphicsPanel.setLayout(new java.awt.BorderLayout());
 
-        loginGraphicIcon.setBackground(new java.awt.Color(255, 255, 255));
-        loginGraphicIcon.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        loginGraphicIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\rache\\OneDrive\\Documents\\NetBeansProjects\\LMS\\src\\main\\images\\loginGraphics.png")); // NOI18N
-        loginGraphicIcon.setText("jLabel1");
-        loginGraphicIcon.setMinimumSize(new java.awt.Dimension(37, 16));
-        loginGraphicIcon.setPreferredSize(new java.awt.Dimension(300, 300));
-        loginGraphicsPanel.add(loginGraphicIcon, java.awt.BorderLayout.PAGE_END);
+        loginGraphicLabel.setBackground(new java.awt.Color(255, 255, 255));
+        loginGraphicLabel.setForeground(new java.awt.Color(255, 255, 255));
+        loginGraphicLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        loginGraphicLabel.setOpaque(true);
+        loginGraphicLabel.setPreferredSize(new java.awt.Dimension(330, 330));
+        loginGraphicsPanel.add(loginGraphicLabel, java.awt.BorderLayout.PAGE_END);
 
         loginPaddingPanel.add(loginGraphicsPanel);
 
         loginContentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        loginContentPanel.setMinimumSize(new java.awt.Dimension(330, 330));
         loginContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
         java.awt.FlowLayout flowLayout3 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 18, 0);
         flowLayout3.setAlignOnBaseline(true);
@@ -884,7 +809,242 @@ public class GUI extends javax.swing.JFrame {
 
     loginPagePanel.add(loginPaddingPanel, "card2");
 
-    windowPanel.add(loginPagePanel, java.awt.BorderLayout.PAGE_END);
+    searchPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+    menuButtonGroup.add(searchPageToggleButton);
+    searchPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    searchPageToggleButton.setText("Search");
+    searchPageToggleButton.setBorder(null);
+    searchPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    searchPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            searchPageToggleButtonItemStateChanged(evt);
+        }
+    });
+
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Loan Management System");
+    setBounds(new java.awt.Rectangle(0, 0, 960, 540));
+    setLocationByPlatform(true);
+    setMinimumSize(new java.awt.Dimension(960, 540));
+    setResizable(false);
+
+    windowPanel.setPreferredSize(new java.awt.Dimension(960, 540));
+    windowPanel.setLayout(new java.awt.BorderLayout());
+
+    menuBarPanel.setBackground(new java.awt.Color(0, 0, 102));
+    menuBarPanel.setMinimumSize(new java.awt.Dimension(0, 0));
+    menuBarPanel.setPreferredSize(new java.awt.Dimension(960, 50));
+    java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0);
+    flowLayout1.setAlignOnBaseline(true);
+    menuBarPanel.setLayout(flowLayout1);
+
+    programNameLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+    programNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+    programNameLabel.setText("Program Name");
+    menuBarPanel.add(programNameLabel);
+    menuBarPanel.add(filler1);
+
+    menuPageToggleButton.setBackground(new java.awt.Color(0, 0, 102));
+    menuButtonGroup.add(menuPageToggleButton);
+    menuPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    menuPageToggleButton.setSelected(true);
+    menuPageToggleButton.setText("Menu");
+    menuPageToggleButton.setBorder(null);
+    menuPageToggleButton.setIconTextGap(10);
+    menuPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    menuPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            menuPageToggleButtonItemStateChanged(evt);
+        }
+    });
+    menuBarPanel.add(menuPageToggleButton);
+
+    applicationPageToggleButton.setBackground(new java.awt.Color(0, 0, 102));
+    menuButtonGroup.add(applicationPageToggleButton);
+    applicationPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    applicationPageToggleButton.setText("Application");
+    applicationPageToggleButton.setBorder(null);
+    applicationPageToggleButton.setIconTextGap(5);
+    applicationPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    applicationPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            applicationPageToggleButtonItemStateChanged(evt);
+        }
+    });
+    menuBarPanel.add(applicationPageToggleButton);
+
+    statusPageToggleButton.setBackground(new java.awt.Color(0, 0, 102));
+    menuButtonGroup.add(statusPageToggleButton);
+    statusPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    statusPageToggleButton.setText("Status");
+    statusPageToggleButton.setBorder(null);
+    statusPageToggleButton.setIconTextGap(10);
+    statusPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    statusPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            statusPageToggleButtonItemStateChanged(evt);
+        }
+    });
+    menuBarPanel.add(statusPageToggleButton);
+
+    paymentPageToggleButton.setBackground(new java.awt.Color(0, 0, 102));
+    menuButtonGroup.add(paymentPageToggleButton);
+    paymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    paymentPageToggleButton.setText("Payment");
+    paymentPageToggleButton.setBorder(null);
+    paymentPageToggleButton.setIconTextGap(10);
+    paymentPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    paymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            paymentPageToggleButtonItemStateChanged(evt);
+        }
+    });
+    menuBarPanel.add(paymentPageToggleButton);
+
+    repaymentPageToggleButton.setBackground(new java.awt.Color(0, 0, 102));
+    menuButtonGroup.add(repaymentPageToggleButton);
+    repaymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    repaymentPageToggleButton.setText("Repayment");
+    repaymentPageToggleButton.setBorder(null);
+    repaymentPageToggleButton.setIconTextGap(5);
+    repaymentPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    repaymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            repaymentPageToggleButtonItemStateChanged(evt);
+        }
+    });
+    menuBarPanel.add(repaymentPageToggleButton);
+
+    reportPageToggleButton.setBackground(new java.awt.Color(0, 0, 102));
+    menuButtonGroup.add(reportPageToggleButton);
+    reportPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    reportPageToggleButton.setText("Report");
+    reportPageToggleButton.setBorder(null);
+    reportPageToggleButton.setIconTextGap(10);
+    reportPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    reportPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            reportPageToggleButtonItemStateChanged(evt);
+        }
+    });
+    menuBarPanel.add(reportPageToggleButton);
+
+    aboutPageToggleButton.setBackground(new java.awt.Color(0, 0, 102));
+    menuButtonGroup.add(aboutPageToggleButton);
+    aboutPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+    aboutPageToggleButton.setText("About");
+    aboutPageToggleButton.setBorder(null);
+    aboutPageToggleButton.setIconTextGap(10);
+    aboutPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    aboutPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            aboutPageToggleButtonItemStateChanged(evt);
+        }
+    });
+    menuBarPanel.add(aboutPageToggleButton);
+
+    windowPanel.add(menuBarPanel, java.awt.BorderLayout.PAGE_START);
+
+    searchPagePanel.setBackground(new java.awt.Color(204, 204, 204));
+    searchPagePanel.setLayout(new java.awt.CardLayout(10, 10));
+
+    searchPagePadding.setBackground(new java.awt.Color(204, 204, 204));
+    searchPagePadding.setOpaque(false);
+
+    searchField.setBackground(new java.awt.Color(255, 255, 255));
+    searchField.setForeground(new java.awt.Color(51, 51, 51));
+    searchField.setText("Search");
+    searchField.setPreferredSize(new java.awt.Dimension(600, 50));
+    searchField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            searchFieldActionPerformed(evt);
+        }
+    });
+    searchPagePadding.add(searchField);
+
+    searchSubmitButton.setBackground(new java.awt.Color(153, 153, 153));
+    searchSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+    searchSubmitButton.setText("Search");
+    searchSubmitButton.setBorder(null);
+    searchSubmitButton.setIconTextGap(10);
+    searchSubmitButton.setPreferredSize(new java.awt.Dimension(100, 50));
+    searchSubmitButton.setSelected(true);
+    searchSubmitButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            searchSubmitButtonActionPerformed(evt);
+        }
+    });
+    searchPagePadding.add(searchSubmitButton);
+
+    searchResultsLabel.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+    searchResultsLabel.setForeground(new java.awt.Color(51, 51, 51));
+    searchResultsLabel.setText("Search Results: 3 clients found");
+    searchResultsLabel.setPreferredSize(new java.awt.Dimension(900, 24));
+    searchPagePadding.add(searchResultsLabel);
+
+    searchResultsScrollPane.setOpaque(false);
+    searchResultsScrollPane.setPreferredSize(new java.awt.Dimension(920, 360));
+
+    searchResultsPanel.setBackground(new java.awt.Color(204, 204, 204));
+    searchResultsPanel.setMinimumSize(new java.awt.Dimension(920, 46));
+    searchResultsPanel.setPreferredSize(new java.awt.Dimension(900, 400));
+    searchResultsPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 10, 10));
+
+    searchResultEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
+    searchResultEntryPanel.setPreferredSize(new java.awt.Dimension(880, 60));
+    searchResultEntryPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+
+    clientDetailsPanel.setOpaque(false);
+    clientDetailsPanel.setPreferredSize(new java.awt.Dimension(700, 60));
+    clientDetailsPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING));
+
+    usernameLabel.setForeground(new java.awt.Color(0, 0, 0));
+    usernameLabel.setText("Username: renz.flores");
+    usernameLabel.setPreferredSize(new java.awt.Dimension(200, 20));
+    clientDetailsPanel.add(usernameLabel);
+
+    nameLabel.setForeground(new java.awt.Color(51, 51, 51));
+    nameLabel.setText("Name: Renz Ken T. Flores");
+    nameLabel.setPreferredSize(new java.awt.Dimension(200, 20));
+    clientDetailsPanel.add(nameLabel);
+
+    emailLabel.setForeground(new java.awt.Color(51, 51, 51));
+    emailLabel.setText("Email: renz.flores@gmail.com");
+    emailLabel.setPreferredSize(new java.awt.Dimension(200, 20));
+    clientDetailsPanel.add(emailLabel);
+
+    accountNumberLabel.setForeground(new java.awt.Color(51, 51, 51));
+    accountNumberLabel.setText("Account Number: 123456");
+    accountNumberLabel.setPreferredSize(new java.awt.Dimension(200, 20));
+    clientDetailsPanel.add(accountNumberLabel);
+
+    contactNumberLabel.setForeground(new java.awt.Color(51, 51, 51));
+    contactNumberLabel.setText("Contact Number: 1234567890");
+    contactNumberLabel.setPreferredSize(new java.awt.Dimension(200, 16));
+    clientDetailsPanel.add(contactNumberLabel);
+
+    searchResultEntryPanel.add(clientDetailsPanel);
+
+    checkClientDetailsButton.setBackground(new java.awt.Color(153, 153, 153));
+    checkClientDetailsButton.setForeground(new java.awt.Color(255, 255, 255));
+    checkClientDetailsButton.setText("Check client details");
+    checkClientDetailsButton.setPreferredSize(new java.awt.Dimension(150, 30));
+    checkClientDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            checkClientDetailsButtonActionPerformed(evt);
+        }
+    });
+    searchResultEntryPanel.add(checkClientDetailsButton);
+
+    searchResultsPanel.add(searchResultEntryPanel);
+
+    searchResultsScrollPane.setViewportView(searchResultsPanel);
+
+    searchPagePadding.add(searchResultsScrollPane);
+
+    searchPagePanel.add(searchPagePadding, "card4");
+
+    windowPanel.add(searchPagePanel, java.awt.BorderLayout.CENTER);
 
     getContentPane().add(windowPanel, java.awt.BorderLayout.CENTER);
 
@@ -940,7 +1100,7 @@ public class GUI extends javax.swing.JFrame {
          *           etc.) Please take note of this for future testing
          */
         
-        User user = new User();
+        HashMap<String, String> data =  new HashMap<>();
         
         confirmPassFieldErrorLabel.setText("");
         
@@ -961,13 +1121,14 @@ public class GUI extends javax.swing.JFrame {
             return;
         } 
         
-        user.firstName = firstNameField.getText();
-        user.middleName = middleNameField.getText();
-        user.lastName = lastNameField.getText();
-        user.email = emailField.getText();
-        user.contactNumber = contactNumField.getText();
-        user.username = regUsernameField.getText();
-        user.name = user.firstName + " " + user.middleName + " " + user.lastName;
+        data.put("firstName", firstNameField.getText());
+        data.put("middleName", middleNameField.getText());
+        data.put("lastName", lastNameField.getText());
+        data.put("email", emailField.getText());
+        data.put("contactNumber", contactNumField.getText());
+        data.put("username", regUsernameField.getText());
+        data.put("name", data.get("firstName") + " " + data.get("middleName") 
+                + " " + data.get("lastName"));
             
         javax.swing.JLabel msg = new javax.swing.JLabel(String.format(
             "<html><p>Please confirm your details:</p>" +
@@ -978,20 +1139,22 @@ public class GUI extends javax.swing.JFrame {
             "<p>Last name: %s</p>" +
             "<p>Email: %s</p>" +
             "<p>Contact Number: %s</p></html>",
-            user.username, user.password.replaceAll(".", "*"),
-            user.firstName, user.middleName, 
-            user.lastName, user.email, 
-            user.contactNumber
+            data.get("firstName"), data.get("password").replaceAll(".", "*"),
+            data.get("firstName"), data.get("middleName"), 
+            data.get("lastName"), data.get("email"),
+            data.get("contactNumber")
         ));
         
         int confirmation = JOptionPane.showConfirmDialog(null, msg, "Register", 
             JOptionPane.OK_CANCEL_OPTION);
         
         if (confirmation == 0) {
+            Client newClient = new Client(data);
+                    
             // Add the created user to the list of users
-            users.add(user);
+            users.add(newClient);
         
-            user.saveUserData();
+            newClient.saveUserData();
             
             JOptionPane.showMessageDialog(null, "Account successfully created");
             
@@ -1039,10 +1202,10 @@ public class GUI extends javax.swing.JFrame {
         updateMenu();
     }//GEN-LAST:event_statusPageToggleButtonItemStateChanged
 
-    private void ReportPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ReportPageToggleButtonItemStateChanged
+    private void reportPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_reportPageToggleButtonItemStateChanged
         activePage = reportPagePanel;
         updateMenu();
-    }//GEN-LAST:event_ReportPageToggleButtonItemStateChanged
+    }//GEN-LAST:event_reportPageToggleButtonItemStateChanged
 
     private void searchPageToggleButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_searchPageToggleButtonItemStateChanged
         activePage = searchPagePanel;
@@ -1083,6 +1246,18 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_regAdminButtonActionPerformed
 
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchFieldActionPerformed
+
+    private void searchSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSubmitButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchSubmitButtonActionPerformed
+
+    private void checkClientDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkClientDetailsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkClientDetailsButtonActionPerformed
+
     // This function is called to instantiate the menu with user details when
     // login is successful
     private void initMenu() {
@@ -1092,7 +1267,7 @@ public class GUI extends javax.swing.JFrame {
         
         dashAccountNameLabel.setText(currentUser.firstName);
         dashEmailLabel.setText(currentUser.email);
-        dashContactNumLabel.setText(currentUser.contactNumber);
+        //dashContactNumLabel.setText(currentUser.contactNumber);
 
         activePage = menuPagePanel;
         updateMenu();
@@ -1149,25 +1324,30 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton ReportPageToggleButton;
     private javax.swing.JPanel aboutPagePanel;
     private javax.swing.JToggleButton aboutPageToggleButton;
+    private javax.swing.JLabel accountNumberLabel;
     private javax.swing.JPanel applicationContentPanel;
     private javax.swing.JPanel applicationPaddingPanel;
     private javax.swing.JPanel applicationPagePanel;
     private javax.swing.JToggleButton applicationPageToggleButton;
+    private javax.swing.JLabel applyForALoanLabel;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton btnUpdateAccountInfo;
+    private javax.swing.JButton checkClientDetailsButton;
+    private javax.swing.JPanel clientDetailsPanel;
     private javax.swing.JLabel companyNameLabel;
     private javax.swing.JPasswordField confirmPassField;
     private javax.swing.JLabel confirmPassFieldErrorLabel;
     private javax.swing.JTextField contactNumField;
+    private javax.swing.JLabel contactNumberLabel;
     private javax.swing.JLabel dashAccountNameLabel;
     private javax.swing.JLabel dashAccountNumLabel;
     private javax.swing.JLabel dashContactNumLabel;
     private javax.swing.JLabel dashEmailLabel;
     private javax.swing.JPanel dashboardContent;
     private javax.swing.JTextField emailField;
+    private javax.swing.JLabel emailLabel;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
@@ -1177,10 +1357,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler7;
     private javax.swing.Box.Filler filler9;
     private javax.swing.JTextField firstNameField;
+    private javax.swing.JPanel formPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -1200,7 +1380,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblDashboard;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginContentPanel;
-    private javax.swing.JLabel loginGraphicIcon;
+    private javax.swing.JLabel loginGraphicLabel;
     private javax.swing.JPanel loginGraphicsPanel;
     private javax.swing.JPanel loginPaddingPanel;
     private javax.swing.JPanel loginPagePanel;
@@ -1210,12 +1390,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel menuPagePanel;
     private javax.swing.JToggleButton menuPageToggleButton;
     private javax.swing.JTextField middleNameField;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordFieldErrorLabel;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JPanel paymentPagePanel;
     private javax.swing.JToggleButton paymentPageToggleButton;
-    private javax.swing.JPanel pnlForm;
     private javax.swing.JLabel programNameLabel;
     private javax.swing.JButton regAdminButton;
     private javax.swing.JButton regClientButton;
@@ -1237,13 +1417,27 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel repaymentPagePanel;
     private javax.swing.JToggleButton repaymentPageToggleButton;
     private javax.swing.JPanel reportPagePanel;
+    private javax.swing.JToggleButton reportPageToggleButton;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JPanel searchPagePadding;
     private javax.swing.JPanel searchPagePanel;
     private javax.swing.JToggleButton searchPageToggleButton;
+    private javax.swing.JPanel searchResultEntryPanel;
+    private javax.swing.JLabel searchResultsLabel;
+    private javax.swing.JPanel searchResultsPanel;
+    private javax.swing.JScrollPane searchResultsScrollPane;
+    private javax.swing.JButton searchSubmitButton;
     private javax.swing.JPanel statusPagePanel;
     private javax.swing.JToggleButton statusPageToggleButton;
     private javax.swing.JButton submitApplicationButton;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameFieldErrorLabel;
+    private javax.swing.JLabel usernameLabel;
     private javax.swing.JPanel windowPanel;
     // End of variables declaration//GEN-END:variables
+}
+
+class searchResultEntry extends javax.swing.JPanel {
+    
+    
 }

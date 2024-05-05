@@ -50,14 +50,14 @@ public class Helpers {
      */
     public static boolean checkForEmptyFields(javax.swing.JPanel p) {
         
-        ArrayList<JTextField> textFields = new ArrayList<JTextField>();
+        ArrayList<JTextField> textFields = new ArrayList<>();
         boolean emptyFieldExists = false;
         
         // Get all JTextField components inside JPanel and store it in an 
         // ArrayList
         for (java.awt.Component c : p.getComponents()) {
-            if (c instanceof JTextField) {
-                textFields.add((JTextField) c);
+            if (c instanceof JTextField jTextField) {
+                textFields.add(jTextField);
             }
         }
         
@@ -143,7 +143,7 @@ public class Helpers {
         }
     }
     
-        public static void loadAllClients(ArrayList<Client> adminList) {
+    public static void loadAllClients(ArrayList<Client> adminList) {
         
         String buffer = new String();
         
@@ -170,7 +170,7 @@ public class Helpers {
                 }
                 finally {
                         HashMap<String, String> data = Helpers.parseStringToHashMap(buffer);
-                        adminList.add(new Admin(data));
+                        adminList.add(new Client(data));
                 }
             }
         }
@@ -185,3 +185,4 @@ public class Helpers {
     }  
     
 }
+

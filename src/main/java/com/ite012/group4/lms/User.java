@@ -112,6 +112,7 @@ class Client extends User {
         cityAddress = data.get("cityAddress");
         postalCode = data.get("postalCode");
     }
+    
 }
 
 /*
