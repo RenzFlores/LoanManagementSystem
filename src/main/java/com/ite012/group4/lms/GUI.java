@@ -34,8 +34,21 @@ public class GUI extends javax.swing.JFrame {
         ImageFileChooser imageChooser1 = new ImageFileChooser();
         formPanel.add(imageChooser1);
         
+<<<<<<< HEAD
         Helpers.loadAllAdmins(admins);
         Helpers.loadAllClients(clients);
+=======
+        //Helpers.loadAllAdmins(admins);
+        //Helpers.loadAllClients(clients);
+        
+        reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
+        reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
+        reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
+        
+        backgroundPanel.add(menuBarPanel);
+        backgroundPanel.add(reportPagePanel);
+        windowPanel.add(backgroundPanel);
+>>>>>>> parent of 29e4240 (update)
     }
 
     /**
