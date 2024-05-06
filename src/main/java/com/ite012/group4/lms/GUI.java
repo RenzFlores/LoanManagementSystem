@@ -16,7 +16,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel activePage = new javax.swing.JPanel();
     
     public GUI() {
-        initComponents();       
+        initComponents();     
 
         Helpers.loadIcons();
         
@@ -39,15 +39,15 @@ public class GUI extends javax.swing.JFrame {
         ImageFileChooser imageChooser1 = new ImageFileChooser();
         formPanel.add(imageChooser1);
         
-        Helpers.loadAllAdmins(admins);
-        Helpers.loadAllClients(clients);
+        //Helpers.loadAllAdmins(admins);
+        //Helpers.loadAllClients(clients);
         
         reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
         reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
         reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
         
         backgroundPanel.add(menuBarPanel);
-        backgroundPanel.add(searchPagePanel);
+        backgroundPanel.add(reportPagePanel);
         windowPanel.add(backgroundPanel);
     }
 
