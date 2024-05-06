@@ -119,29 +119,33 @@ public class Helpers {
         
         String buffer = new String();
         
-        String adminDataDirectory = System.getProperty("user.dir") + "/src/main/user_data/admin/";
-        File dir = new File(adminDataDirectory);
+        File adminDataPath = new File(System.getProperty("user.dir") + "/src/main/user_data/admin/");
+        String contents[] = adminDataPath.list();
         
-        File[] directoryListing = dir.listFiles();
-        if (directoryListing != null) {
-            for (File dataFile : directoryListing) {
-                buffer = "";
-                try {
-                    java.io.BufferedReader f = new java.io.BufferedReader(new 
-                        java.io.FileReader(dataFile));
-                    String line = f.readLine();
-                    
-                    while (line != null) {
-                        buffer += line;
-                        buffer += "\n";
-                        line = f.readLine();
-                    }                    
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-                finally {
-                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
+        for (String folder : contents) {
+            File dir = new File(folder);
+            File[] directoryListing = dir.listFiles();
+            
+            if (directoryListing != null) {
+                for (File dataFile : directoryListing) {
+                    buffer = "";
+                    try {
+                        java.io.BufferedReader f = new java.io.BufferedReader(new 
+                            java.io.FileReader(dataFile));
+                        String line = f.readLine();
+
+                        while (line != null) {
+                            buffer += line;
+                            buffer += "\n";
+                            line = f.readLine();
+                        }                    
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    finally {
+                        adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
+                    }
                 }
             }
         }
@@ -151,29 +155,34 @@ public class Helpers {
         
         String buffer = new String();
         
-        String clientDataDirectory = System.getProperty("user.dir") + "/src/main/user_data/client/";
-        File dir = new File(clientDataDirectory);
+        File clientDataPath = new File(System.getProperty("user.dir") + "/src/main/user_data/client/");
+        String contents[] = clientDataPath.list();
         
-        File[] directoryListing = dir.listFiles();
-        if (directoryListing != null) {
-            for (File dataFile : directoryListing) {
-                buffer = "";
-                try {
-                    java.io.BufferedReader f = new java.io.BufferedReader(new 
-                        java.io.FileReader(dataFile));
-                    String line = f.readLine();
-                    
-                    while (line != null) {
-                        buffer += line;
-                        buffer += "\n";
-                        line = f.readLine();
+        for (String folder : contents) {
+
+            File dir = new File(folder);
+            File[] directoryListing = dir.listFiles();
+            
+            if (directoryListing != null) {
+                for (File dataFile : directoryListing) {
+                    buffer = "";
+                    try {
+                        java.io.BufferedReader f = new java.io.BufferedReader(new 
+                            java.io.FileReader(dataFile));
+                        String line = f.readLine();
+
+                        while (line != null) {
+                            buffer += line;
+                            buffer += "\n";
+                            line = f.readLine();
+                        }
                     }
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-                finally {
-                    clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    finally {
+                        clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
+                    }
                 }
             }
         }
@@ -192,6 +201,7 @@ public class Helpers {
         images.put("detailsArrow", new ImageIcon(imageDirectory + "detailsArrow.png"));
     }
     
+    // Resize an icon based on a given height and width
     public static javax.swing.ImageIcon resizeIcon(String iconName, int x, int y) {
         return new ImageIcon(images.get(iconName).getImage()
                 .getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH));
