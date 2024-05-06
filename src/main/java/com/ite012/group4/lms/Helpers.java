@@ -129,30 +129,35 @@ public class Helpers {
         
         String adminDataDirectory = System.getProperty("user.dir") + "/src/main/user_data/admin/";
         File dir = new File(adminDataDirectory);
-        
         File[] directoryListing = dir.listFiles();
+        
+        for (File f : directoryListing) {
+            System.out.println(f.getAbsoluteFile());
+        }
+        
         if (directoryListing != null) {
-            for (File dataFile : directoryListing) {
-                buffer = "";
-                try {
-                    java.io.BufferedReader f = new java.io.BufferedReader(new 
-                        java.io.FileReader(dataFile));
-                    String line = f.readLine();
-                    
-                    while (line != null) {
-                        buffer += line;
-                        buffer += "\n";
-                        line = f.readLine();
-                    }    
-                }
-                catch (java.io.FileNotFoundException e) {
-                    continue;
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
+            for (File subDirectory : directoryListing) {
+                for (File dataFile : subDirectory.listFiles()) {
+                    buffer = "";
+                    try {
+                        java.io.BufferedReader f = new java.io.BufferedReader(new 
+                            java.io.FileReader(dataFile));
+                        String line = f.readLine();
 
-                adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
+                        while (line != null) {
+                            buffer += line;
+                            buffer += "\n";
+                            line = f.readLine();
+                        }
+                    }
+                    catch (java.io.FileNotFoundException e) {
+                        continue;
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
+                }
             }
         }
     }
@@ -163,29 +168,31 @@ public class Helpers {
         
         String clientDataDirectory = System.getProperty("user.dir") + "/src/main/user_data/client/";
         File dir = new File(clientDataDirectory);
-        
         File[] directoryListing = dir.listFiles();
+        
         if (directoryListing != null) {
-            for (File dataFile : directoryListing) {
-                buffer = "";
-                try {
-                    java.io.BufferedReader f = new java.io.BufferedReader(new 
-                        java.io.FileReader(dataFile));
-                    String line = f.readLine();
-                    
-                    while (line != null) {
-                        buffer += line;
-                        buffer += "\n";
-                        line = f.readLine();
+            for (File subDirectory : directoryListing) {
+                for (File dataFile : subDirectory.listFiles()) {
+                    buffer = "";
+                    try {
+                        java.io.BufferedReader f = new java.io.BufferedReader(new 
+                            java.io.FileReader(dataFile));
+                        String line = f.readLine();
+
+                        while (line != null) {
+                            buffer += line;
+                            buffer += "\n";
+                            line = f.readLine();
+                        }
                     }
+                    catch (java.io.FileNotFoundException e) {
+                        continue;
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
                 }
-				catch (java.io.FileNotFoundException e) {
-                    continue;
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-                clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
             }
         }
     }

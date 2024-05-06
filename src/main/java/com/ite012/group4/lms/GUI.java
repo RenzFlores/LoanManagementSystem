@@ -925,7 +925,10 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        logoutButton.setBackground(new java.awt.Color(51, 51, 255));
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("jButton1");
+        logoutButton.setPreferredSize(new java.awt.Dimension(100, 50));
         logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 logoutButtonMousePressed(evt);
