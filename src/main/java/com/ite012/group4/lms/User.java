@@ -2,6 +2,7 @@ package com.ite012.group4.lms;
 
 import java.util.HashMap;
 import java.io.FileWriter;
+import java.io.File;
 
 public abstract class User {
     
@@ -47,7 +48,8 @@ class Admin extends User {
         
         // Write formatted string data to corresponding User data file
         try {
-            FileWriter f = new FileWriter("./src/main/user_data/admin/" + username + ".txt");
+            FileWriter f = new FileWriter(String.format(
+                    "./src/main/user_data/admin/%s/%s.txt", username, username));
             f.write(buf);
             f.close();
         }
@@ -57,6 +59,7 @@ class Admin extends User {
     }
     
     public Admin(HashMap<String, String> data) {
+        new File(String.format("./src/main/user_data/admin/%s", username)).mkdirs();
         username = data.get("username");
         password = data.get("password");
         firstName = data.get("first name");
@@ -81,10 +84,12 @@ class Client extends User {
     
     int accountType = User.CLIENT;
 
+    /*
     String unitAddress = "";
     String streetAddress = "";
     String cityAddress = "";
     String postalCode = "";
+    */
     
     // Write user data to a txt file
     public void saveUserData() {
@@ -100,16 +105,20 @@ class Client extends User {
         data.put("name", name);
         data.put("email", email);
         data.put("contact number", contactNumber);
+        
+        /*
         data.put("unit address", unitAddress);
         data.put("street address", streetAddress);
         data.put("city address", cityAddress);
         data.put("postal code", postalCode);
+        */
         
         String buf = Helpers.formatHashMapToString(data);
         
         // Write formatted string data to corresponding User data file
         try {
-            FileWriter f = new FileWriter("./src/main/user_data/client/" + username + ".txt");
+            FileWriter f = new FileWriter(String.format(
+                    "./src/main/user_data/client/%s/%s.txt", username, username));
             f.write(buf);
             f.close();
         }
@@ -120,6 +129,8 @@ class Client extends User {
     
     // Constructor
     public Client(HashMap<String, String> data) {
+        new File(String.format("./src/main/user_data/client/%s", username)).mkdirs();
+        new File(String.format("./src/main/user_data/client/%s/loan", username)).mkdirs();
         username = data.get("username");
         password = data.get("password");
         firstName = data.get("first name");
@@ -128,10 +139,12 @@ class Client extends User {
         name = data.get("name");
         email = data.get("email");
         contactNumber = data.get("contact number");
+        /*
         unitAddress = data.get("unit address");
         streetAddress = data.get("street address");
         cityAddress = data.get("city address");
         postalCode = data.get("postal code");
+        */
         accountNumber = Helpers.generateID(6);
     }
     

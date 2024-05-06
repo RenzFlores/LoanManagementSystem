@@ -31,8 +31,8 @@ public class GUI extends javax.swing.JFrame {
         reportPageToggleButton.setIcon(Helpers.resizeIcon("reportIcon", 15, 15));
         aboutPageToggleButton.setIcon(Helpers.resizeIcon("aboutIcon", 15, 15));
 
-        backgroundPanel = new JPanelBackground(Helpers.imageDirectory + "background.jpg");
-        backgroundPanel.setBackground(new java.awt.Color(204, 204, 204));
+        // backgroundPanel = new JPanelBackground(Helpers.imageDirectory + "background.jpg");
+        backgroundPanel = new JPanelBackground(new java.awt.Color(204, 204, 204));
         backgroundPanel.setPreferredSize(new java.awt.Dimension(960, 490));
         backgroundPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 0, 0));
         
@@ -42,10 +42,12 @@ public class GUI extends javax.swing.JFrame {
         Helpers.loadAllAdmins(admins);
         Helpers.loadAllClients(clients);
         
-        jFrame1.pack();
-        jFrame1.setVisible(true);
+        reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
+        reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
+        reportListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "1000", Helpers.generateID(12)));
         
-        backgroundPanel.add(loginPagePanel);
+        backgroundPanel.add(menuBarPanel);
+        backgroundPanel.add(searchPagePanel);
         windowPanel.add(backgroundPanel);
     }
 
@@ -73,7 +75,14 @@ public class GUI extends javax.swing.JFrame {
         applicationAdminPagePanel = new javax.swing.JPanel();
         repaymentPagePanel = new javax.swing.JPanel();
         reportPagePanel = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        reportPagePadding = new javax.swing.JPanel();
+        reportTooltipLabel = new javax.swing.JLabel();
+        filler10 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 1), new java.awt.Dimension(660, 1), new java.awt.Dimension(300, 1));
+        reportSearchField = new javax.swing.JTextField();
+        reportSearchSubmitButton = new javax.swing.JButton();
+        reportTableHeadersLabel = new javax.swing.JLabel();
+        reportListScrollPane = new javax.swing.JScrollPane();
+        reportListPanel = new javax.swing.JPanel();
         menuButtonGroup = new javax.swing.ButtonGroup();
         jFrame1 = new javax.swing.JFrame();
         applicationContentPanel = new javax.swing.JPanel();
@@ -117,6 +126,8 @@ public class GUI extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         searchPagePanel = new javax.swing.JPanel();
         searchPagePadding = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        filler11 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 1), new java.awt.Dimension(500, 1), new java.awt.Dimension(300, 1));
         searchField = new javax.swing.JTextField();
         searchSubmitButton = new javax.swing.JButton();
         searchResultsLabel = new javax.swing.JLabel();
@@ -336,27 +347,60 @@ public class GUI extends javax.swing.JFrame {
         reportPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         reportPagePanel.setOpaque(false);
         reportPagePanel.setPreferredSize(new java.awt.Dimension(960, 490));
+        reportPagePanel.setLayout(new java.awt.CardLayout(10, 10));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel20.setText("Report Window");
+        reportPagePadding.setBackground(new java.awt.Color(204, 204, 204));
 
-        javax.swing.GroupLayout reportPagePanelLayout = new javax.swing.GroupLayout(reportPagePanel);
-        reportPagePanel.setLayout(reportPagePanelLayout);
-        reportPagePanelLayout.setHorizontalGroup(
-            reportPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportPagePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        reportPagePanelLayout.setVerticalGroup(
-            reportPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportPagePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20)
-                .addContainerGap(452, Short.MAX_VALUE))
-        );
+        reportTooltipLabel.setForeground(new java.awt.Color(51, 51, 51));
+        reportTooltipLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        reportTooltipLabel.setText("Enter application number");
+        reportTooltipLabel.setPreferredSize(new java.awt.Dimension(200, 16));
+        reportPagePadding.add(reportTooltipLabel);
+        reportPagePadding.add(filler10);
+
+        reportSearchField.setBackground(new java.awt.Color(255, 255, 255));
+        reportSearchField.setForeground(new java.awt.Color(51, 51, 51));
+        reportSearchField.setPreferredSize(new java.awt.Dimension(600, 50));
+        reportSearchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportSearchFieldActionPerformed(evt);
+            }
+        });
+        reportPagePadding.add(reportSearchField);
+
+        reportSearchSubmitButton.setBackground(new java.awt.Color(153, 153, 153));
+        reportSearchSubmitButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reportSearchSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+        reportSearchSubmitButton.setText("Search");
+        reportSearchSubmitButton.setBorder(null);
+        reportSearchSubmitButton.setIconTextGap(10);
+        reportSearchSubmitButton.setPreferredSize(new java.awt.Dimension(100, 50));
+        reportSearchSubmitButton.setSelected(true);
+        reportSearchSubmitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                reportSearchSubmitButtonMousePressed(evt);
+            }
+        });
+        reportPagePadding.add(reportSearchSubmitButton);
+
+        reportTableHeadersLabel.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        reportTableHeadersLabel.setForeground(new java.awt.Color(51, 51, 51));
+        reportTableHeadersLabel.setText("Date and Time                                  Amount                                         Reference ID");
+        reportTableHeadersLabel.setPreferredSize(new java.awt.Dimension(720, 24));
+        reportPagePadding.add(reportTableHeadersLabel);
+
+        reportListScrollPane.setOpaque(false);
+        reportListScrollPane.setPreferredSize(new java.awt.Dimension(720, 300));
+
+        reportListPanel.setBackground(new java.awt.Color(204, 204, 204));
+        reportListPanel.setMinimumSize(new java.awt.Dimension(920, 46));
+        reportListPanel.setPreferredSize(new java.awt.Dimension(700, 400));
+        reportListPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 10, 10));
+        reportListScrollPane.setViewportView(reportListPanel);
+
+        reportPagePadding.add(reportListScrollPane);
+
+        reportPagePanel.add(reportPagePadding, "card4");
 
         jFrame1.setPreferredSize(new java.awt.Dimension(640, 480));
 
@@ -722,7 +766,13 @@ public class GUI extends javax.swing.JFrame {
         searchPagePanel.setLayout(new java.awt.CardLayout(10, 10));
 
         searchPagePadding.setBackground(new java.awt.Color(204, 204, 204));
-        searchPagePadding.setOpaque(false);
+
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Enter client username, name, or account number");
+        jLabel3.setPreferredSize(new java.awt.Dimension(260, 16));
+        searchPagePadding.add(jLabel3);
+        searchPagePadding.add(filler11);
 
         searchField.setBackground(new java.awt.Color(255, 255, 255));
         searchField.setForeground(new java.awt.Color(51, 51, 51));
@@ -756,7 +806,7 @@ public class GUI extends javax.swing.JFrame {
         searchPagePadding.add(searchResultsLabel);
 
         searchResultsScrollPane.setOpaque(false);
-        searchResultsScrollPane.setPreferredSize(new java.awt.Dimension(920, 360));
+        searchResultsScrollPane.setPreferredSize(new java.awt.Dimension(920, 330));
 
         searchResultsPanel.setBackground(new java.awt.Color(204, 204, 204));
         searchResultsPanel.setMinimumSize(new java.awt.Dimension(920, 46));
@@ -1550,6 +1600,14 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_viewDocumentButtonMousePressed
 
+    private void reportSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportSearchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reportSearchFieldActionPerformed
+
+    private void reportSearchSubmitButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportSearchSubmitButtonMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reportSearchSubmitButtonMousePressed
+
     // This function is called to instantiate the menu whether on admin or client
     // mode when login is successful
     private void initMenu() {
@@ -1659,6 +1717,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField emailField;
     private javax.swing.JPanel employmentDetailsPanel;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler10;
+    private javax.swing.Box.Filler filler11;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
@@ -1673,12 +1733,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -1746,8 +1806,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton releasePageToggleButton;
     private javax.swing.JPanel repaymentPagePanel;
     private javax.swing.JToggleButton repaymentPageToggleButton;
+    private javax.swing.JPanel reportListPanel;
+    private javax.swing.JScrollPane reportListScrollPane;
+    private javax.swing.JPanel reportPagePadding;
     private javax.swing.JPanel reportPagePanel;
     private javax.swing.JToggleButton reportPageToggleButton;
+    private javax.swing.JTextField reportSearchField;
+    private javax.swing.JButton reportSearchSubmitButton;
+    private javax.swing.JLabel reportTableHeadersLabel;
+    private javax.swing.JLabel reportTooltipLabel;
     private javax.swing.JTextField searchField;
     private javax.swing.JPanel searchPagePadding;
     private javax.swing.JPanel searchPagePanel;
@@ -1780,6 +1847,10 @@ class JPanelBackground extends javax.swing.JPanel {
         catch (java.io.IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public JPanelBackground(java.awt.Color c) {
+        setBackground(c);
     }
 
     @Override
@@ -1861,7 +1932,6 @@ class SearchResultEntry extends javax.swing.JPanel {
         btn.setBorder(null);
         btn.setOpaque(false);
         btn.setIcon(Helpers.resizeIcon("detailsArrow", 40, 40));
-        btn.setText("Choose file");
         btn.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -1976,15 +2046,11 @@ class TransactionEntryPanel extends javax.swing.JPanel {
     javax.swing.JLabel statusLabel = new javax.swing.JLabel();
 
     public TransactionEntryPanel(String dateTime, String amount,
-        String refID, String status) {
+        String refID) {
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(900, 60));
+        setPreferredSize(new java.awt.Dimension(680, 60));
         setLayout(new java.awt.CardLayout(5, 5));
-        
-        panelContent.setBackground(new java.awt.Color(255, 255, 255));
-        panelContent.setPreferredSize(new java.awt.Dimension(900, 60));
-        panelContent.setLayout(new java.awt.CardLayout(5, 5));
 
         panelContent.setBackground(new java.awt.Color(255, 255, 255));
         panelContent.setPreferredSize(new java.awt.Dimension(450, 60));
@@ -2008,19 +2074,6 @@ class TransactionEntryPanel extends javax.swing.JPanel {
         refIDLabel.setText(refID);
         refIDLabel.setPreferredSize(new java.awt.Dimension(210, 16));
         panelContent.add(refIDLabel);
-        
-        insertSeparator();
-
-        statusLabel.setBackground(new java.awt.Color(0, 255, 0));
-        statusLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        statusLabel.setForeground(new java.awt.Color(255, 255, 255));
-        statusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        statusLabel.setText(status);
-        statusLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 2, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true)));
-        statusLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        statusLabel.setOpaque(true);
-        statusLabel.setPreferredSize(new java.awt.Dimension(70, 24));
-        panelContent.add(statusLabel);
 
         add(panelContent, "card2");
     }
