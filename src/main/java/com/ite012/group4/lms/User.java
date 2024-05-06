@@ -113,6 +113,8 @@ class Client extends User {
         data.put("postal code", postalCode);
         */
         
+        // Convert HashMap data into String by storing everything in a
+        // String buffer
         String buf = Helpers.formatHashMapToString(data);
         
         // Write formatted string data to corresponding User data file
@@ -131,6 +133,7 @@ class Client extends User {
     public Client(HashMap<String, String> data) {
         new File(String.format("./src/main/user_data/client/%s", username)).mkdirs();
         new File(String.format("./src/main/user_data/client/%s/loan", username)).mkdirs();
+        
         username = data.get("username");
         password = data.get("password");
         firstName = data.get("first name");
