@@ -137,12 +137,14 @@ public class Helpers {
                         line = f.readLine();
                     }                    
                 }
+                catch (java.io.FileNotFoundException e) {
+                    continue;
+                }
                 catch (IOException e) {
                     e.printStackTrace();
                 }
-                finally {
-                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
-                }
+
+                adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
             }
         }
     }
@@ -169,12 +171,13 @@ public class Helpers {
                         line = f.readLine();
                     }
                 }
+                catch (java.io.FileNotFoundException e) {
+                    continue;
+                }
                 catch (IOException e) {
                     e.printStackTrace();
                 }
-                finally {
-                    clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
-                }
+                clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
             }
         }
     }

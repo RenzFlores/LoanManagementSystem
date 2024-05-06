@@ -1,6 +1,7 @@
 package com.ite012.group4.lms;
 
 import java.util.HashMap;
+import java.io.File;
 import java.io.FileWriter;
 
 public abstract class User {
@@ -47,7 +48,8 @@ class Admin extends User {
         
         // Write formatted string data to corresponding User data file
         try {
-            FileWriter f = new FileWriter("./src/main/user_data/admin/" + username + ".txt");
+            FileWriter f = new FileWriter(String.format(
+                    "./src/main/user_data/admin/%s/%s.txt", username, username));
             f.write(buf);
             f.close();
         }
@@ -109,7 +111,8 @@ class Client extends User {
         
         // Write formatted string data to corresponding User data file
         try {
-            FileWriter f = new FileWriter("./src/main/user_data/client/" + username + ".txt");
+            FileWriter f = new FileWriter(String.format(
+                    "./src/main/user_data/Client/%s/%s.txt", username, username));
             f.write(buf);
             f.close();
         }
@@ -133,6 +136,8 @@ class Client extends User {
         cityAddress = data.get("city address");
         postalCode = data.get("postal code");
         accountNumber = Helpers.generateID(6);
+        
+        new File(username).mkdirs();
     }
     
     public String getAccountTypeInWords() {
