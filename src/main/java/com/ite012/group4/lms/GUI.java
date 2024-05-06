@@ -15,13 +15,12 @@ public class GUI extends javax.swing.JFrame {
     private int userMode = User.ADMIN;
     private javax.swing.JPanel activePage = new javax.swing.JPanel();
     
-    
     public GUI() {
         initComponents();       
 
         Helpers.loadIcons();
         
-        loginGraphicLabel.setIcon(Helpers.resizeIcon("loginGraphicsIcon", 330, 330));
+        loginGraphicLabel.setIcon(Helpers.resizeIcon("loginGraphicsIcon", 400, 400));
         applicationPageToggleButton.setIcon(Helpers.resizeIcon("applicationIcon", 15, 15));
         statusPageToggleButton.setIcon(Helpers.resizeIcon("statusIcon", 15, 15));  
         paymentPageToggleButton.setIcon(Helpers.resizeIcon("paymentIcon", 15, 15));       
@@ -31,11 +30,18 @@ public class GUI extends javax.swing.JFrame {
         reportPageToggleButton.setIcon(Helpers.resizeIcon("reportIcon", 15, 15));
         aboutPageToggleButton.setIcon(Helpers.resizeIcon("aboutIcon", 15, 15));
 
+        backgroundPanel = new JPanelBackground(Helpers.imageDirectory + "background.jpg");
+        backgroundPanel.setPreferredSize(new java.awt.Dimension(960, 540));
+        backgroundPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 0, 0));
+
         ImageFileChooser imageChooser1 = new ImageFileChooser();
         formPanel.add(imageChooser1);
         
         Helpers.loadAllAdmins(admins);
         Helpers.loadAllClients(clients);
+
+        backgroundPanel.add(loginPagePanel);
+        windowPanel.add(backgroundPanel);
     }
 
     /**
@@ -53,7 +59,6 @@ public class GUI extends javax.swing.JFrame {
         repaymentPagePanel = new javax.swing.JPanel();
         reportPagePanel = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        backgroundPanel = new javax.swing.JPanel();
         menuButtonGroup = new javax.swing.ButtonGroup();
         regUserTypeContentPanel = new javax.swing.JPanel();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(1, 50), new java.awt.Dimension(200, 120), new java.awt.Dimension(1, 50));
@@ -230,12 +235,6 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel20)
                 .addContainerGap(452, Short.MAX_VALUE))
         );
-
-        backgroundPanel.setBackground(new java.awt.Color(204, 204, 204));
-        backgroundPanel.setPreferredSize(new java.awt.Dimension(960, 490));
-        java.awt.FlowLayout flowLayout2 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0);
-        flowLayout2.setAlignOnBaseline(true);
-        backgroundPanel.setLayout(flowLayout2);
 
         regUserTypeContentPanel.setBackground(new java.awt.Color(204, 204, 255));
         regUserTypeContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
@@ -958,6 +957,7 @@ public class GUI extends javax.swing.JFrame {
 
         loginPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         loginPagePanel.setMinimumSize(new java.awt.Dimension(960, 540));
+        loginPagePanel.setOpaque(false);
         loginPagePanel.setPreferredSize(new java.awt.Dimension(960, 540));
         loginPagePanel.setLayout(new java.awt.CardLayout(100, 60));
 
@@ -1081,35 +1081,27 @@ public class GUI extends javax.swing.JFrame {
         
         String usernameInput = usernameField.getText();
         String passwordInput = new String(passwordField.getPassword());
-        boolean isUserFound = false;
+        
+        Helpers.clearAllFields(loginContentPanel);
                 
         for (Admin user : admins) {
-            if (user.username.equals(usernameInput)) {
-                isUserFound = true;
-                if (user.password.equals(passwordInput)) {
-                    currentAdmin = user;
-                    initMenu();
-                    return;
-                }
+            if (user.username.equals(usernameInput) && user.password.equals(passwordInput)) {
+                currentAdmin = user;
+                initMenu();
+                return;
             }
         }
         
         for (Client user : clients) {
-            if (user.username.equals(usernameInput)) {
-                isUserFound = true;
-                if (user.password.equals(passwordInput)) {
-                    currentClient = user;
-                    userMode = User.CLIENT;
-                    initMenu();
-                    return;
-                }
+            if (user.username.equals(usernameInput) && user.password.equals(passwordInput)) {
+                currentClient = user;
+                userMode = User.CLIENT;
+                initMenu();
+                return;
             }
         }
         
-        if (!isUserFound) {
-            usernameFieldErrorLabel.setText("Username not found");
-        }
-        
+        usernameFieldErrorLabel.setText("Username not found");
         passwordFieldErrorLabel.setText("Invalid password");
        
     }//GEN-LAST:event_loginButtonMousePressed
@@ -1118,6 +1110,7 @@ public class GUI extends javax.swing.JFrame {
         
         loginPaddingPanel.remove(loginContentPanel);
         loginPaddingPanel.add(regUserTypeContentPanel);        
+        loginPaddingPanel.setDividerLocation(450);
         
         revalidate();
         repaint();
@@ -1161,8 +1154,6 @@ public class GUI extends javax.swing.JFrame {
         data.put("password", pass1);
         data.put("name", String.format("%s %s %s", data.get("first name"),
                 data.get("middle name"), data.get("last name")));
-        
-        System.out.println(data.get("name"));
             
         javax.swing.JLabel msg = new javax.swing.JLabel(String.format(
             """
@@ -1200,8 +1191,10 @@ public class GUI extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Account successfully created");
             
+            Helpers.clearAllFields(registerContentPanel);
             loginPaddingPanel.remove(registerContentPanel);
             loginPaddingPanel.add(loginContentPanel);
+            loginPaddingPanel.setDividerLocation(450);
             
             revalidate();
             repaint();            
@@ -1268,7 +1261,8 @@ public class GUI extends javax.swing.JFrame {
         userMode = User.CLIENT;
         
         loginPaddingPanel.remove(regUserTypeContentPanel);
-        loginPaddingPanel.add(registerContentPanel);        
+        loginPaddingPanel.add(registerContentPanel);
+        loginPaddingPanel.setDividerLocation(450);
         
         revalidate();
         repaint();
@@ -1279,6 +1273,7 @@ public class GUI extends javax.swing.JFrame {
         
         loginPaddingPanel.remove(regUserTypeContentPanel);
         loginPaddingPanel.add(registerContentPanel);
+        loginPaddingPanel.setDividerLocation(450);
         
         revalidate();
         repaint();
@@ -1295,6 +1290,9 @@ public class GUI extends javax.swing.JFrame {
     private void backToLoginButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToLoginButtonMousePressed
         loginPaddingPanel.remove(registerContentPanel);
         loginPaddingPanel.add(loginContentPanel);
+        loginPaddingPanel.setDividerLocation(450);
+        
+        Helpers.clearAllFields(registerContentPanel);
         
         revalidate();
         repaint();
@@ -1450,7 +1448,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel applyForALoanLabel;
     private javax.swing.JLabel applyForALoanLabel1;
     private javax.swing.JButton backToLoginButton;
-    private javax.swing.JPanel backgroundPanel;
     private javax.swing.JLabel companyNameLabel;
     private javax.swing.JPasswordField confirmPassField;
     private javax.swing.JLabel confirmPassFieldErrorLabel;
@@ -1551,6 +1548,34 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel usernameFieldErrorLabel;
     private javax.swing.JPanel windowPanel;
     // End of variables declaration//GEN-END:variables
+
+    private JPanelBackground backgroundPanel;
+}
+
+class JPanelBackground extends javax.swing.JPanel {
+
+    private java.awt.Image backgroundImage;
+
+    public JPanelBackground(String filename) {
+        try {
+            backgroundImage = javax.imageio.ImageIO.read(new java.io.File(filename));
+        }
+        catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public JPanelBackground(java.awt.Color c) {
+        setBackground(c);
+    }
+
+    @Override
+    public void paintComponent(java.awt.Graphics g) {
+    super.paintComponent(g);
+
+    // Draw the background image.
+    g.drawImage(backgroundImage, 0, 0, this);
+    }
 }
 
 class SearchResultEntry extends javax.swing.JPanel {
