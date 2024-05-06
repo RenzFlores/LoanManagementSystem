@@ -68,6 +68,8 @@ class Admin extends User {
         email = data.get("email");
         contactNumber = data.get("contactNumber");
         accountNumber = Helpers.generateID(6);
+		
+		new File(String.format("./src/main/user_data/admin/%s", username)).mkdirs();
     }
     
     public String getAccountTypeInWords() {
@@ -123,11 +125,6 @@ class Client extends User {
     
     // Constructor
     public Client(HashMap<String, String> data) {
-<<<<<<< HEAD
-=======
-        new File(String.format("./src/main/user_data/client/%s", username)).mkdirs();
-        new File(String.format("./src/main/user_data/client/%s/loan", username)).mkdirs();
->>>>>>> parent of 29e4240 (update)
         username = data.get("username");
         password = data.get("password");
         firstName = data.get("first name");
@@ -142,7 +139,8 @@ class Client extends User {
         postalCode = data.get("postal code");
         accountNumber = Helpers.generateID(6);
         
-        new File(username).mkdirs();
+        new File(String.format("./src/main/user_data/client/%s", username)).mkdirs();
+        new File(String.format("./src/main/user_data/client/%s/loan", username)).mkdirs();
     }
     
     public String getAccountTypeInWords() {

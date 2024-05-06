@@ -136,16 +136,6 @@ public class Helpers {
                         buffer += "\n";
                         line = f.readLine();
                     }                    
-<<<<<<< HEAD
-=======
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-                finally {
-                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
->>>>>>> parent of 29e4240 (update)
-                }
                 catch (java.io.FileNotFoundException e) {
                     continue;
                 }
@@ -180,22 +170,13 @@ public class Helpers {
                         line = f.readLine();
                     }
                 }
-<<<<<<< HEAD
-                catch (java.io.FileNotFoundException e) {
+				catch (java.io.FileNotFoundException e) {
                     continue;
                 }
                 catch (IOException e) {
                     e.printStackTrace();
                 }
                 clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
-=======
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-                finally {
-                    clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
-                }
->>>>>>> parent of 29e4240 (update)
             }
         }
     }
