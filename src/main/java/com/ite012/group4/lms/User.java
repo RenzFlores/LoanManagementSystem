@@ -1,8 +1,8 @@
 package com.ite012.group4.lms;
 
 import java.util.HashMap;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
+import java.util.ArrayList;
 
 public abstract class User {
     
@@ -150,15 +150,50 @@ class Client extends User {
     public String getFormattedPassword() {
         return password.replaceAll(".", "*");
     }
- 
-}
 
-/*
- * DEV NOTE: 
- * - Two types of user: Client and admin
- * - Both have similar and unique attributes
- * - Due to this, both have different constructors
- * - And overrides the save/load functions
- * - 
- *
-*/
+    public ArrayList<String> loadTransactions() {
+        ArrayList<String> data = new ArrayList<>();
+        String line = new String();
+        
+        try {
+            FileReader f = new FileReader(String.format(
+                "./src/main/user_data/client/%s/transactions.txt", username));
+            BufferedReader reader = new BufferedReader(f);
+            
+            while ((line=reader.readLine()) != null) {
+                data.add(line);
+            } 
+        }
+        catch (java.io.FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+        
+        return data;
+    }
+    
+    public ArrayList<String> loadApplications() {
+        ArrayList<String> data = new ArrayList<>();
+        String line = new String();
+        
+        try {
+            FileReader f = new FileReader(String.format(
+                "./src/main/user_data/client/%s/applications.txt", username));
+            BufferedReader reader = new BufferedReader(f);
+            
+            while ((line=reader.readLine()) != null) {
+                data.add(line);
+            } 
+        }
+        catch (java.io.FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+        
+        return data;
+    }
+}
