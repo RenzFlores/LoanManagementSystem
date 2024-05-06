@@ -82,6 +82,14 @@ public class Helpers {
         return emptyFieldExists;        
     }
     
+    public static void clearAllFields(javax.swing.JPanel p) {
+        for (java.awt.Component c : p.getComponents()) {
+            if (c instanceof JTextField jTextField) {
+                jTextField.setText("");
+            }
+        }
+    }
+    
     // Returns a formatted string that contains the current date and time.
     public static String getDateTime() {
         
@@ -135,7 +143,8 @@ public class Helpers {
                         buffer += line;
                         buffer += "\n";
                         line = f.readLine();
-                    }                    
+                    }    
+                }
                 catch (java.io.FileNotFoundException e) {
                     continue;
                 }

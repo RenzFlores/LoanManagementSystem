@@ -60,7 +60,14 @@ public class GUI extends javax.swing.JFrame {
         statusPagePanel = new javax.swing.JPanel();
         repaymentPagePanel = new javax.swing.JPanel();
         reportPagePanel = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        searchPagePadding1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        filler12 = new javax.swing.Box.Filler(new java.awt.Dimension(800, 5), new java.awt.Dimension(470, 5), new java.awt.Dimension(800, 5));
+        searchField1 = new javax.swing.JTextField();
+        searchSubmitButton1 = new javax.swing.JButton();
+        searchResultsLabel1 = new javax.swing.JLabel();
+        searchResultsScrollPane1 = new javax.swing.JScrollPane();
+        reportListPanel = new javax.swing.JPanel();
         backgroundPanel = new javax.swing.JPanel();
         menuButtonGroup = new javax.swing.ButtonGroup();
         regUserTypeContentPanel = new javax.swing.JPanel();
@@ -96,12 +103,12 @@ public class GUI extends javax.swing.JFrame {
         registerSubmitButton = new javax.swing.JButton();
         applicationClientPagePanel = new javax.swing.JPanel();
         applicationClientPaddingPanel = new javax.swing.JPanel();
-        applicationContentPanel1 = new javax.swing.JPanel();
-        applyForALoanLabel1 = new javax.swing.JLabel();
+        applicationContentPanel = new javax.swing.JPanel();
+        applyForALoanLabel = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        submitApplicationButton1 = new javax.swing.JButton();
+        submitApplicationButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        formPanel1 = new javax.swing.JPanel();
+        formPanel = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -111,21 +118,22 @@ public class GUI extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         applicationAdminPagePanel = new javax.swing.JPanel();
-        applicationAdminPaddingPanel = new javax.swing.JPanel();
-        applicationContentPanel = new javax.swing.JPanel();
-        applyForALoanLabel = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        submitApplicationButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        formPanel = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        applicationAdminPaddingPanel = new javax.swing.JSplitPane();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        applicationListPanel = new javax.swing.JPanel();
+        applicationEntryPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        filler11 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 5), new java.awt.Dimension(230, 5), new java.awt.Dimension(300, 5));
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        applicationApprovalPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
         searchPagePanel = new javax.swing.JPanel();
         searchPagePadding = new javax.swing.JPanel();
         searchField = new javax.swing.JTextField();
@@ -148,7 +156,6 @@ public class GUI extends javax.swing.JFrame {
         logoutButton = new javax.swing.JButton();
         statusPageToggleButton = new javax.swing.JToggleButton();
         aboutPageToggleButton = new javax.swing.JToggleButton();
-        windowPanel = new javax.swing.JPanel();
         loginPagePanel = new javax.swing.JPanel();
         loginPaddingPanel = new javax.swing.JSplitPane();
         loginGraphicsPanel = new javax.swing.JPanel();
@@ -167,6 +174,7 @@ public class GUI extends javax.swing.JFrame {
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 0), new java.awt.Dimension(300, 12), new java.awt.Dimension(200, 0));
         loginButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
+        windowPanel = new javax.swing.JPanel();
 
         paymentPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         paymentPagePanel.setPreferredSize(new java.awt.Dimension(960, 490));
@@ -217,27 +225,59 @@ public class GUI extends javax.swing.JFrame {
 
         reportPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         reportPagePanel.setPreferredSize(new java.awt.Dimension(960, 490));
+        reportPagePanel.setLayout(new java.awt.BorderLayout());
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel20.setText("Report Window");
+        searchPagePadding1.setBackground(new java.awt.Color(204, 204, 204));
+        searchPagePadding1.setOpaque(false);
 
-        javax.swing.GroupLayout reportPagePanelLayout = new javax.swing.GroupLayout(reportPagePanel);
-        reportPagePanel.setLayout(reportPagePanelLayout);
-        reportPagePanelLayout.setHorizontalGroup(
-            reportPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportPagePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        reportPagePanelLayout.setVerticalGroup(
-            reportPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportPagePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20)
-                .addContainerGap(452, Short.MAX_VALUE))
-        );
+        jLabel6.setText("Enter application number");
+        searchPagePadding1.add(jLabel6);
+        searchPagePadding1.add(filler12);
+
+        searchField1.setBackground(new java.awt.Color(255, 255, 255));
+        searchField1.setForeground(new java.awt.Color(51, 51, 51));
+        searchField1.setPreferredSize(new java.awt.Dimension(500, 50));
+        searchField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchField1ActionPerformed(evt);
+            }
+        });
+        searchPagePadding1.add(searchField1);
+
+        searchSubmitButton1.setBackground(new java.awt.Color(153, 153, 153));
+        searchSubmitButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchSubmitButton1.setForeground(new java.awt.Color(255, 255, 255));
+        searchSubmitButton1.setText("Search");
+        searchSubmitButton1.setBorder(null);
+        searchSubmitButton1.setIconTextGap(10);
+        searchSubmitButton1.setPreferredSize(new java.awt.Dimension(100, 50));
+        searchSubmitButton1.setSelected(true);
+        searchSubmitButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                searchSubmitButton1MousePressed(evt);
+            }
+        });
+        searchPagePadding1.add(searchSubmitButton1);
+
+        searchResultsLabel1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        searchResultsLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        searchResultsLabel1.setText("Date and Time                    Amount                       Reference ID");
+        searchResultsLabel1.setPreferredSize(new java.awt.Dimension(600, 24));
+        searchResultsLabel1.setRequestFocusEnabled(false);
+        searchPagePadding1.add(searchResultsLabel1);
+
+        searchResultsScrollPane1.setOpaque(false);
+        searchResultsScrollPane1.setPreferredSize(new java.awt.Dimension(620, 360));
+
+        reportListPanel.setBackground(new java.awt.Color(204, 204, 204));
+        reportListPanel.setMinimumSize(new java.awt.Dimension(920, 46));
+        reportListPanel.setPreferredSize(new java.awt.Dimension(580, 400));
+        reportListPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 10, 10));
+        searchResultsScrollPane1.setViewportView(reportListPanel);
+
+        searchPagePadding1.add(searchResultsScrollPane1);
+
+        reportPagePanel.add(searchPagePadding1, java.awt.BorderLayout.CENTER);
 
         backgroundPanel.setBackground(new java.awt.Color(204, 204, 204));
         backgroundPanel.setPreferredSize(new java.awt.Dimension(960, 490));
@@ -440,28 +480,28 @@ public class GUI extends javax.swing.JFrame {
         applicationClientPaddingPanel.setPreferredSize(new java.awt.Dimension(924, 450));
         applicationClientPaddingPanel.setLayout(new java.awt.CardLayout(10, 10));
 
-        applicationContentPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        applicationContentPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        applyForALoanLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        applyForALoanLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        applyForALoanLabel1.setText("Apply for a loan");
+        applyForALoanLabel.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        applyForALoanLabel.setForeground(new java.awt.Color(51, 51, 51));
+        applyForALoanLabel.setText("Apply for a loan");
 
         jSeparator7.setPreferredSize(new java.awt.Dimension(900, 3));
 
-        submitApplicationButton1.setBackground(new java.awt.Color(51, 51, 255));
-        submitApplicationButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitApplicationButton1.setForeground(new java.awt.Color(255, 255, 255));
-        submitApplicationButton1.setText("Submit My Application");
-        submitApplicationButton1.setBorder(null);
-        submitApplicationButton1.setPreferredSize(new java.awt.Dimension(200, 20));
+        submitApplicationButton.setBackground(new java.awt.Color(51, 51, 255));
+        submitApplicationButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitApplicationButton.setForeground(new java.awt.Color(255, 255, 255));
+        submitApplicationButton.setText("Submit My Application");
+        submitApplicationButton.setBorder(null);
+        submitApplicationButton.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(850, 308));
 
-        formPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        formPanel1.setPreferredSize(new java.awt.Dimension(850, 306));
+        formPanel.setBackground(new java.awt.Color(255, 255, 255));
+        formPanel.setPreferredSize(new java.awt.Dimension(850, 306));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout1.setAlignOnBaseline(true);
-        formPanel1.setLayout(flowLayout1);
+        formPanel.setLayout(flowLayout1);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -536,45 +576,45 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        formPanel1.add(jPanel7);
+        formPanel.add(jPanel7);
 
-        jScrollPane2.setViewportView(formPanel1);
+        jScrollPane2.setViewportView(formPanel);
 
-        javax.swing.GroupLayout applicationContentPanel1Layout = new javax.swing.GroupLayout(applicationContentPanel1);
-        applicationContentPanel1.setLayout(applicationContentPanel1Layout);
-        applicationContentPanel1Layout.setHorizontalGroup(
-            applicationContentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, applicationContentPanel1Layout.createSequentialGroup()
-                .addGroup(applicationContentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(applicationContentPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout applicationContentPanelLayout = new javax.swing.GroupLayout(applicationContentPanel);
+        applicationContentPanel.setLayout(applicationContentPanelLayout);
+        applicationContentPanelLayout.setHorizontalGroup(
+            applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, applicationContentPanelLayout.createSequentialGroup()
+                .addGroup(applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(applicationContentPanelLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitApplicationButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(submitApplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, applicationContentPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, applicationContentPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(applicationContentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(applicationContentPanel1Layout.createSequentialGroup()
-                                .addComponent(applyForALoanLabel1)
+                            .addGroup(applicationContentPanelLayout.createSequentialGroup()
+                                .addComponent(applyForALoanLabel)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
-        applicationContentPanel1Layout.setVerticalGroup(
-            applicationContentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(applicationContentPanel1Layout.createSequentialGroup()
+        applicationContentPanelLayout.setVerticalGroup(
+            applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(applicationContentPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(applyForALoanLabel1)
+                .addComponent(applyForALoanLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(submitApplicationButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(submitApplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        applicationClientPaddingPanel.add(applicationContentPanel1, "card6");
+        applicationClientPaddingPanel.add(applicationContentPanel, "card6");
 
         javax.swing.GroupLayout applicationClientPagePanelLayout = new javax.swing.GroupLayout(applicationClientPagePanel);
         applicationClientPagePanel.setLayout(applicationClientPagePanelLayout);
@@ -596,161 +636,130 @@ public class GUI extends javax.swing.JFrame {
         applicationAdminPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         applicationAdminPagePanel.setPreferredSize(new java.awt.Dimension(960, 490));
 
-        applicationAdminPaddingPanel.setBackground(new java.awt.Color(255, 255, 255));
-        applicationAdminPaddingPanel.setPreferredSize(new java.awt.Dimension(924, 450));
-        applicationAdminPaddingPanel.setLayout(new java.awt.CardLayout(10, 10));
+        applicationAdminPaddingPanel.setDividerLocation(550);
 
-        applicationContentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        applyForALoanLabel.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        applyForALoanLabel.setForeground(new java.awt.Color(51, 51, 51));
-        applyForALoanLabel.setText("Apply for a loan");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Pending Applications");
 
-        jSeparator5.setPreferredSize(new java.awt.Dimension(900, 3));
+        applicationListPanel.setBackground(new java.awt.Color(204, 204, 204));
+        applicationListPanel.setPreferredSize(new java.awt.Dimension(200, 412));
 
-        submitApplicationButton.setBackground(new java.awt.Color(51, 51, 255));
-        submitApplicationButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        submitApplicationButton.setForeground(new java.awt.Color(255, 255, 255));
-        submitApplicationButton.setText("Submit My Application");
-        submitApplicationButton.setBorder(null);
-        submitApplicationButton.setPreferredSize(new java.awt.Dimension(200, 20));
+        applicationEntryPanel.setBackground(new java.awt.Color(255, 255, 255));
+        applicationEntryPanel.setPreferredSize(new java.awt.Dimension(520, 70));
+        applicationEntryPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING));
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(850, 308));
+        jPanel2.setOpaque(false);
+        jPanel2.setPreferredSize(new java.awt.Dimension(430, 60));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING));
 
-        formPanel.setBackground(new java.awt.Color(255, 255, 255));
-        formPanel.setPreferredSize(new java.awt.Dimension(850, 306));
-        java.awt.FlowLayout flowLayout5 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
-        flowLayout5.setAlignOnBaseline(true);
-        formPanel.setLayout(flowLayout5);
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Application [289863762]");
+        jLabel4.setPreferredSize(new java.awt.Dimension(480, 16));
+        jPanel2.add(jLabel4);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(150, 5));
+        jPanel2.add(jSeparator1);
+        jPanel2.add(filler11);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Name");
+        jLabel5.setPreferredSize(new java.awt.Dimension(200, 16));
+        jPanel2.add(jLabel5);
 
-        jLabel23.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel23.setText("Email address");
+        applicationEntryPanel.add(jPanel2);
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel29.setText("Contact Information");
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator2.setPreferredSize(new java.awt.Dimension(5, 60));
+        applicationEntryPanel.add(jSeparator2);
 
-        jLabel22.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel22.setText("Contact number");
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("View");
+        jButton1.setBorder(null);
+        jButton1.setPreferredSize(new java.awt.Dimension(60, 23));
+        applicationEntryPanel.add(jButton1);
 
-        jTextField8.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField8.setForeground(new java.awt.Color(51, 51, 51));
+        applicationListPanel.add(applicationEntryPanel);
 
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField7.setForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane3.setViewportView(applicationListPanel);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel29)
-                .addGap(6, 6, 6)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
+        applicationAdminPaddingPanel.setLeftComponent(jPanel4);
+
+        applicationApprovalPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Application [289863762]");
+
+        jSeparator4.setPreferredSize(new java.awt.Dimension(40, 10));
+
+        javax.swing.GroupLayout applicationApprovalPanelLayout = new javax.swing.GroupLayout(applicationApprovalPanel);
+        applicationApprovalPanel.setLayout(applicationApprovalPanelLayout);
+        applicationApprovalPanelLayout.setHorizontalGroup(
+            applicationApprovalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(applicationApprovalPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(applicationApprovalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(applicationApprovalPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(0, 263, Short.MAX_VALUE))
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        applicationApprovalPanelLayout.setVerticalGroup(
+            applicationApprovalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(applicationApprovalPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-
-        formPanel.add(jPanel6);
-
-        jScrollPane1.setViewportView(formPanel);
-
-        javax.swing.GroupLayout applicationContentPanelLayout = new javax.swing.GroupLayout(applicationContentPanel);
-        applicationContentPanel.setLayout(applicationContentPanelLayout);
-        applicationContentPanelLayout.setHorizontalGroup(
-            applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, applicationContentPanelLayout.createSequentialGroup()
-                .addGroup(applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(applicationContentPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitApplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, applicationContentPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(applicationContentPanelLayout.createSequentialGroup()
-                                .addComponent(applyForALoanLabel)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        applicationContentPanelLayout.setVerticalGroup(
-            applicationContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(applicationContentPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(applyForALoanLabel)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(submitApplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(461, Short.MAX_VALUE))
         );
 
-        applicationAdminPaddingPanel.add(applicationContentPanel, "card6");
+        applicationAdminPaddingPanel.setRightComponent(applicationApprovalPanel);
 
         javax.swing.GroupLayout applicationAdminPagePanelLayout = new javax.swing.GroupLayout(applicationAdminPagePanel);
         applicationAdminPagePanel.setLayout(applicationAdminPagePanelLayout);
         applicationAdminPagePanelLayout.setHorizontalGroup(
             applicationAdminPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(applicationAdminPagePanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(applicationAdminPaddingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         applicationAdminPagePanelLayout.setVerticalGroup(
             applicationAdminPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(applicationAdminPagePanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(applicationAdminPaddingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(applicationAdminPaddingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         searchPagePanel.setBackground(new java.awt.Color(204, 204, 204));
@@ -954,16 +963,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("LearnLend");
-        setBounds(new java.awt.Rectangle(0, 0, 960, 540));
-        setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(960, 540));
-        setResizable(false);
-
-        windowPanel.setPreferredSize(new java.awt.Dimension(960, 540));
-        windowPanel.setLayout(new java.awt.BorderLayout());
-
         loginPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         loginPagePanel.setMinimumSize(new java.awt.Dimension(960, 540));
         loginPagePanel.setPreferredSize(new java.awt.Dimension(960, 540));
@@ -1075,8 +1074,15 @@ public class GUI extends javax.swing.JFrame {
 
     loginPagePanel.add(loginPaddingPanel, "card3");
 
-    windowPanel.add(loginPagePanel, java.awt.BorderLayout.CENTER);
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("LearnLend");
+    setBounds(new java.awt.Rectangle(0, 0, 960, 540));
+    setLocationByPlatform(true);
+    setMinimumSize(new java.awt.Dimension(960, 540));
+    setResizable(false);
 
+    windowPanel.setPreferredSize(new java.awt.Dimension(960, 540));
+    windowPanel.setLayout(new java.awt.BorderLayout());
     getContentPane().add(windowPanel, java.awt.BorderLayout.CENTER);
 
     pack();
@@ -1367,6 +1373,14 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutButtonMousePressed
 
+    private void searchField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchField1ActionPerformed
+
+    private void searchSubmitButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSubmitButton1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchSubmitButton1MousePressed
+
     // This function is called to instantiate the menu whether on admin or client
     // mode when login is successful
     private void initMenu() {
@@ -1448,15 +1462,16 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel aboutPagePanel;
     private javax.swing.JToggleButton aboutPageToggleButton;
-    private javax.swing.JPanel applicationAdminPaddingPanel;
+    private javax.swing.JSplitPane applicationAdminPaddingPanel;
     private javax.swing.JPanel applicationAdminPagePanel;
+    private javax.swing.JPanel applicationApprovalPanel;
     private javax.swing.JPanel applicationClientPaddingPanel;
     private javax.swing.JPanel applicationClientPagePanel;
     private javax.swing.JPanel applicationContentPanel;
-    private javax.swing.JPanel applicationContentPanel1;
+    private javax.swing.JPanel applicationEntryPanel;
+    private javax.swing.JPanel applicationListPanel;
     private javax.swing.JToggleButton applicationPageToggleButton;
     private javax.swing.JLabel applyForALoanLabel;
-    private javax.swing.JLabel applyForALoanLabel1;
     private javax.swing.JButton backToLoginButton;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JLabel companyNameLabel;
@@ -1466,6 +1481,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField emailField;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler10;
+    private javax.swing.Box.Filler filler11;
+    private javax.swing.Box.Filler filler12;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.Box.Filler filler4;
@@ -1476,32 +1493,32 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler9;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JPanel formPanel;
-    private javax.swing.JPanel formPanel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JButton loginButton;
@@ -1541,20 +1558,25 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton releasePageToggleButton;
     private javax.swing.JPanel repaymentPagePanel;
     private javax.swing.JToggleButton repaymentPageToggleButton;
+    private javax.swing.JPanel reportListPanel;
     private javax.swing.JPanel reportPagePanel;
     private javax.swing.JToggleButton reportPageToggleButton;
     private javax.swing.JTextField searchField;
+    private javax.swing.JTextField searchField1;
     private javax.swing.JPanel searchPagePadding;
+    private javax.swing.JPanel searchPagePadding1;
     private javax.swing.JPanel searchPagePanel;
     private javax.swing.JToggleButton searchPageToggleButton;
     private javax.swing.JLabel searchResultsLabel;
+    private javax.swing.JLabel searchResultsLabel1;
     private javax.swing.JPanel searchResultsPanel;
     private javax.swing.JScrollPane searchResultsScrollPane;
+    private javax.swing.JScrollPane searchResultsScrollPane1;
     private javax.swing.JButton searchSubmitButton;
+    private javax.swing.JButton searchSubmitButton1;
     private javax.swing.JPanel statusPagePanel;
     private javax.swing.JToggleButton statusPageToggleButton;
     private javax.swing.JButton submitApplicationButton;
-    private javax.swing.JButton submitApplicationButton1;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameFieldErrorLabel;
     private javax.swing.JPanel windowPanel;
@@ -1742,54 +1764,36 @@ class TransactionEntryPanel extends javax.swing.JPanel {
     javax.swing.JLabel dateTimeLabel = new javax.swing.JLabel();
     javax.swing.JLabel amountLabel = new javax.swing.JLabel();
     javax.swing.JLabel refIDLabel = new javax.swing.JLabel();
-    javax.swing.JLabel statusLabel = new javax.swing.JLabel();
 
     public TransactionEntryPanel(String dateTime, String amount,
-        String refID, String status) {
+        String refID) {
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(900, 60));
+        setPreferredSize(new java.awt.Dimension(580, 60));
         setLayout(new java.awt.CardLayout(5, 5));
-        
-        panelContent.setBackground(new java.awt.Color(255, 255, 255));
-        panelContent.setPreferredSize(new java.awt.Dimension(900, 60));
-        panelContent.setLayout(new java.awt.CardLayout(5, 5));
 
         panelContent.setBackground(new java.awt.Color(255, 255, 255));
-        panelContent.setPreferredSize(new java.awt.Dimension(450, 60));
+        panelContent.setPreferredSize(new java.awt.Dimension(580, 60));
         panelContent.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
 
         dateTimeLabel.setForeground(new java.awt.Color(0, 0, 0));
         dateTimeLabel.setText(dateTime);
-        dateTimeLabel.setPreferredSize(new java.awt.Dimension(200, 16));
+        dateTimeLabel.setPreferredSize(new java.awt.Dimension(190, 16));
         panelContent.add(dateTimeLabel);
        
         insertSeparator();
 
         amountLabel.setForeground(new java.awt.Color(0, 0, 0));
         amountLabel.setText(amount);
-        amountLabel.setPreferredSize(new java.awt.Dimension(210, 16));
+        amountLabel.setPreferredSize(new java.awt.Dimension(160, 16));
         panelContent.add(amountLabel);
         
         insertSeparator();
 
         refIDLabel.setForeground(new java.awt.Color(0, 0, 0));
         refIDLabel.setText(refID);
-        refIDLabel.setPreferredSize(new java.awt.Dimension(210, 16));
+        refIDLabel.setPreferredSize(new java.awt.Dimension(160, 16));
         panelContent.add(refIDLabel);
-        
-        insertSeparator();
-
-        statusLabel.setBackground(new java.awt.Color(0, 255, 0));
-        statusLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        statusLabel.setForeground(new java.awt.Color(255, 255, 255));
-        statusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        statusLabel.setText(status);
-        statusLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 0), 2, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true)));
-        statusLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        statusLabel.setOpaque(true);
-        statusLabel.setPreferredSize(new java.awt.Dimension(70, 24));
-        panelContent.add(statusLabel);
 
         add(panelContent, "card2");
     }
