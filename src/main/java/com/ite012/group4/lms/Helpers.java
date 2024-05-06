@@ -136,28 +136,26 @@ public class Helpers {
         }
         
         if (directoryListing != null) {
-            for (File subDirectory : directoryListing) {
-                for (File dataFile : subDirectory.listFiles()) {
-                    buffer = "";
-                    try {
-                        java.io.BufferedReader f = new java.io.BufferedReader(new 
-                            java.io.FileReader(dataFile));
-                        String line = f.readLine();
+            for (File dataFile : directoryListing) {
+                buffer = "";
+                try {
+                    java.io.BufferedReader f = new java.io.BufferedReader(new 
+                        java.io.FileReader(dataFile));
+                    String line = f.readLine();
 
-                        while (line != null) {
-                            buffer += line;
-                            buffer += "\n";
-                            line = f.readLine();
-                        }
+                    while (line != null) {
+                        buffer += line;
+                        buffer += "\n";
+                        line = f.readLine();
                     }
-                    catch (java.io.FileNotFoundException e) {
-                        continue;
-                    }
-                    catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
                 }
+                catch (java.io.FileNotFoundException e) {
+                    continue;
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+                adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
             }
         }
     }
