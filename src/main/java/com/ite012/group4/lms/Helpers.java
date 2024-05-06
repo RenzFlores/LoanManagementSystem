@@ -192,6 +192,7 @@ public class Helpers {
         images.put("detailsArrow", new ImageIcon(imageDirectory + "detailsArrow.png"));
     }
     
+    // Resize an icon based on a given height and width
     public static javax.swing.ImageIcon resizeIcon(String iconName, int x, int y) {
         return new ImageIcon(images.get(iconName).getImage()
                 .getScaledInstance(x, y, java.awt.Image.SCALE_SMOOTH));
