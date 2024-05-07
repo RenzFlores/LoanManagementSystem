@@ -108,6 +108,31 @@ public class Helpers {
         
     }
     
+    // Returns a formatted string that contains the current date and time.
+    public static String getFormattedDateTime(LocalDateTime dateTime) {
+        
+        /*
+         * Pattern for parsing taken from official docs. Read here:
+         * https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
+         */
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MMMM d, u");
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("hh:mm:ssa");
+        
+        String sDate = dateTime.format(dateFormat);
+        String sTime = dateTime.format(timeFormat);
+        
+        return sDate + " " + sTime;
+        
+    }
+    
+    public static LocalDateTime parseFormattedDateTime(String formattedDateTime) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, u hh:mm:ssa");
+        
+        return LocalDateTime.parse(formattedDateTime, formatter);
+        
+    }
+    
     // Generate a string of random numbers from 0-9 of specified length
     public static String generateID(int length) {
         

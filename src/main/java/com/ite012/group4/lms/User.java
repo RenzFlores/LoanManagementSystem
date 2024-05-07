@@ -21,6 +21,8 @@ public abstract class User {
     String email;
     String contactNumber;
     
+    String path;
+    
     public abstract void saveUserData();
     public abstract String getAccountTypeInWords();
     public abstract String getFormattedPassword();
@@ -139,8 +141,9 @@ class Client extends User {
         postalCode = data.get("postal code");
         accountNumber = Helpers.generateID(6);
         
-        new File(String.format("./src/main/user_data/client/%s", username)).mkdirs();
-        new File(String.format("./src/main/user_data/client/%s/loan", username)).mkdirs();
+        path = String.format("./src/main/user_data/client/%s/", username);
+        new File(path).mkdirs();
+        new File(path + "/loan/").mkdirs();
     }
     
     public String getAccountTypeInWords() {
