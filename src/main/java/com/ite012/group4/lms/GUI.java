@@ -13,6 +13,7 @@ public class GUI extends javax.swing.JFrame {
     ArrayList<Client> clients = new ArrayList();
     private ArrayList<Receipt> receipts = new ArrayList();
     private ArrayList<Application> applications = new ArrayList();
+    private ArrayList<Application> pendingApplications = new ArrayList();
     private Admin currentAdmin;
     public Client currentClient;
     private int userMode = User.ADMIN;
@@ -20,7 +21,7 @@ public class GUI extends javax.swing.JFrame {
     
     
     public GUI() {
-        initComponents();   
+        initComponents();
         
         setSize(640, 480);
 
@@ -30,6 +31,14 @@ public class GUI extends javax.swing.JFrame {
 
         Helpers.loadAllAdmins(admins);
         Helpers.loadAllClients(clients);
+        
+        /*
+        for (Application app : applications) {
+            if (app.status == Application.PENDING) {
+                pendingApplications
+            }
+        }
+        */
         
         backgroundPanel = new JPanelBackground(Helpers.imageDirectory + "background.jpg");
         backgroundPanel.setPreferredSize(new java.awt.Dimension(510, 480));
@@ -87,13 +96,39 @@ public class GUI extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         formPanel = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        contactInformationLabel = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        unitNumberLabel = new javax.swing.JLabel();
+        unitNumberField = new javax.swing.JTextField();
+        streetAddressLabel = new javax.swing.JLabel();
+        streetAddressField = new javax.swing.JTextField();
+        cityLabel = new javax.swing.JLabel();
+        cityField = new javax.swing.JTextField();
+        stateProvinceLabel = new javax.swing.JLabel();
+        stateProvinceField = new javax.swing.JTextField();
+        postalCodeLabel = new javax.swing.JLabel();
+        postalCodeField = new javax.swing.JTextField();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 10), new java.awt.Dimension(200, 10), new java.awt.Dimension(200, 10));
+        loanInformationLabel = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        loanableAmountLabel = new javax.swing.JLabel();
+        loanableAmountField = new javax.swing.JTextField();
+        bankLabel = new javax.swing.JLabel();
+        bankField = new javax.swing.JTextField();
+        bankAccountNumberLabel = new javax.swing.JLabel();
+        bankAccountNumberField = new javax.swing.JTextField();
+        filler11 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 10), new java.awt.Dimension(150, 10), new java.awt.Dimension(200, 10));
+        employmentInformationLabel = new javax.swing.JLabel();
+        jSeparator13 = new javax.swing.JSeparator();
+        certEmployerLabel = new javax.swing.JLabel();
+        certEmployerField = new javax.swing.JTextField();
+        employerLabel = new javax.swing.JLabel();
+        employerField = new javax.swing.JTextField();
+        employerIDLabel = new javax.swing.JLabel();
+        employerIDField = new javax.swing.JTextField();
+        filler12 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 10), new java.awt.Dimension(150, 10), new java.awt.Dimension(200, 10));
+        employerAddressLabel = new javax.swing.JLabel();
+        employerAddressField = new javax.swing.JTextField();
         submitApplicationButton = new javax.swing.JButton();
         paymentPagePanel = new javax.swing.JPanel();
         paymentPagePaddingPanel = new javax.swing.JPanel();
@@ -360,40 +395,166 @@ public class GUI extends javax.swing.JFrame {
 
         formPanel.setBackground(new java.awt.Color(255, 255, 255));
         formPanel.setPreferredSize(new java.awt.Dimension(420, 340));
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
-        flowLayout1.setAlignOnBaseline(true);
-        formPanel.setLayout(flowLayout1);
+        formPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel30.setText("Contact Information");
-        formPanel.add(jLabel30);
+        contactInformationLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        contactInformationLabel.setForeground(new java.awt.Color(51, 51, 51));
+        contactInformationLabel.setText("Contact Information");
+        formPanel.add(contactInformationLabel);
 
-        jLabel25.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel25.setText("Email address");
-        formPanel.add(jLabel25);
+        jSeparator11.setPreferredSize(new java.awt.Dimension(400, 5));
+        formPanel.add(jSeparator11);
 
-        jTextField9.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField9.setForeground(new java.awt.Color(51, 51, 51));
-        formPanel.add(jTextField9);
+        unitNumberLabel.setForeground(new java.awt.Color(51, 51, 51));
+        unitNumberLabel.setLabelFor(unitNumberField);
+        unitNumberLabel.setText("Unit number");
+        unitNumberLabel.setPreferredSize(new java.awt.Dimension(80, 16));
+        formPanel.add(unitNumberLabel);
 
-        jLabel26.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel26.setText("Contact number");
-        formPanel.add(jLabel26);
+        unitNumberField.setBackground(new java.awt.Color(255, 255, 255));
+        unitNumberField.setForeground(new java.awt.Color(51, 51, 51));
+        unitNumberField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(unitNumberField);
 
-        jTextField10.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField10.setForeground(new java.awt.Color(51, 51, 51));
-        formPanel.add(jTextField10);
+        streetAddressLabel.setForeground(new java.awt.Color(51, 51, 51));
+        streetAddressLabel.setLabelFor(streetAddressField);
+        streetAddressLabel.setText("Street Address");
+        streetAddressLabel.setPreferredSize(new java.awt.Dimension(80, 16));
+        formPanel.add(streetAddressLabel);
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel31.setText("Employment Information");
-        formPanel.add(jLabel31);
+        streetAddressField.setBackground(new java.awt.Color(255, 255, 255));
+        streetAddressField.setForeground(new java.awt.Color(51, 51, 51));
+        streetAddressField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(streetAddressField);
 
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel32.setText("Loan Information");
-        formPanel.add(jLabel32);
+        cityLabel.setForeground(new java.awt.Color(51, 51, 51));
+        cityLabel.setLabelFor(cityField);
+        cityLabel.setText("City");
+        cityLabel.setPreferredSize(new java.awt.Dimension(80, 16));
+        formPanel.add(cityLabel);
+
+        cityField.setBackground(new java.awt.Color(255, 255, 255));
+        cityField.setForeground(new java.awt.Color(51, 51, 51));
+        cityField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(cityField);
+
+        stateProvinceLabel.setForeground(new java.awt.Color(51, 51, 51));
+        stateProvinceLabel.setLabelFor(stateProvinceField);
+        stateProvinceLabel.setText("State/Province");
+        stateProvinceLabel.setPreferredSize(new java.awt.Dimension(80, 16));
+        formPanel.add(stateProvinceLabel);
+
+        stateProvinceField.setBackground(new java.awt.Color(255, 255, 255));
+        stateProvinceField.setForeground(new java.awt.Color(51, 51, 51));
+        stateProvinceField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(stateProvinceField);
+
+        postalCodeLabel.setForeground(new java.awt.Color(51, 51, 51));
+        postalCodeLabel.setLabelFor(postalCodeField);
+        postalCodeLabel.setText("Postal Code");
+        postalCodeLabel.setPreferredSize(new java.awt.Dimension(80, 16));
+        formPanel.add(postalCodeLabel);
+
+        postalCodeField.setBackground(new java.awt.Color(255, 255, 255));
+        postalCodeField.setForeground(new java.awt.Color(51, 51, 51));
+        postalCodeField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(postalCodeField);
+        formPanel.add(filler1);
+
+        loanInformationLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        loanInformationLabel.setForeground(new java.awt.Color(51, 51, 51));
+        loanInformationLabel.setText("Loan Information");
+        formPanel.add(loanInformationLabel);
+
+        jSeparator12.setPreferredSize(new java.awt.Dimension(400, 5));
+        formPanel.add(jSeparator12);
+
+        loanableAmountLabel.setForeground(new java.awt.Color(51, 51, 51));
+        loanableAmountLabel.setLabelFor(loanableAmountField);
+        loanableAmountLabel.setText("Loanable Amount");
+        loanableAmountLabel.setPreferredSize(new java.awt.Dimension(120, 16));
+        formPanel.add(loanableAmountLabel);
+
+        loanableAmountField.setBackground(new java.awt.Color(255, 255, 255));
+        loanableAmountField.setForeground(new java.awt.Color(51, 51, 51));
+        loanableAmountField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(loanableAmountField);
+
+        bankLabel.setForeground(new java.awt.Color(51, 51, 51));
+        bankLabel.setLabelFor(bankField);
+        bankLabel.setText("Bank");
+        bankLabel.setPreferredSize(new java.awt.Dimension(50, 16));
+        formPanel.add(bankLabel);
+
+        bankField.setBackground(new java.awt.Color(255, 255, 255));
+        bankField.setForeground(new java.awt.Color(51, 51, 51));
+        bankField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(bankField);
+
+        bankAccountNumberLabel.setForeground(new java.awt.Color(51, 51, 51));
+        bankAccountNumberLabel.setLabelFor(bankAccountNumberField);
+        bankAccountNumberLabel.setText("Bank Account Number");
+        bankAccountNumberLabel.setPreferredSize(new java.awt.Dimension(120, 16));
+        formPanel.add(bankAccountNumberLabel);
+
+        bankAccountNumberField.setBackground(new java.awt.Color(255, 255, 255));
+        bankAccountNumberField.setForeground(new java.awt.Color(51, 51, 51));
+        bankAccountNumberField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(bankAccountNumberField);
+        formPanel.add(filler11);
+
+        employmentInformationLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        employmentInformationLabel.setForeground(new java.awt.Color(51, 51, 51));
+        employmentInformationLabel.setText("Employment Information");
+        formPanel.add(employmentInformationLabel);
+
+        jSeparator13.setPreferredSize(new java.awt.Dimension(400, 5));
+        formPanel.add(jSeparator13);
+
+        certEmployerLabel.setForeground(new java.awt.Color(51, 51, 51));
+        certEmployerLabel.setLabelFor(certEmployerField);
+        certEmployerLabel.setText("Certifying Employer");
+        certEmployerLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        formPanel.add(certEmployerLabel);
+
+        certEmployerField.setBackground(new java.awt.Color(255, 255, 255));
+        certEmployerField.setForeground(new java.awt.Color(51, 51, 51));
+        certEmployerField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(certEmployerField);
+
+        employerLabel.setForeground(new java.awt.Color(51, 51, 51));
+        employerLabel.setLabelFor(employerField);
+        employerLabel.setText("Employer");
+        employerLabel.setPreferredSize(new java.awt.Dimension(60, 16));
+        formPanel.add(employerLabel);
+
+        employerField.setBackground(new java.awt.Color(255, 255, 255));
+        employerField.setForeground(new java.awt.Color(51, 51, 51));
+        employerField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(employerField);
+
+        employerIDLabel.setForeground(new java.awt.Color(51, 51, 51));
+        employerIDLabel.setLabelFor(employerIDField);
+        employerIDLabel.setText("Employer ID");
+        employerIDLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        formPanel.add(employerIDLabel);
+
+        employerIDField.setBackground(new java.awt.Color(255, 255, 255));
+        employerIDField.setForeground(new java.awt.Color(51, 51, 51));
+        employerIDField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(employerIDField);
+        formPanel.add(filler12);
+
+        employerAddressLabel.setForeground(new java.awt.Color(51, 51, 51));
+        employerAddressLabel.setLabelFor(employerAddressField);
+        employerAddressLabel.setText("Employer Address");
+        employerAddressLabel.setPreferredSize(new java.awt.Dimension(110, 16));
+        formPanel.add(employerAddressLabel);
+
+        employerAddressField.setBackground(new java.awt.Color(255, 255, 255));
+        employerAddressField.setForeground(new java.awt.Color(51, 51, 51));
+        employerAddressField.setPreferredSize(new java.awt.Dimension(100, 22));
+        formPanel.add(employerAddressField);
 
         jScrollPane2.setViewportView(formPanel);
 
@@ -405,6 +566,11 @@ public class GUI extends javax.swing.JFrame {
         submitApplicationButton.setText("Submit My Application");
         submitApplicationButton.setBorder(null);
         submitApplicationButton.setPreferredSize(new java.awt.Dimension(180, 30));
+        submitApplicationButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                submitApplicationButtonMouseClicked(evt);
+            }
+        });
         applicationContentPanel.add(submitApplicationButton);
 
         applicationClientPagePanel.add(applicationContentPanel, "card6");
@@ -1147,7 +1313,6 @@ public class GUI extends javax.swing.JFrame {
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setTitle("LearnLend");
     setBounds(new java.awt.Rectangle(0, 0, 640, 480));
-    setPreferredSize(new java.awt.Dimension(640, 480));
     setResizable(false);
 
     windowPanel.setDividerLocation(150);
@@ -1458,6 +1623,28 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchSubmitButton2MousePressed
 
+    private void submitApplicationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitApplicationButtonMouseClicked
+        if (Helpers.checkForEmptyFields(jPanel1) == true) {
+            return;
+        }
+        
+        HashMap<String, String> data = new HashMap<>();
+        data.put("name", currentClient.name);
+        data.put("email", currentClient.email);
+        data.put("contact number", currentClient.contactNumber);
+        data.put("unit number", unitNumberField.getText());
+        data.put("street address", streetAddressField.getText());
+        data.put("city", cityField.getText());
+        data.put("state province", stateProvinceField.getText());
+        data.put("postal code", postalCodeField.getText());
+        data.put("loanable amount", loanableAmountField.getText());
+        data.put("bank", bankField.getText());
+        data.put("bank account number", bankAccountNumberField.getText());
+        data.put("status", "0");
+        
+        applications.addFirst(new Application(data));
+    }//GEN-LAST:event_submitApplicationButtonMouseClicked
+
     // This function is called to instantiate the menu whether on admin or client
     // mode when login is successful
     private void initMenu() {
@@ -1544,12 +1731,31 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton applicationPageToggleButton;
     private javax.swing.JLabel applyForALoanLabel;
     private javax.swing.JButton backToLoginButton;
+    private javax.swing.JTextField bankAccountNumberField;
+    private javax.swing.JLabel bankAccountNumberLabel;
+    private javax.swing.JTextField bankField;
+    private javax.swing.JLabel bankLabel;
+    private javax.swing.JTextField certEmployerField;
+    private javax.swing.JLabel certEmployerLabel;
+    private javax.swing.JTextField cityField;
+    private javax.swing.JLabel cityLabel;
     private javax.swing.JLabel companyNameLabel;
     private javax.swing.JPasswordField confirmPassField;
     private javax.swing.JLabel confirmPassFieldErrorLabel;
+    private javax.swing.JLabel contactInformationLabel;
     private javax.swing.JTextField contactNumField;
     private javax.swing.JTextField emailField;
+    private javax.swing.JTextField employerAddressField;
+    private javax.swing.JLabel employerAddressLabel;
+    private javax.swing.JTextField employerField;
+    private javax.swing.JTextField employerIDField;
+    private javax.swing.JLabel employerIDLabel;
+    private javax.swing.JLabel employerLabel;
+    private javax.swing.JLabel employmentInformationLabel;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler10;
+    private javax.swing.Box.Filler filler11;
+    private javax.swing.Box.Filler filler12;
     private javax.swing.Box.Filler filler13;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
@@ -1574,11 +1780,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1595,6 +1796,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1604,10 +1808,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField lastNameField;
+    private javax.swing.JLabel loanInformationLabel;
+    private javax.swing.JTextField loanableAmountField;
+    private javax.swing.JLabel loanableAmountLabel;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginContentPanel;
     private javax.swing.JLabel loginGraphicLabel;
@@ -1625,6 +1830,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel paymentPagePaddingPanel;
     private javax.swing.JPanel paymentPagePanel;
     private javax.swing.JToggleButton paymentPageToggleButton;
+    private javax.swing.JTextField postalCodeField;
+    private javax.swing.JLabel postalCodeLabel;
     private javax.swing.JLabel programNameLabel;
     private javax.swing.JButton regAdminButton;
     private javax.swing.JButton regClientButton;
@@ -1665,9 +1872,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton searchSubmitButton;
     private javax.swing.JButton searchSubmitButton1;
     private javax.swing.JButton searchSubmitButton2;
+    private javax.swing.JTextField stateProvinceField;
+    private javax.swing.JLabel stateProvinceLabel;
     private javax.swing.JPanel statusPagePanel;
     private javax.swing.JToggleButton statusPageToggleButton;
+    private javax.swing.JTextField streetAddressField;
+    private javax.swing.JLabel streetAddressLabel;
     private javax.swing.JButton submitApplicationButton;
+    private javax.swing.JTextField unitNumberField;
+    private javax.swing.JLabel unitNumberLabel;
     private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameFieldErrorLabel;
     private javax.swing.JSplitPane windowPanel;

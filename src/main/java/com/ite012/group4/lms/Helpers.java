@@ -17,23 +17,23 @@ public class Helpers {
     static String imageDirectory = System.getProperty("user.dir") + "/src/main/resources/images/";
     
     // Converts a hashmap into a formatted string ready for file writing
-    public static String formatHashMapToString(HashMap<String, String> data) {
+    public static String formatHashMapToString(HashMap<String, String> data, String delimiter) {
         
         String buf = "";
         
         for ( String key : data.keySet() ) {
-            buf += String.format("\"%s\": \"%s\"\n", key, data.get(key));
+            buf += String.format("\"%s\": \"%s\"" + delimiter, key, data.get(key));
         }
         
         return buf;
     }
     
     // Parses a formatted string to a hashmap with key-value pairs
-    public static HashMap<String, String> parseStringToHashMap(String s) {
+    public static HashMap<String, String> parseStringToHashMap(String s, String delimiter) {
         
         HashMap<String, String> data = new HashMap<String, String>();
         String[] keyValuePair = new String[2];
-        String[] dataInString = s.split("\n");
+        String[] dataInString = s.split(delimiter);
         
         for (String pair : dataInString) {
             // Separate key and value strings
@@ -176,7 +176,7 @@ public class Helpers {
                     catch (IOException e) {
                         e.printStackTrace();
                     }
-                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer)));
+                    adminList.add(new Admin(Helpers.parseStringToHashMap(buffer, "\n")));
                 }
             }
         }
@@ -211,7 +211,7 @@ public class Helpers {
                     catch (IOException e) {
                         e.printStackTrace();
                     }
-                    clientList.add(new Client(Helpers.parseStringToHashMap(buffer)));
+                    clientList.add(new Client(Helpers.parseStringToHashMap(buffer, "\n")));
                 }
             }
         }

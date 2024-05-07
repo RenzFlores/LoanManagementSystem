@@ -70,8 +70,8 @@ class Admin extends User {
         email = data.get("email");
         contactNumber = data.get("contactNumber");
         accountNumber = Helpers.generateID(6);
-		
-		new File(String.format("./src/main/user_data/admin/%s", username)).mkdirs();
+	
+        new File(String.format("./src/main/user_data/admin/%s", username)).mkdirs();
     }
     
     public String getAccountTypeInWords() {
