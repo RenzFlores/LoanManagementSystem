@@ -1,5 +1,6 @@
 com\ite012\group4\lms\SearchResultEntry.class
 com\ite012\group4\lms\Admin.class
+com\ite012\group4\lms\GUI$26.class
 com\ite012\group4\lms\GUI$16.class
 com\ite012\group4\lms\GUI$8.class
 com\ite012\group4\lms\GUI$2.class
@@ -12,6 +13,7 @@ com\ite012\group4\lms\GUI$6.class
 com\ite012\group4\lms\Client.class
 com\ite012\group4\lms\User.class
 com\ite012\group4\lms\ImageFileChooser.class
+com\ite012\group4\lms\GUI$25.class
 com\ite012\group4\lms\GUI$10.class
 com\ite012\group4\lms\Receipt.class
 com\ite012\group4\lms\GUI$9.class
@@ -23,10 +25,12 @@ com\ite012\group4\lms\GUI$21.class
 com\ite012\group4\lms\GUI$7.class
 com\ite012\group4\lms\GUI$11.class
 com\ite012\group4\lms\Helpers$EmptyVerifier.class
+com\ite012\group4\lms\GUI$24.class
 com\ite012\group4\lms\GUI$14.class
 com\ite012\group4\lms\SearchResultEntry$1.class
 com\ite012\group4\lms\GUI$12.class
 com\ite012\group4\lms\Application.class
+com\ite012\group4\lms\GUI$27.class
 com\ite012\group4\lms\GUI$4.class
 com\ite012\group4\lms\TransactionEntryPanel.class
 com\ite012\group4\lms\ImageFileChooser$1.class
