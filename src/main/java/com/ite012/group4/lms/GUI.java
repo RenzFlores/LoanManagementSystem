@@ -25,10 +25,6 @@ public class GUI extends javax.swing.JFrame {
         
         setSize(640, 480);
 
-        Helpers.loadIcons();
-        
-        loginGraphicLabel.setIcon(Helpers.resizeIcon("loginGraphicsIcon", 330, 330));
-
         //Helpers.loadAllAdmins(admins);
         //Helpers.loadAllClients(clients);
         
@@ -153,14 +149,9 @@ public class GUI extends javax.swing.JFrame {
         releasePagePanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         repaymentPagePanel = new javax.swing.JPanel();
-        regUserTypeContentPanel = new javax.swing.JPanel();
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(1, 50), new java.awt.Dimension(200, 170), new java.awt.Dimension(1, 50));
-        jLabel1 = new javax.swing.JLabel();
-        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(80, 0), new java.awt.Dimension(300, 20), new java.awt.Dimension(80, 0));
-        regClientButton = new javax.swing.JButton();
-        regAdminButton = new javax.swing.JButton();
+        aboutPagePanel = new javax.swing.JPanel();
+        aboutLabel = new javax.swing.JLabel();
         registerContentPanel = new javax.swing.JPanel();
-        filler13 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 50), new java.awt.Dimension(200, 50), new java.awt.Dimension(200, 50));
         backToLoginButton = new javax.swing.JButton();
         filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(30, 5), new java.awt.Dimension(150, 5), new java.awt.Dimension(30, 5));
         registrationLabel = new javax.swing.JLabel();
@@ -181,31 +172,13 @@ public class GUI extends javax.swing.JFrame {
         regPasswordField = new javax.swing.JPasswordField();
         regConfirmPassLabel = new javax.swing.JLabel();
         confirmPassField = new javax.swing.JPasswordField();
-        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(100, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(100, 0));
-        confirmPassFieldErrorLabel = new javax.swing.JLabel();
-        filler9 = new javax.swing.Box.Filler(new java.awt.Dimension(320, 0), new java.awt.Dimension(320, 0), new java.awt.Dimension(320, 0));
         registerSubmitButton = new javax.swing.JButton();
-        aboutPagePanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        aboutLabel = new javax.swing.JLabel();
-        loginPagePanel = new javax.swing.JPanel();
-        loginPaddingPanel = new javax.swing.JSplitPane();
-        loginGraphicsPanel = new javax.swing.JPanel();
-        loginGraphicLabel = new javax.swing.JLabel();
-        loginContentPanel = new javax.swing.JPanel();
-        filler10 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 50), new java.awt.Dimension(200, 50), new java.awt.Dimension(200, 50));
-        companyNameLabel = new javax.swing.JLabel();
-        loginUsernameLabel = new javax.swing.JLabel();
-        usernameField = new javax.swing.JTextField();
-        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(80, 0), new java.awt.Dimension(70, 0), new java.awt.Dimension(80, 0));
-        usernameFieldErrorLabel = new javax.swing.JLabel();
-        passwordLabel = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
-        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(80, 0), new java.awt.Dimension(70, 0), new java.awt.Dimension(80, 0));
-        passwordFieldErrorLabel = new javax.swing.JLabel();
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 0), new java.awt.Dimension(300, 12), new java.awt.Dimension(200, 0));
-        loginButton = new javax.swing.JButton();
-        registerButton = new javax.swing.JButton();
+        regUserTypeContentPanel = new javax.swing.JPanel();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(1, 50), new java.awt.Dimension(200, 170), new java.awt.Dimension(1, 50));
+        jLabel1 = new javax.swing.JLabel();
+        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(80, 0), new java.awt.Dimension(300, 20), new java.awt.Dimension(80, 0));
+        regClientButton = new javax.swing.JButton();
+        regAdminButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         menuSidePanel = new javax.swing.JPanel();
         programNameLabel = new javax.swing.JLabel();
@@ -227,6 +200,20 @@ public class GUI extends javax.swing.JFrame {
         resultsScrollPane = new javax.swing.JScrollPane();
         resultsListPanel = new javax.swing.JPanel();
         windowPanel = new javax.swing.JSplitPane();
+        loginPagePanel = new javax.swing.JPanel();
+        loginContentPanel = new javax.swing.JPanel();
+        loginTopFiller = new javax.swing.Box.Filler(new java.awt.Dimension(200, 50), new java.awt.Dimension(200, 50), new java.awt.Dimension(200, 50));
+        companyNameLabel = new javax.swing.JLabel();
+        loginUsernameLabel = new javax.swing.JLabel();
+        usernameField = new javax.swing.JTextField();
+        loginErrorLabelFiller = new javax.swing.Box.Filler(new java.awt.Dimension(80, 0), new java.awt.Dimension(120, 0), new java.awt.Dimension(80, 0));
+        usernameFieldErrorLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(80, 0), new java.awt.Dimension(120, 0), new java.awt.Dimension(80, 0));
+        passwordFieldErrorLabel = new javax.swing.JLabel();
+        loginButton = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
 
         applicationAdminPagePanel.setBackground(new java.awt.Color(204, 204, 204));
         applicationAdminPagePanel.setPreferredSize(new java.awt.Dimension(510, 480));
@@ -783,55 +770,38 @@ public class GUI extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        regUserTypeContentPanel.setBackground(new java.awt.Color(204, 204, 255));
-        regUserTypeContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
-        java.awt.FlowLayout flowLayout7 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 18, 0);
-        flowLayout7.setAlignOnBaseline(true);
-        regUserTypeContentPanel.setLayout(flowLayout7);
-        regUserTypeContentPanel.add(filler2);
+        aboutPagePanel.setBackground(new java.awt.Color(204, 204, 204));
+        aboutPagePanel.setMinimumSize(new java.awt.Dimension(0, 0));
+        aboutPagePanel.setPreferredSize(new java.awt.Dimension(510, 480));
+        aboutPagePanel.setLayout(new java.awt.CardLayout(50, 50));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("I'm creating an account as:");
-        regUserTypeContentPanel.add(jLabel1);
-        regUserTypeContentPanel.add(filler6);
-
-        regClientButton.setBackground(new java.awt.Color(51, 51, 255));
-        regClientButton.setForeground(new java.awt.Color(255, 255, 255));
-        regClientButton.setText("Client");
-        regClientButton.setBorder(null);
-        regClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        regClientButton.setPreferredSize(new java.awt.Dimension(73, 23));
-        regClientButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                regClientButtonMousePressed(evt);
-            }
-        });
-        regUserTypeContentPanel.add(regClientButton);
-
-        regAdminButton.setBackground(new java.awt.Color(51, 51, 255));
-        regAdminButton.setForeground(new java.awt.Color(255, 255, 255));
-        regAdminButton.setText("Admin");
-        regAdminButton.setBorder(null);
-        regAdminButton.setPreferredSize(new java.awt.Dimension(73, 23));
-        regAdminButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                regAdminButtonMousePressed(evt);
-            }
-        });
-        regAdminButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regAdminButtonActionPerformed(evt);
-            }
-        });
-        regUserTypeContentPanel.add(regAdminButton);
+        aboutLabel.setForeground(new java.awt.Color(51, 51, 51));
+        aboutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        aboutLabel.setText("<html><body style=\"text-align:center;\"><h1>About</h1>"
+            + "<h2><b>Description of Program</b></h2>"
+            + "<p><i>The Loaning Management System: LearnLend is a lending"
+            + " platform for students who need financial support for their"
+            + " academic needs.\nIt is a program that ensures their loaning"
+            + " experience will be a lot faster and easier. The programmers "
+            + "used Java\nas the programming language and Netbeans Version 21"
+            + " for the IDE (Integrated Development Environment).\nThe loaning"
+            + " system has features like registration for admin and client, "
+            + "loan application and etc. processing among others\nwhich enable"
+            + " transparency in dealing with financial obligations by students"
+            + " while at the same time providing real-world\nexposure to IT/CS"
+            + " beginners.</i></p><h3><b>Developers</b></h3><p>Renz Ken"
+            + " Flores</p><p>Geri Louise Hernia</p><p>Trisha Mae Navarro</p>"
+            + "<p>Ace Daniel Panesa</p></body></html>");
+        aboutLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        aboutLabel.setPreferredSize(new java.awt.Dimension(190, 32));
+        aboutPagePanel.add(aboutLabel, "card3");
 
         registerContentPanel.setBackground(new java.awt.Color(204, 204, 255));
+        registerContentPanel.setMinimumSize(new java.awt.Dimension(0, 0));
         registerContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
         java.awt.FlowLayout flowLayout6 = new java.awt.FlowLayout();
         flowLayout6.setAlignOnBaseline(true);
         registerContentPanel.setLayout(flowLayout6);
-        registerContentPanel.add(filler13);
 
         backToLoginButton.setBackground(new java.awt.Color(255, 255, 255));
         backToLoginButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -952,13 +922,6 @@ public class GUI extends javax.swing.JFrame {
         confirmPassField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         confirmPassField.setPreferredSize(new java.awt.Dimension(150, 20));
         registerContentPanel.add(confirmPassField);
-        registerContentPanel.add(filler7);
-
-        confirmPassFieldErrorLabel.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        confirmPassFieldErrorLabel.setForeground(new java.awt.Color(255, 51, 51));
-        confirmPassFieldErrorLabel.setPreferredSize(new java.awt.Dimension(140, 12));
-        registerContentPanel.add(confirmPassFieldErrorLabel);
-        registerContentPanel.add(filler9);
 
         registerSubmitButton.setBackground(new java.awt.Color(51, 51, 255));
         registerSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -972,67 +935,280 @@ public class GUI extends javax.swing.JFrame {
         });
         registerContentPanel.add(registerSubmitButton);
 
-        aboutPagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        aboutPagePanel.setMinimumSize(new java.awt.Dimension(0, 0));
-        aboutPagePanel.setPreferredSize(new java.awt.Dimension(510, 480));
-        aboutPagePanel.setLayout(new java.awt.CardLayout(50, 50));
+        regUserTypeContentPanel.setBackground(new java.awt.Color(204, 204, 255));
+        regUserTypeContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
+        java.awt.FlowLayout flowLayout7 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 18, 0);
+        flowLayout7.setAlignOnBaseline(true);
+        regUserTypeContentPanel.setLayout(flowLayout7);
+        regUserTypeContentPanel.add(filler2);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(0, 0));
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("I'm creating an account as:");
+        regUserTypeContentPanel.add(jLabel1);
+        regUserTypeContentPanel.add(filler6);
 
-        aboutLabel.setForeground(new java.awt.Color(51, 51, 51));
-        aboutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        aboutLabel.setText("<html><body style=\"text-align:center;\"><h1>About</h1>"
-            + "<h2><b>Description of Program</b></h2>"
-            + "<p><i>The Loaning Management System: LearnLend is a lending"
-            + " platform for students who need financial support for their"
-            + " academic needs.\nIt is a program that ensures their loaning"
-            + " experience will be a lot faster and easier. The programmers "
-            + "used Java\nas the programming language and Netbeans Version 21"
-            + " for the IDE (Integrated Development Environment).\nThe loaning"
-            + " system has features like registration for admin and client, "
-            + "loan application and etc. processing among others\nwhich enable"
-            + " transparency in dealing with financial obligations by students"
-            + " while at the same time providing real-world\nexposure to IT/CS"
-            + " beginners.</i></p><h3><b>Developers</b></h3><p>Renz Ken"
-            + " Flores</p><p>Geri Louise Hernia</p><p>Trisha Mae Navarro</p>"
-            + "<p>Ace Daniel Panesa</p></body></html>");
-        aboutLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        aboutLabel.setPreferredSize(new java.awt.Dimension(190, 32));
-        jPanel1.add(aboutLabel, java.awt.BorderLayout.CENTER);
+        regClientButton.setBackground(new java.awt.Color(51, 51, 255));
+        regClientButton.setForeground(new java.awt.Color(255, 255, 255));
+        regClientButton.setText("Client");
+        regClientButton.setBorder(null);
+        regClientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        regClientButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        regClientButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                regClientButtonMousePressed(evt);
+            }
+        });
+        regUserTypeContentPanel.add(regClientButton);
 
-        aboutPagePanel.add(jPanel1, "card3");
+        regAdminButton.setBackground(new java.awt.Color(51, 51, 255));
+        regAdminButton.setForeground(new java.awt.Color(255, 255, 255));
+        regAdminButton.setText("Admin");
+        regAdminButton.setBorder(null);
+        regAdminButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        regAdminButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                regAdminButtonMousePressed(evt);
+            }
+        });
+        regAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regAdminButtonActionPerformed(evt);
+            }
+        });
+        regUserTypeContentPanel.add(regAdminButton);
+
+        logoutButton.setBackground(new java.awt.Color(51, 51, 255));
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setText("Logout");
+        logoutButton.setBorder(null);
+        logoutButton.setPreferredSize(new java.awt.Dimension(100, 50));
+        logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                logoutButtonMousePressed(evt);
+            }
+        });
+
+        menuSidePanel.setBackground(new java.awt.Color(51, 51, 255));
+        menuSidePanel.setMinimumSize(new java.awt.Dimension(0, 0));
+        menuSidePanel.setPreferredSize(new java.awt.Dimension(150, 480));
+        menuSidePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+
+        programNameLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        programNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        programNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        programNameLabel.setText("LearnLend");
+        programNameLabel.setPreferredSize(new java.awt.Dimension(100, 60));
+        menuSidePanel.add(programNameLabel);
+
+        applicationPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(applicationPageToggleButton);
+        applicationPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        applicationPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        applicationPageToggleButton.setText("Application");
+        applicationPageToggleButton.setBorder(null);
+        applicationPageToggleButton.setIconTextGap(5);
+        applicationPageToggleButton.setPreferredSize(new java.awt.Dimension(110, 50));
+        applicationPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                applicationPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        applicationPageToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                applicationPageToggleButtonActionPerformed(evt);
+            }
+        });
+        menuSidePanel.add(applicationPageToggleButton);
+
+        paymentPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(paymentPageToggleButton);
+        paymentPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        paymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        paymentPageToggleButton.setText("Payment");
+        paymentPageToggleButton.setBorder(null);
+        paymentPageToggleButton.setIconTextGap(10);
+        paymentPageToggleButton.setPreferredSize(new java.awt.Dimension(110, 50));
+        paymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                paymentPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuSidePanel.add(paymentPageToggleButton);
+
+        repaymentPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(repaymentPageToggleButton);
+        repaymentPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        repaymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        repaymentPageToggleButton.setText("Repayment");
+        repaymentPageToggleButton.setBorder(null);
+        repaymentPageToggleButton.setIconTextGap(5);
+        repaymentPageToggleButton.setPreferredSize(new java.awt.Dimension(110, 50));
+        repaymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                repaymentPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuSidePanel.add(repaymentPageToggleButton);
+
+        releasePageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(releasePageToggleButton);
+        releasePageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        releasePageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        releasePageToggleButton.setSelected(true);
+        releasePageToggleButton.setText("Release");
+        releasePageToggleButton.setBorder(null);
+        releasePageToggleButton.setIconTextGap(10);
+        releasePageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+        releasePageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                releasePageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuSidePanel.add(releasePageToggleButton);
+
+        searchPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(searchPageToggleButton);
+        searchPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        searchPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchPageToggleButton.setText("Search");
+        searchPageToggleButton.setBorder(null);
+        searchPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+        searchPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                searchPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuSidePanel.add(searchPageToggleButton);
+
+        statusPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(statusPageToggleButton);
+        statusPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        statusPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        statusPageToggleButton.setText("Status");
+        statusPageToggleButton.setBorder(null);
+        statusPageToggleButton.setIconTextGap(10);
+        statusPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+        statusPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                statusPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuSidePanel.add(statusPageToggleButton);
+
+        reportPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(reportPageToggleButton);
+        reportPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        reportPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        reportPageToggleButton.setText("Report");
+        reportPageToggleButton.setBorder(null);
+        reportPageToggleButton.setIconTextGap(10);
+        reportPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+        reportPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                reportPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        reportPageToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportPageToggleButtonActionPerformed(evt);
+            }
+        });
+        menuSidePanel.add(reportPageToggleButton);
+
+        aboutPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
+        menuButtonGroup.add(aboutPageToggleButton);
+        aboutPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        aboutPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        aboutPageToggleButton.setText("About");
+        aboutPageToggleButton.setBorder(null);
+        aboutPageToggleButton.setIconTextGap(10);
+        aboutPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
+        aboutPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                aboutPageToggleButtonItemStateChanged(evt);
+            }
+        });
+        menuSidePanel.add(aboutPageToggleButton);
+
+        reportPagePanel.setBackground(new java.awt.Color(204, 204, 204));
+        reportPagePanel.setPreferredSize(new java.awt.Dimension(510, 480));
+        reportPagePanel.setLayout(new java.awt.CardLayout());
+
+        reportPagePadding.setBackground(new java.awt.Color(204, 204, 204));
+        reportPagePadding.setOpaque(false);
+        reportPagePadding.setPreferredSize(new java.awt.Dimension(0, 0));
+
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Enter application number");
+        reportPagePadding.add(jLabel6);
+
+        searchField1.setBackground(new java.awt.Color(255, 255, 255));
+        searchField1.setForeground(new java.awt.Color(51, 51, 51));
+        searchField1.setPreferredSize(new java.awt.Dimension(200, 30));
+        searchField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchField1ActionPerformed(evt);
+            }
+        });
+        reportPagePadding.add(searchField1);
+
+        searchSubmitButton1.setBackground(new java.awt.Color(153, 153, 153));
+        searchSubmitButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchSubmitButton1.setForeground(new java.awt.Color(255, 255, 255));
+        searchSubmitButton1.setText("Search");
+        searchSubmitButton1.setBorder(null);
+        searchSubmitButton1.setIconTextGap(10);
+        searchSubmitButton1.setPreferredSize(new java.awt.Dimension(100, 30));
+        searchSubmitButton1.setSelected(true);
+        searchSubmitButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                searchSubmitButton1MousePressed(evt);
+            }
+        });
+        reportPagePadding.add(searchSubmitButton1);
+
+        searchResultsLabel1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        searchResultsLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        searchResultsLabel1.setText("Date and Time                  Amount          Reference ID");
+        searchResultsLabel1.setPreferredSize(new java.awt.Dimension(450, 24));
+        searchResultsLabel1.setRequestFocusEnabled(false);
+        reportPagePadding.add(searchResultsLabel1);
+
+        resultsScrollPane.setOpaque(false);
+        resultsScrollPane.setPreferredSize(new java.awt.Dimension(450, 360));
+
+        resultsListPanel.setBackground(new java.awt.Color(204, 204, 204));
+        resultsListPanel.setMinimumSize(new java.awt.Dimension(920, 46));
+        resultsListPanel.setPreferredSize(new java.awt.Dimension(400, 400));
+        resultsListPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 10, 10));
+        resultsScrollPane.setViewportView(resultsListPanel);
+
+        reportPagePadding.add(resultsScrollPane);
+
+        reportPagePanel.add(reportPagePadding, "card2");
+
+        windowPanel.setDividerLocation(640);
+        windowPanel.setDividerSize(0);
+        windowPanel.setPreferredSize(new java.awt.Dimension(640, 480));
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LearnLend");
+        setBounds(new java.awt.Rectangle(0, 0, 640, 480));
+        setResizable(false);
 
         loginPagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        loginPagePanel.setMinimumSize(new java.awt.Dimension(960, 540));
-        loginPagePanel.setOpaque(false);
-        loginPagePanel.setPreferredSize(new java.awt.Dimension(960, 540));
-        loginPagePanel.setLayout(new java.awt.CardLayout(100, 60));
-
-        loginPaddingPanel.setDividerLocation(450);
-        loginPaddingPanel.setDividerSize(0);
-
-        loginGraphicsPanel.setMinimumSize(new java.awt.Dimension(500, 500));
-        loginGraphicsPanel.setPreferredSize(new java.awt.Dimension(330, 330));
-        loginGraphicsPanel.setLayout(new java.awt.BorderLayout());
-
-        loginGraphicLabel.setBackground(new java.awt.Color(255, 255, 255));
-        loginGraphicLabel.setForeground(new java.awt.Color(255, 255, 255));
-        loginGraphicLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginGraphicLabel.setOpaque(true);
-        loginGraphicLabel.setPreferredSize(new java.awt.Dimension(330, 330));
-        loginGraphicsPanel.add(loginGraphicLabel, java.awt.BorderLayout.CENTER);
-
-        loginPaddingPanel.setLeftComponent(loginGraphicsPanel);
+        loginPagePanel.setMinimumSize(new java.awt.Dimension(640, 480));
+        loginPagePanel.setPreferredSize(new java.awt.Dimension(640, 480));
+        loginPagePanel.setLayout(new java.awt.CardLayout(150, 60));
 
         loginContentPanel.setBackground(new java.awt.Color(204, 204, 255));
-        loginContentPanel.setMinimumSize(new java.awt.Dimension(330, 330));
+        loginContentPanel.setMinimumSize(new java.awt.Dimension(0, 0));
         loginContentPanel.setPreferredSize(new java.awt.Dimension(330, 330));
         java.awt.FlowLayout flowLayout3 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 18, 0);
         flowLayout3.setAlignOnBaseline(true);
         loginContentPanel.setLayout(flowLayout3);
-        loginContentPanel.add(filler10);
+        loginContentPanel.add(loginTopFiller);
 
         companyNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         companyNameLabel.setForeground(new java.awt.Color(51, 51, 51));
@@ -1054,7 +1230,7 @@ public class GUI extends javax.swing.JFrame {
     usernameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
     usernameField.setPreferredSize(new java.awt.Dimension(150, 24));
     loginContentPanel.add(usernameField);
-    loginContentPanel.add(filler4);
+    loginContentPanel.add(loginErrorLabelFiller);
 
     usernameFieldErrorLabel.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
     usernameFieldErrorLabel.setForeground(new java.awt.Color(255, 51, 51));
@@ -1085,7 +1261,6 @@ public class GUI extends javax.swing.JFrame {
     passwordFieldErrorLabel.setPreferredSize(new java.awt.Dimension(140, 16));
     passwordFieldErrorLabel.setVerifyInputWhenFocusTarget(false);
     loginContentPanel.add(passwordFieldErrorLabel);
-    loginContentPanel.add(filler3);
 
     loginButton.setBackground(new java.awt.Color(51, 51, 255));
     loginButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -1112,229 +1287,9 @@ public class GUI extends javax.swing.JFrame {
     });
     loginContentPanel.add(registerButton);
 
-    loginPaddingPanel.setRightComponent(loginContentPanel);
+    loginPagePanel.add(loginContentPanel, "card3");
 
-    loginPagePanel.add(loginPaddingPanel, "card3");
-
-    logoutButton.setBackground(new java.awt.Color(51, 51, 255));
-    logoutButton.setForeground(new java.awt.Color(255, 255, 255));
-    logoutButton.setText("Logout");
-    logoutButton.setBorder(null);
-    logoutButton.setPreferredSize(new java.awt.Dimension(100, 50));
-    logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mousePressed(java.awt.event.MouseEvent evt) {
-            logoutButtonMousePressed(evt);
-        }
-    });
-
-    menuSidePanel.setBackground(new java.awt.Color(51, 51, 255));
-    menuSidePanel.setMinimumSize(new java.awt.Dimension(0, 0));
-    menuSidePanel.setPreferredSize(new java.awt.Dimension(150, 480));
-    menuSidePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
-
-    programNameLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-    programNameLabel.setForeground(new java.awt.Color(255, 255, 255));
-    programNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-    programNameLabel.setText("LearnLend");
-    programNameLabel.setPreferredSize(new java.awt.Dimension(100, 60));
-    menuSidePanel.add(programNameLabel);
-
-    applicationPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(applicationPageToggleButton);
-    applicationPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    applicationPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    applicationPageToggleButton.setText("Application");
-    applicationPageToggleButton.setBorder(null);
-    applicationPageToggleButton.setIconTextGap(5);
-    applicationPageToggleButton.setPreferredSize(new java.awt.Dimension(110, 50));
-    applicationPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            applicationPageToggleButtonItemStateChanged(evt);
-        }
-    });
-    applicationPageToggleButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            applicationPageToggleButtonActionPerformed(evt);
-        }
-    });
-    menuSidePanel.add(applicationPageToggleButton);
-
-    paymentPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(paymentPageToggleButton);
-    paymentPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    paymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    paymentPageToggleButton.setText("Payment");
-    paymentPageToggleButton.setBorder(null);
-    paymentPageToggleButton.setIconTextGap(10);
-    paymentPageToggleButton.setPreferredSize(new java.awt.Dimension(110, 50));
-    paymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            paymentPageToggleButtonItemStateChanged(evt);
-        }
-    });
-    menuSidePanel.add(paymentPageToggleButton);
-
-    repaymentPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(repaymentPageToggleButton);
-    repaymentPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    repaymentPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    repaymentPageToggleButton.setText("Repayment");
-    repaymentPageToggleButton.setBorder(null);
-    repaymentPageToggleButton.setIconTextGap(5);
-    repaymentPageToggleButton.setPreferredSize(new java.awt.Dimension(110, 50));
-    repaymentPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            repaymentPageToggleButtonItemStateChanged(evt);
-        }
-    });
-    menuSidePanel.add(repaymentPageToggleButton);
-
-    releasePageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(releasePageToggleButton);
-    releasePageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    releasePageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    releasePageToggleButton.setSelected(true);
-    releasePageToggleButton.setText("Release");
-    releasePageToggleButton.setBorder(null);
-    releasePageToggleButton.setIconTextGap(10);
-    releasePageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
-    releasePageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            releasePageToggleButtonItemStateChanged(evt);
-        }
-    });
-    menuSidePanel.add(releasePageToggleButton);
-
-    searchPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(searchPageToggleButton);
-    searchPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    searchPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    searchPageToggleButton.setText("Search");
-    searchPageToggleButton.setBorder(null);
-    searchPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
-    searchPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            searchPageToggleButtonItemStateChanged(evt);
-        }
-    });
-    menuSidePanel.add(searchPageToggleButton);
-
-    statusPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(statusPageToggleButton);
-    statusPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    statusPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    statusPageToggleButton.setText("Status");
-    statusPageToggleButton.setBorder(null);
-    statusPageToggleButton.setIconTextGap(10);
-    statusPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
-    statusPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            statusPageToggleButtonItemStateChanged(evt);
-        }
-    });
-    menuSidePanel.add(statusPageToggleButton);
-
-    reportPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(reportPageToggleButton);
-    reportPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    reportPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    reportPageToggleButton.setText("Report");
-    reportPageToggleButton.setBorder(null);
-    reportPageToggleButton.setIconTextGap(10);
-    reportPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
-    reportPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            reportPageToggleButtonItemStateChanged(evt);
-        }
-    });
-    reportPageToggleButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            reportPageToggleButtonActionPerformed(evt);
-        }
-    });
-    menuSidePanel.add(reportPageToggleButton);
-
-    aboutPageToggleButton.setBackground(new java.awt.Color(51, 51, 255));
-    menuButtonGroup.add(aboutPageToggleButton);
-    aboutPageToggleButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-    aboutPageToggleButton.setForeground(new java.awt.Color(255, 255, 255));
-    aboutPageToggleButton.setText("About");
-    aboutPageToggleButton.setBorder(null);
-    aboutPageToggleButton.setIconTextGap(10);
-    aboutPageToggleButton.setPreferredSize(new java.awt.Dimension(100, 50));
-    aboutPageToggleButton.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            aboutPageToggleButtonItemStateChanged(evt);
-        }
-    });
-    menuSidePanel.add(aboutPageToggleButton);
-
-    reportPagePanel.setBackground(new java.awt.Color(204, 204, 204));
-    reportPagePanel.setPreferredSize(new java.awt.Dimension(510, 480));
-    reportPagePanel.setLayout(new java.awt.CardLayout());
-
-    reportPagePadding.setBackground(new java.awt.Color(204, 204, 204));
-    reportPagePadding.setOpaque(false);
-    reportPagePadding.setPreferredSize(new java.awt.Dimension(0, 0));
-
-    jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-    jLabel6.setText("Enter application number");
-    reportPagePadding.add(jLabel6);
-
-    searchField1.setBackground(new java.awt.Color(255, 255, 255));
-    searchField1.setForeground(new java.awt.Color(51, 51, 51));
-    searchField1.setPreferredSize(new java.awt.Dimension(200, 30));
-    searchField1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            searchField1ActionPerformed(evt);
-        }
-    });
-    reportPagePadding.add(searchField1);
-
-    searchSubmitButton1.setBackground(new java.awt.Color(153, 153, 153));
-    searchSubmitButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-    searchSubmitButton1.setForeground(new java.awt.Color(255, 255, 255));
-    searchSubmitButton1.setText("Search");
-    searchSubmitButton1.setBorder(null);
-    searchSubmitButton1.setIconTextGap(10);
-    searchSubmitButton1.setPreferredSize(new java.awt.Dimension(100, 30));
-    searchSubmitButton1.setSelected(true);
-    searchSubmitButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mousePressed(java.awt.event.MouseEvent evt) {
-            searchSubmitButton1MousePressed(evt);
-        }
-    });
-    reportPagePadding.add(searchSubmitButton1);
-
-    searchResultsLabel1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-    searchResultsLabel1.setForeground(new java.awt.Color(51, 51, 51));
-    searchResultsLabel1.setText("Date and Time                  Amount          Reference ID");
-    searchResultsLabel1.setPreferredSize(new java.awt.Dimension(450, 24));
-    searchResultsLabel1.setRequestFocusEnabled(false);
-    reportPagePadding.add(searchResultsLabel1);
-
-    resultsScrollPane.setOpaque(false);
-    resultsScrollPane.setPreferredSize(new java.awt.Dimension(450, 360));
-
-    resultsListPanel.setBackground(new java.awt.Color(204, 204, 204));
-    resultsListPanel.setMinimumSize(new java.awt.Dimension(920, 46));
-    resultsListPanel.setPreferredSize(new java.awt.Dimension(400, 400));
-    resultsListPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 10, 10));
-    resultsScrollPane.setViewportView(resultsListPanel);
-
-    reportPagePadding.add(resultsScrollPane);
-
-    reportPagePanel.add(reportPagePadding, "card2");
-
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setTitle("LearnLend");
-    setBounds(new java.awt.Rectangle(0, 0, 640, 480));
-    setResizable(false);
-
-    windowPanel.setDividerLocation(150);
-    windowPanel.setDividerSize(0);
-    windowPanel.setPreferredSize(new java.awt.Dimension(640, 480));
-    getContentPane().add(windowPanel, java.awt.BorderLayout.CENTER);
+    getContentPane().add(loginPagePanel, java.awt.BorderLayout.PAGE_START);
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1373,9 +1328,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void registerButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMousePressed
         
-        loginPaddingPanel.remove(loginContentPanel);
-        loginPaddingPanel.add(regUserTypeContentPanel);        
-        loginPaddingPanel.setDividerLocation(450);
+        loginPagePanel.remove(loginContentPanel);
+        loginPagePanel.add(regUserTypeContentPanel);        
         
         revalidate();
         repaint();
@@ -1391,7 +1345,7 @@ public class GUI extends javax.swing.JFrame {
         
         HashMap<String, String> data =  new HashMap<>();
         
-        confirmPassFieldErrorLabel.setText("");
+        //confirmPassFieldErrorLabel.setText("");
         
         // Cancel account creation if any field is empty
         if (Helpers.checkForEmptyFields(registerContentPanel)) {
@@ -1406,7 +1360,7 @@ public class GUI extends javax.swing.JFrame {
         String pass1 = new String(regPasswordField.getPassword());
         String pass2 = new String(confirmPassField.getPassword());
         if (pass1.equals(pass2) == false) {
-            confirmPassFieldErrorLabel.setText("Password does not match");
+            //confirmPassFieldErrorLabel.setText("Password does not match");
             return;
         } 
         
@@ -1457,9 +1411,8 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Account successfully created");
             
             Helpers.clearAllFields(registerContentPanel);
-            loginPaddingPanel.remove(registerContentPanel);
-            loginPaddingPanel.add(loginContentPanel);
-            loginPaddingPanel.setDividerLocation(450);
+            loginPagePanel.remove(registerContentPanel);
+            loginPagePanel.add(loginContentPanel);
             
             revalidate();
             repaint();            
@@ -1509,9 +1462,8 @@ public class GUI extends javax.swing.JFrame {
     private void regClientButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regClientButtonMousePressed
         userMode = User.CLIENT;
         
-        loginPaddingPanel.remove(regUserTypeContentPanel);
-        loginPaddingPanel.add(registerContentPanel);
-        loginPaddingPanel.setDividerLocation(450);
+        loginPagePanel.remove(regUserTypeContentPanel);
+        loginPagePanel.add(registerContentPanel);
         
         revalidate();
         repaint();
@@ -1520,9 +1472,8 @@ public class GUI extends javax.swing.JFrame {
     private void regAdminButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regAdminButtonMousePressed
         userMode = User.ADMIN;
         
-        loginPaddingPanel.remove(regUserTypeContentPanel);
-        loginPaddingPanel.add(registerContentPanel);
-        loginPaddingPanel.setDividerLocation(450);
+        loginPagePanel.remove(regUserTypeContentPanel);
+        loginPagePanel.add(registerContentPanel);
         
         revalidate();
         repaint();
@@ -1538,10 +1489,9 @@ public class GUI extends javax.swing.JFrame {
 
     private void backToLoginButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToLoginButtonMousePressed
         Helpers.clearAllFields(registerContentPanel);
-        loginPaddingPanel.remove(registerContentPanel);
-        loginPaddingPanel.add(loginContentPanel);
-        loginPaddingPanel.setDividerLocation(450);
-        
+        loginPagePanel.remove(registerContentPanel);
+        loginPagePanel.add(loginContentPanel);
+
         revalidate();
         repaint();
     }//GEN-LAST:event_backToLoginButtonMousePressed
@@ -1640,7 +1590,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_searchSubmitButton2MousePressed
 
     private void submitApplicationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitApplicationButtonMouseClicked
-        if (Helpers.checkForEmptyFields(jPanel1) == true) {
+        if (Helpers.checkForEmptyFields(formPanel) == true) {
             return;
         }
         
@@ -1670,7 +1620,6 @@ public class GUI extends javax.swing.JFrame {
     private void initMenu() {
         
         windowPanel.removeAll();
-        backgroundPanel.removeAll();
         
         if (userMode == User.ADMIN) {
             menuSidePanel.add(applicationPageToggleButton);
@@ -1761,7 +1710,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel cityLabel;
     private javax.swing.JLabel companyNameLabel;
     private javax.swing.JPasswordField confirmPassField;
-    private javax.swing.JLabel confirmPassFieldErrorLabel;
     private javax.swing.JLabel contactInformationLabel;
     private javax.swing.JTextField contactNumField;
     private javax.swing.JTextField emailField;
@@ -1773,18 +1721,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel employerLabel;
     private javax.swing.JLabel employmentInformationLabel;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler10;
     private javax.swing.Box.Filler filler11;
     private javax.swing.Box.Filler filler12;
-    private javax.swing.Box.Filler filler13;
     private javax.swing.Box.Filler filler2;
-    private javax.swing.Box.Filler filler3;
-    private javax.swing.Box.Filler filler4;
     private javax.swing.Box.Filler filler5;
     private javax.swing.Box.Filler filler6;
-    private javax.swing.Box.Filler filler7;
     private javax.swing.Box.Filler filler8;
-    private javax.swing.Box.Filler filler9;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JPanel formPanel;
     private javax.swing.JButton jButton1;
@@ -1806,7 +1748,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1835,10 +1776,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel loanableAmountLabel;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginContentPanel;
-    private javax.swing.JLabel loginGraphicLabel;
-    private javax.swing.JPanel loginGraphicsPanel;
-    private javax.swing.JSplitPane loginPaddingPanel;
+    private javax.swing.Box.Filler loginErrorLabelFiller;
     private javax.swing.JPanel loginPagePanel;
+    private javax.swing.Box.Filler loginTopFiller;
     private javax.swing.JLabel loginUsernameLabel;
     private javax.swing.JButton logoutButton;
     private javax.swing.ButtonGroup menuButtonGroup;
