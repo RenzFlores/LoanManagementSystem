@@ -44,7 +44,7 @@ public class Application {
     }
     
     public void Application() {
-        String buffer = Helpers.formatHashMapToString(toHashMap());
+        String buffer = Helpers.formatHashMapToString(toHashMap(), ";");
     }
     
     public HashMap<String, String> toHashMap() {
@@ -77,7 +77,7 @@ public class Application {
             while ((line=f.readLine()) != null) {
                 
             }
-            new Application();
+            //new Application();
             f.close();
         }
         catch (java.io.IOException e) {

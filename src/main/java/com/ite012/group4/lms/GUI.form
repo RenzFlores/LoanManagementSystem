@@ -1181,6 +1181,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="searchSubmitButtonMousePressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchSubmitButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="searchResultsLabel">
@@ -1935,7 +1936,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="&quot;&lt;html&gt;&lt;body style=\&quot;text-align:center;\&quot;&gt;&lt;h4&gt;About&lt;/h4&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt;LearnLend: A Digital Loan Management Software&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;h4&gt;Developers&lt;/h4&gt;&lt;h4&gt;Geri Louise Hernia&lt;/h4&gt;&quot;&#xd;&#xa;+ &quot;&lt;h4&gt;Renz Ken Flores&lt;/h4&gt;&lt;html&gt;&quot;" type="code"/>
+                  <Connection code="&quot;&lt;html&gt;&lt;body style=\&quot;text-align:center;\&quot;&gt;&lt;h1&gt;About&lt;/h1&gt;&quot;&#xd;&#xa;+ &quot;&lt;h2&gt;&lt;b&gt;Description of Program&lt;/b&gt;&lt;/h2&gt;&quot;&#xd;&#xa;+ &quot;&lt;p&gt;&lt;i&gt;The Loaning Management System: LearnLend is a lending&quot;&#xd;&#xa;+ &quot; platform for students who need financial support for their&quot;&#xd;&#xa;+ &quot; academic needs.\nIt is a program that ensures their loaning&quot;&#xd;&#xa;+ &quot; experience will be a lot faster and easier. The programmers &quot;&#xd;&#xa;+ &quot;used Java\nas the programming language and Netbeans Version 21&quot;&#xd;&#xa;+ &quot; for the IDE (Integrated Development Environment).\nThe loaning&quot;&#xd;&#xa;+ &quot; system has features like registration for admin and client, &quot;&#xd;&#xa;+ &quot;loan application and etc. processing among others\nwhich enable&quot;&#xd;&#xa;+ &quot; transparency in dealing with financial obligations by students&quot;&#xd;&#xa;+ &quot; while at the same time providing real-world\nexposure to IT/CS&quot;&#xd;&#xa;+ &quot; beginners.&lt;/i&gt;&lt;/p&gt;&lt;h3&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;/h3&gt;&lt;p&gt;Renz Ken&quot;&#xd;&#xa;+ &quot; Flores&lt;/p&gt;&lt;p&gt;Geri Louise Hernia&lt;/p&gt;&lt;p&gt;Trisha Mae Navarro&lt;/p&gt;&quot;&#xd;&#xa;+ &quot;&lt;p&gt;Ace Daniel Panesa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&quot;" type="code"/>
                 </Property>
                 <Property name="verticalAlignment" type="int" value="1"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

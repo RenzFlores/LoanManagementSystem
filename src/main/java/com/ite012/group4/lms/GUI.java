@@ -29,8 +29,8 @@ public class GUI extends javax.swing.JFrame {
         
         loginGraphicLabel.setIcon(Helpers.resizeIcon("loginGraphicsIcon", 330, 330));
 
-        Helpers.loadAllAdmins(admins);
-        Helpers.loadAllClients(clients);
+        //Helpers.loadAllAdmins(admins);
+        //Helpers.loadAllClients(clients);
         
         /*
         for (Application app : applications) {
@@ -48,7 +48,7 @@ public class GUI extends javax.swing.JFrame {
         resultsListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "2000", Helpers.generateID(12)));
         resultsListPanel.add(new TransactionEntryPanel(Helpers.getDateTime(), "3000", Helpers.generateID(12)));
         
-        activePage = applicationAdminPagePanel;
+        activePage = aboutPagePanel;
         updateMenu();
     }
 
@@ -715,6 +715,11 @@ public class GUI extends javax.swing.JFrame {
                 searchSubmitButtonMousePressed(evt);
             }
         });
+        searchSubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchSubmitButtonActionPerformed(evt);
+            }
+        });
         searchPagePadding.add(searchSubmitButton);
 
         searchResultsLabel.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
@@ -978,10 +983,21 @@ public class GUI extends javax.swing.JFrame {
 
         aboutLabel.setForeground(new java.awt.Color(51, 51, 51));
         aboutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        aboutLabel.setText("<html><body style=\"text-align:center;\"><h4>About</h4>"
-            + "<h2>LearnLend: A Digital Loan Management Software</h2>"
-            + "<h4>Developers</h4><h4>Geri Louise Hernia</h4>"
-            + "<h4>Renz Ken Flores</h4><html>");
+        aboutLabel.setText("<html><body style=\"text-align:center;\"><h1>About</h1>"
+            + "<h2><b>Description of Program</b></h2>"
+            + "<p><i>The Loaning Management System: LearnLend is a lending"
+            + " platform for students who need financial support for their"
+            + " academic needs.\nIt is a program that ensures their loaning"
+            + " experience will be a lot faster and easier. The programmers "
+            + "used Java\nas the programming language and Netbeans Version 21"
+            + " for the IDE (Integrated Development Environment).\nThe loaning"
+            + " system has features like registration for admin and client, "
+            + "loan application and etc. processing among others\nwhich enable"
+            + " transparency in dealing with financial obligations by students"
+            + " while at the same time providing real-world\nexposure to IT/CS"
+            + " beginners.</i></p><h3><b>Developers</b></h3><p>Renz Ken"
+            + " Flores</p><p>Geri Louise Hernia</p><p>Trisha Mae Navarro</p>"
+            + "<p>Ace Daniel Panesa</p></body></html>");
         aboutLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         aboutLabel.setPreferredSize(new java.awt.Dimension(190, 32));
         jPanel1.add(aboutLabel, java.awt.BorderLayout.CENTER);
@@ -1644,6 +1660,10 @@ public class GUI extends javax.swing.JFrame {
         
         applications.addFirst(new Application(data));
     }//GEN-LAST:event_submitApplicationButtonMouseClicked
+
+    private void searchSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSubmitButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchSubmitButtonActionPerformed
 
     // This function is called to instantiate the menu whether on admin or client
     // mode when login is successful

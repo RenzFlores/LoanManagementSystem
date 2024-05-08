@@ -46,7 +46,7 @@ class Admin extends User {
         data.put("email", email);
         data.put("contact number", contactNumber);
         
-        String buf = Helpers.formatHashMapToString(data);
+        String buf = Helpers.formatHashMapToString(data, "\n");
         
         // Write formatted string data to corresponding User data file
         try {
@@ -111,7 +111,7 @@ class Client extends User {
         data.put("city address", cityAddress);
         data.put("postal code", postalCode);
         
-        String buf = Helpers.formatHashMapToString(data);
+        String buf = Helpers.formatHashMapToString(data, "\n");
         
         // Write formatted string data to corresponding User data file
         try {
